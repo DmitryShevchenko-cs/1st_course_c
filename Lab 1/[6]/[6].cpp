@@ -20,12 +20,8 @@ int main() {
 		printf("%d\n", n);
 	}
 	y100 = (n * 75) + (l * 25);
-	printf("\n100 year is %d seconds (over)\n", y100);
-	y1000 = y100 * 10;
-	printf("1000 year is %d seconds (over)\n", y1000);
-
-	y100 = (n * 75) + (l * 25);
 	printf("\n100 year is %lu seconds\n", y100);//%lu (длинное целое без знака)
 	y1000 = y100 * 10;
 	printf("1000 year is %lu seconds\n", y1000);
+
 }
