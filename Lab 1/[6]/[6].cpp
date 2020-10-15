@@ -2,24 +2,24 @@
 #include <stdio.h>
 #include <cstdio>
 
-int y, d1, n, l;
+int year, one_day, normal_y, long_y;
 long y100, y1000;
 
 int main() {
-	d1 = 24 * 60 * 60;
-	l = d1 * 366;
-	n = d1 * 365;
+	one_day = 24 * 60 * 60;
+	long_y = one_day * 366;
+	normal_y = one_day * 365;
 
 	printf("Year: ");
-	scanf_s("%d", &y);
+	scanf_s("%d", &year);
 
-	if (y % 4 == 0) {
-		printf("%d\n", l);
+	if (year % 4 == 0) {
+		printf("%d\n", long_y);
 	}
 	else {
-		printf("%d\n", n);
+		printf("%d\n", normal_y);
 	}
-	y100 = (n * 75) + (l * 25);
+	y100 = (normal_y * 75) + (long_y * 25);
 	printf("\n100 year is %lu seconds\n", y100);//%lu (длинное целое без знака)
 	y1000 = y100 * 10;
 	printf("1000 year is %lu seconds\n", y1000);
