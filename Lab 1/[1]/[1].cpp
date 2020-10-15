@@ -15,4 +15,5 @@ int main() {
 	printf("float: %d byte(s)\n", sizeof(float));
 
 	printf("double: %d byte(s)\n", sizeof(double));
+
 }

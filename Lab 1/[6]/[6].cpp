@@ -20,7 +20,7 @@ int main() {
 		printf("%d\n", normal_y);
 	}
 	y100 = (normal_y * 75) + (long_y * 25);
-	printf("\n100 year is %lu seconds\n", y100);//%lu (длинное целое без знака)
+	printf("\n100 year is %d seconds\n", y100);//%lu (длинное целое без знака)
 	y1000 = y100 * 10;
 	printf("1000 year is %lu seconds\n", y1000);
 
