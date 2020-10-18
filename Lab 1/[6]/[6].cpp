@@ -3,7 +3,7 @@
 #include <cstdio>
 
 int year, one_day, normal_y, long_y;
-long y100, y1000;
+unsigned long y100, y1000;
 
 int main() {
 	one_day = 24 * 60 * 60;
@@ -20,8 +20,8 @@ int main() {
 		printf("%d\n", normal_y);
 	}
 	y100 = (normal_y * 75) + (long_y * 25);
-	printf("\n100 year is %d seconds\n", y100);//%lu (длинное целое без знака)
-	y1000 = y100 * 10;
+	printf("\n100 year is %lu seconds\n", y100);//%lu (длинное целое без знака)
+	y1000 = (normal_y * 75) + (long_y * 25) * 10;
 	printf("1000 year is %lu seconds\n", y1000);
 
 }
