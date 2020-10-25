@@ -6,7 +6,6 @@ using namespace std;
 int main(){
 	
 	setlocale(LC_ALL,"ru");
-	
 
 	char name1[9], name2[9], name3[9];
 	char type1, type2, type3;
