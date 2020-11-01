@@ -1,30 +1,29 @@
-﻿#include <stdio.h>
+﻿#define  _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
 #include <iostream>
 #include <math.h>
-#include "windows.h"
-#define  _CRT_SECURE_NO_WARNINGS
+
 	
 int main(void){
 
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-
-	double x, a, n, m;
+	double x = 2.3, a = 3.4;
+	double n = 2.3, m = 3.4;
 	double lg;
+	long double ax;
 	long double t1, t2;
-
-	printf("input x:");
-	scanf_s("%lf", &x);//2
-	printf("input a:");
-	scanf_s("%lf", &a);//3
-	printf("input n:");
-	scanf_s("%lf", &a);//4
-	printf("input m:");
-	scanf_s("%lf", &a);//5
 	
-	lg = ((pow(double(a), 2) + pow(double(x), 2)) / (pow(double(a), 2) - pow(double(x), 2)));
-	t1 = (1/(4*pow(double(a), 3)))*log(lg);
-	t2 = ( pow(cos(a * x), n - 1)) / (a * (m - 1) * pow( sin(a * x), m - 1));
+
+	printf("Input numbers: x, a> ");
+	//scanf("%lf %lf", &x, &a);
+	lg = ((pow(a, 2) + pow(x, 2)) / (pow(a, 2) - pow(x, 2)));
+	t1 = (1 / (4 * pow(a, 3))) * log(lg);
 	printf("t1= %lf\n", t1);
-	printf("t2= %lf", t2);
+
+	printf("Input numbers: n, m> ");
+	//scanf("%lf %lf", &x, &a);
+	ax = a * x;
+	t2 = (pow(cos(ax), n - 1)) / (a * (m - 1) * pow(sin(ax), m - 1));
+	printf("t2= %lf\n", t2);
+
+
 }
