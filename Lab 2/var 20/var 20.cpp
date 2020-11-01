@@ -1,10 +1,12 @@
 ﻿#define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
-#include <stdio.h>
+#include "windows.h"
 using namespace std;
 
-int main(){
-	
+int main(void) {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
 	setlocale(LC_ALL,"ru");
 
 	char name1[9], name2[9], name3[9];
