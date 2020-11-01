@@ -1,11 +1,17 @@
 ﻿#include <stdio.h>
 #include <iostream>
 #include <math.h>
-
-double x, a, n, m;
-double lg;
-long double t1, t2;
+#include "windows.h"
+#define  _CRT_SECURE_NO_WARNINGS
+	
 int main(void){
+
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	double x, a, n, m;
+	double lg;
+	long double t1, t2;
 
 	printf("input x:");
 	scanf_s("%lf", &x);//2
