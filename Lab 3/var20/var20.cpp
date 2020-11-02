@@ -20,8 +20,8 @@ int main(void){
 		ax = a * x;
 		t2 = (pow(cos(ax * 3.14 / 180), n - 1)) / (a * (m - 1) * pow(sin(ax * 3.14 / 180), m - 1));
 
-		printf("t1= %lf\n", t1);
-		printf("t2= %lf\n", t2);
+		printf("t1= %lg\n", t1);  //lg-тоже самое что и lf, но исключает незначущие нули
+		printf("t2= %lg\n", t2);
 	}
 
 	else {
