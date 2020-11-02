@@ -1,29 +1,31 @@
 ﻿#define  _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
 #include <iostream>
-#include <math.h>
-
+using namespace std;
 	
 int main(void){
 
-	double x = 2.3, a = 3.4;
-	double n = 2.3, m = 3.4;
-	double lg;
-	long double ax;
-	long double t1, t2;
+	double x;
+	double a = 5.4;
+	double n = 2, m = 2;
+	double ax, l;
+	double t1, t2;
+
+	printf("Input numbers: x> ");
+	scanf("%lf", &x);
+	l = (pow(a, 2) + pow(x, 2)) / ((a - x) * (a + x));
 	
+	if (l > 0) {
+		
+		t1 = (1 / (4 * pow(a, 3))) * log(l);
+		ax = a * x;
+		t2 = (pow(cos(ax * 3.14 / 180), n - 1)) / (a * (m - 1) * pow(sin(ax * 3.14 / 180), m - 1));
 
-	printf("Input numbers: x, a> ");
-	//scanf("%lf %lf", &x, &a);
-	lg = ((pow(a, 2) + pow(x, 2)) / (pow(a, 2) - pow(x, 2)));
-	t1 = (1 / (4 * pow(a, 3))) * log(lg);
-	printf("t1= %lf\n", t1);
+		printf("t1= %lf\n", t1);
+		printf("t2= %lf\n", t2);
+	}
 
-	printf("Input numbers: n, m> ");
-	//scanf("%lf %lf", &x, &a);
-	ax = a * x;
-	t2 = (pow(cos(ax), n - 1)) / (a * (m - 1) * pow(sin(ax), m - 1));
-	printf("t2= %lf\n", t2);
-
+	else {
+		printf("wrong number!!!\n");
+	}
 
 }
