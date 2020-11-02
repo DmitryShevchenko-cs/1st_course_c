@@ -12,7 +12,7 @@ int main(void){
 
 	printf("Input numbers: x> ");
 	scanf("%lf", &x);
-	l = (pow(a, 2) + pow(x, 2)) / ((a - x) * (a + x));
+	l = (pow(a, 2) + pow(x, 2)) / ((a - x) * (a + x));//ОДЗ для логарифма
 	
 	if (l > 0) {
 		
