@@ -10,7 +10,7 @@ int main(void) {
 
 	while (true)
 	{
-		//system("cls"); //офистка экрана вывода
+		//system("cls"); //очистка экрана вывода
 
 		printf("Введите координату x >");
 		scanf("%lf", &x);
