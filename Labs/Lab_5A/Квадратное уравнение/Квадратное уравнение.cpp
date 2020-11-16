@@ -45,10 +45,8 @@ int main(void) {
 				printf("x=%.3lf\n", x);
 			}
 			else if (D < 0) {
-				printf("wrong number!!!\n");
+				printf("no roots!!!\n");
 			}
-
-
 
 		}
 		else if (b == 0 && c != 0) {
