@@ -1,10 +1,9 @@
 ﻿#define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
-#include "windows.h"
+
 
 int main(void) {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+
 	double a, b, c, D, x, x1, x2;
 
 	printf("input a, b, c : ");
