@@ -49,8 +49,10 @@ int main(void) {
 
 		}
 		else if (b == 0 && c != 0) {
-			x = sqrt(-c / a);
-			printf("x = %lf\n", x);
+			x1 = sqrt(-c / a);
+			x2 = -sqrt(-c / a);
+			printf("x1 = %lf\n", x1);
+			printf("x1 = %lf\n", x2);
 		}
 		else if (b != 0 && c == 0) {
 			x1 = 0;

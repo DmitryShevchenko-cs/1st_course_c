@@ -26,8 +26,6 @@ int main(void) {
         if (n == 9) {
             printf("Сумма 10 членов ряда = %10.7lf\n", sum);
         }
-        else if (n > 9)
-            break;
     }
 
     printf("Полная сумма ряда = %10.7lf\n", sum);
