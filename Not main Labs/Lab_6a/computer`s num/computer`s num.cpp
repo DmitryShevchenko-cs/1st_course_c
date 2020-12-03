@@ -9,21 +9,19 @@ int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	int num1, num2;
+	int num1, num2, i;
 	srand(time(NULL));
 
 	num1 = rand() % 100;
 	cout << num1 << endl;
 
-	for (int i = 0; ; ) {
-
+	for (i = 0; ;) {
 		cin >> num2;
 		i++;
-			if (num2 == num1) {
-				cout << "Ура, вы отгадали число" << endl;
-				cout << "Количество попыток:" << i << endl;
-			}
-			else cout << "";
-}
+		if (num2 == num1) break;
+	}
+	cout << "Ура, вы отгадали число" << endl;
+	cout << "Количество попыток:" << i << endl;
+
 	return 0;
 }
