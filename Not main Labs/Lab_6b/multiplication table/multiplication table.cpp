@@ -19,7 +19,6 @@ int main() {
 		cin >> result;
 
 		if (result == num1 * num2) mark++;
-		else cout << "";
 	}
 
 	cout << "Your mark is:" << mark << "/10" << endl;
