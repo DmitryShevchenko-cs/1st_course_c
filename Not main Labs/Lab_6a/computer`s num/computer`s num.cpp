@@ -19,6 +19,8 @@ int main() {
 		cin >> num2;
 		i++;
 		if (num2 == num1) break;
+		if (num2 > num1) cout << "Ваше число больше" << endl;
+		if (num2 < num1) cout << "Ваше число меньше" << endl
 	}
 	cout << "Ура, вы отгадали число" << endl;
 	cout << "Количество попыток:" << i << endl;
