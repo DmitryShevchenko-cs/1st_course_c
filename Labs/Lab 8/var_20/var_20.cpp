@@ -29,12 +29,11 @@ int main() {
 	putchar('\n');
 	putchar('\n');
 	///////////////////////////////////////////////////////////////////////////
+
+
 	double max = -1;
 
 	for (nn = i = 0; i < size; i++) {
-
-		
-		
 
 		if (arr[i] < 0) {
 			if (!nn) {										//n=0?
@@ -55,14 +54,22 @@ int main() {
 
 		else {
 			if (nn) {										//nn!=0
+
 				av = fabs(av / nn);
 
-				if (nn > 1) 
-					if (av > max) {
+				if (nn > 1) {
+					for (j = ib; ; j++) {
+						if (arr[j] < 0) {
+							cout << arr[j] << " ";
+						}
 
-						max = av;
-						nn_max = nn;
+						else break;
 					}
+					cout << "av= " << av << endl;
+					if (av > max) {
+						max = av;
+					}
+				}
 				
 				nn = 0;
 			}
@@ -73,21 +80,25 @@ int main() {
 
 		av = fabs(av / nn);
 		
-		if (nn > 1) 
+		if (nn > 1) {
+			for (j = ib; ; j++) {
+				if (arr[j] < 0) {
+					cout << arr[j] << " ";
+				}
+
+				else break;
+			}
+			cout << "av= " << av << endl;
 			if (av > max) {
 				max = av;
-				nn_max = nn;	
 			}
+		}
 
 		nn = 0;
 	}
 
 	cout << "\n\nНаибольшее абсолютное значение среднего арифметического= " << max << "\n";
 	cout << "Массив-результат: "; 
-	
-	
 
-	
-	
 	return 0;
 }
