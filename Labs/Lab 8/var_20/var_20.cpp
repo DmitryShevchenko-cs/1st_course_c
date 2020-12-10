@@ -9,7 +9,7 @@ int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	int const size = 50;
+	int const size = 200;
 	int size2 = 0;
 	int arr[size]{};
 	double Arr[size]{};
