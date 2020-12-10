@@ -12,10 +12,9 @@ int main() {
 	int const size = 200;
 	int size2 = 0;
 	int arr[size]{};
-	double Arr[size]{};
 	int i, j;
 	double av = 0;
-	int nn, nn_max=0;
+	int nn;
 	int ib;
 
 
