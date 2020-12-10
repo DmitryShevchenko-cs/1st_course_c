@@ -65,7 +65,7 @@ int main() {
 
 						else break;
 					}
-					cout << "av= " << av << endl;
+					cout << "av= " << av << "\n" << endl;
 					if (av > max) {
 						max = av;
 					}
@@ -98,7 +98,7 @@ int main() {
 	}
 
 	cout << "\n\nНаибольшее абсолютное значение среднего арифметического= " << max << "\n";
-	cout << "Массив-результат: "; 
+	
 
 	return 0;
 }
