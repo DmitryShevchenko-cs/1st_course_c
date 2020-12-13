@@ -17,20 +17,17 @@ int main() {
 	
 	r1 = 0;
 
+	cout << "Начальный массив :" << endl;
+
 	for (i = 0; i < S; i++) {            //строка
 
 		for (j = 0; j < S; j++) {        //столбец
 			arr[i][j] = rand() % 99;
-		}
-	}
-	cout << "Начальный массив :" << endl;
-	for (i = 0; i < S; i++) {            
-
-		for (j = 0; j < S; j++) {        
 			printf("%4d", arr[i][j]);
 		}
 		cout << endl;
 	}
+	
 	cout << endl;
 	cout << endl;
 
