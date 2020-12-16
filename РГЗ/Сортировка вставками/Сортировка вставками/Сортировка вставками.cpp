@@ -39,7 +39,7 @@ int main() {
 
 	for (int i = 0; i < 9; i++)
 	{
-		for (n = 0; n < size; n++) { // upor
+		for (n = 0; n < size; n++) { // +
 			Arr[n] = b++;
 		}
 
