@@ -8,7 +8,6 @@
 using namespace std;
 
 int sort1(int* arr, int N) {
-	int n;
 	int buff = 0; // для хранения перемещаемого значения
 	int i, j;
 
