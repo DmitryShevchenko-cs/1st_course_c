@@ -65,15 +65,20 @@ int main() {
 
 	cout << "Одномерный массив: " << endl;
 	for (int i = 0; i < size; i++) {
-		
-		Arr[i] =rand() & 10;
+
+		Arr[i] = rand() & 10;
 		cout << Arr[i] << " ";
 	}
 	cout << endl;
 	cout << endl;
-
 	cout << avarage(Arr, N, M);
 	cout << endl;
+
+	cout << "Одномерный массив: " << endl;
+	for (int i = 0; i < size; i++) {
+
+		cout << Arr[i] << " ";
+	}
 
 	return 0;
 }
