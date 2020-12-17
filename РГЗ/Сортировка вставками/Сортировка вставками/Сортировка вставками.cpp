@@ -34,7 +34,7 @@ int main() {
 	double dur_arr[m]{};
 
 	
-	cout << "duration: "; 
+	cout << "Время работы сортировки:"; 
 
 	for (int i = 0; i < m; i++)
 	{
@@ -47,7 +47,6 @@ int main() {
 
 		sort1(Arr, size);
 		auto end = chrono::high_resolution_clock::now();
-		//auto duration = chrono::duration_cast<chrono::seconds> (end - start);
 		chrono::duration<double> duration = end - start;
 
 		dur_arr[i] = duration.count();
@@ -55,15 +54,15 @@ int main() {
 	}
 	size = 5;
 	
-	for (int i = 0; i < 9; i++) {
-		cout << dur_arr[i] << "\t";
+	for (int i = 0; i < m; i++) {
+		printf("%lf  ", dur_arr[i]);
 	}
 	cout << endl;
 	/////////////////////////////////////////////////////////////
 
-	cout << "duration: ";
+	cout << "Время работы сортировки:";
 
-	for (int i = 0; i < 9; i++){
+	for (int i = 0; i < m; i++){
 		for (n = 0; n < size; n++) Arr[n] = a--; // упорядочный наоборот
 
 		size += 5;
@@ -81,15 +80,15 @@ int main() {
 		a = size;
 	}
 	size = 5;
-	for (int i = 0; i < 9; i++) {
-		cout << dur_arr[i] << "\t";
+	for (int i = 0; i < m; i++) {
+		printf("%lf  ", dur_arr[i]);
 	}
 	cout << endl;
 	///////////////////////////////////////////////////////////////////
 
-	cout << "duration: ";
+	cout << "Время работы сортировки:";
 
-		for (int i = 0; i < 9; i++) {
+		for (int i = 0; i < m; i++) {
 			for (n = 0; n < size; n++) Arr[n] = 1 + rand() % 100; // неупорядочный
 
 			size += 5;
@@ -104,7 +103,7 @@ int main() {
 		}
 		size = 5;
 		for (int i = 0; i < 9; i++) {
-			cout << dur_arr[i] << "\t";
+			printf("%lf  ", dur_arr[i]);
 		}
 		cout << endl;
 
