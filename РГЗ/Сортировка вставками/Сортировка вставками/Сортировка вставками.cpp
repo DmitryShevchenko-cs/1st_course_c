@@ -28,7 +28,7 @@ int main() {
 	SetConsoleOutputCP(1251);
 
 	int n;
-	int size = 45;
+	int size = 5;
 	int a = size, b = 1;
 	int Arr[100]{};
 	double dur_arr[m]{};
@@ -42,16 +42,16 @@ int main() {
 			Arr[n] = b++;
 		}
 		b = 1;
-		size += 5;
+		
 		auto start = chrono::high_resolution_clock::now();
 
 		sort1(Arr, size);
-
 		auto end = chrono::high_resolution_clock::now();
-		//auto duration = std::chrono::duration_cast<std::chrono::milliseconds> (end - start);
+		//auto duration = chrono::duration_cast<chrono::seconds> (end - start);
 		chrono::duration<double> duration = end - start;
-		dur_arr[i] = duration.count();
 
+		dur_arr[i] = duration.count();
+		size += 5;
 	}
 	size = 5;
 	

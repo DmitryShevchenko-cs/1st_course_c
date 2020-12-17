@@ -61,12 +61,10 @@ int main() {
 		for (n = 0; n < size; n++) { // +
 			Arr[n] = b++;
 		}
-		
-
+	
 		auto start = chrono::high_resolution_clock::now();
-
 		MergeSort(Arr, 1, size);
-		cout << endl;
+		
 		auto end = chrono::high_resolution_clock::now();
 		chrono::duration<double> duration = end - start;
 
