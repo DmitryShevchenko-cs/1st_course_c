@@ -31,7 +31,7 @@ int main() {
 	int size = 5;
 	int a = size, b = 1;
 	int Arr[100]{};
-	double dur_arr[m]{};
+	float dur_arr[m]{};
 
 	
 	cout << "Время работы сортировки:"; 
@@ -46,8 +46,10 @@ int main() {
 		auto start = chrono::high_resolution_clock::now();
 
 		sort1(Arr, size);
+
 		auto end = chrono::high_resolution_clock::now();
-		chrono::duration<double> duration = end - start;
+		//auto duration = chrono::duration_cast <chrono::milliseconds>(end - start);
+		chrono::duration<float> duration = end - start;
 
 		dur_arr[i] = duration.count();
 		size += 5;
@@ -55,7 +57,7 @@ int main() {
 	size = 5;
 	
 	for (int i = 0; i < m; i++) {
-		printf("%lf  ", dur_arr[i]);
+		printf("%f  ", dur_arr[i]);
 	}
 	cout << endl;
 	/////////////////////////////////////////////////////////////
@@ -81,7 +83,7 @@ int main() {
 	}
 	size = 5;
 	for (int i = 0; i < m; i++) {
-		printf("%lf  ", dur_arr[i]);
+		printf("%f  ", dur_arr[i]);
 	}
 	cout << endl;
 	///////////////////////////////////////////////////////////////////
@@ -103,7 +105,7 @@ int main() {
 		}
 		size = 5;
 		for (int i = 0; i < 9; i++) {
-			printf("%lf  ", dur_arr[i]);
+			printf("%f  ", dur_arr[i]);
 		}
 		cout << endl;
 
