@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int sort1(int* arr, int N) {
+void sort1(int* arr, int N) {
 	int buff = 0; // для хранения перемещаемого значения
 	int i, j;
 
@@ -19,8 +19,7 @@ int sort1(int* arr, int N) {
 
 		arr[j + 1] = buff;
 	}
-
-	return 0;
+	
 }
 
 
@@ -29,42 +28,38 @@ int main() {
 	SetConsoleOutputCP(1251);
 
 	int n;
-	int size = 5;
+	int size = 45;
 	int a = size, b = 1;
-	int* Arr = new int[size];
+	int Arr[100]{};
 	double dur_arr[m]{};
 
 	
-	cout << "duration: ";
+	cout << "duration: "; 
 
-	for (int i = 0; i < 9; i++)
+	for (int i = 0; i < m; i++)
 	{
 		for (n = 0; n < size; n++) { // +
 			Arr[n] = b++;
 		}
-
+		b = 1;
 		size += 5;
-
 		auto start = chrono::high_resolution_clock::now();
 
 		sort1(Arr, size);
 
 		auto end = chrono::high_resolution_clock::now();
-		//auto duration = std::chrono::duration_cast<std::chrono::milliseconds > (end - start);
-
+		//auto duration = std::chrono::duration_cast<std::chrono::milliseconds> (end - start);
 		chrono::duration<double> duration = end - start;
-
-
 		dur_arr[i] = duration.count();
 
 	}
 	size = 5;
-	cout << endl;
+	
 	for (int i = 0; i < 9; i++) {
 		cout << dur_arr[i] << "\t";
 	}
 	cout << endl;
-	//////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////
 
 	cout << "duration: ";
 
@@ -77,17 +72,15 @@ int main() {
 
 		sort1(Arr, size);
 
-		auto end = chrono::high_resolution_clock::now();
-		//auto duration = std::chrono::duration_cast<std::chrono::milliseconds > (end - start);
+	auto end = chrono::high_resolution_clock::now();
+	chrono::duration<double> duration = end - start;
+	dur_arr[i] = duration.count();
 
-		chrono::duration<double> duration = end - start;
 
-
-		dur_arr[i] = duration.count();
-
+		//dur_arr[i] = duration.count();
+		a = size;
 	}
 	size = 5;
-	cout << endl;
 	for (int i = 0; i < 9; i++) {
 		cout << dur_arr[i] << "\t";
 	}
@@ -106,16 +99,10 @@ int main() {
 			sort1(Arr, size);
 
 			auto end = chrono::high_resolution_clock::now();
-			//auto duration = std::chrono::duration_cast<std::chrono::milliseconds > (end - start);
-
 			chrono::duration<double> duration = end - start;
-
-
 			dur_arr[i] = duration.count();
-
 		}
 		size = 5;
-		cout << endl;
 		for (int i = 0; i < 9; i++) {
 			cout << dur_arr[i] << "\t";
 		}
