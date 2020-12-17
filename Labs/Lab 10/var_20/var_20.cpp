@@ -45,7 +45,6 @@ double avarage (int *Arr, int rows, int cols) {
 		AvarageValue += max[i];
 	}
 	AvarageValue = AvarageValue / rows;
-	cout << AvarageValue;
 
 	return AvarageValue;
 }
@@ -73,7 +72,7 @@ int main() {
 	cout << endl;
 	cout << endl;
 
-	avarage(Arr, N, M);
+	cout << avarage(Arr, N, M);
 	cout << endl;
 
 	return 0;
