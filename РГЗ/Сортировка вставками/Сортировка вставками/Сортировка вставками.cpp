@@ -48,7 +48,6 @@ int main() {
 		sort1(Arr, size);
 
 		auto end = chrono::high_resolution_clock::now();
-		//auto duration = chrono::duration_cast <chrono::milliseconds>(end - start);
 		chrono::duration<float> duration = end - start;
 
 		dur_arr[i] = duration.count();

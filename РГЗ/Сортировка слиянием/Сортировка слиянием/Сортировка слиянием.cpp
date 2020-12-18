@@ -58,7 +58,7 @@ int main() {
 	int* Arr = new int[size];
 	double dur_arr[m]{};
 
-	cout << "Время работы сортировки:";
+	cout << "Время работы сортировки: ";
 
 	for (int i = 0; i < m; i++)
 	{
@@ -83,9 +83,10 @@ int main() {
 		printf("%fs  ", dur_arr[i]);
 	}
 	cout << endl;
+	cout << endl;
 	/////////////////////////////////////////////////////////////
 
-	cout << "Время работы сортировки:";
+	cout << "Время работы сортировки: ";
 
 	for (int i = 0; i < m; i++) {
 		for (n = 0; n < size; n++) Arr[n] = a--; // упорядочный наоборот
@@ -107,9 +108,10 @@ int main() {
 		printf("%fs  ", dur_arr[i]);
 	}
 	cout << endl;
+	cout << endl;
 	///////////////////////////////////////////////////////////////////
 
-	cout << "Время работы сортировки:";
+	cout << "Время работы сортировки: ";
 
 	for (int i = 0; i < m; i++) {
 		for (n = 0; n < size; n++) Arr[n] = 1 + rand() % 100; // неупорядочный
@@ -128,6 +130,7 @@ int main() {
 	for (int i = 0; i < 9; i++) {
 		printf("%fs  ", dur_arr[i]);
 	}
+	cout << endl;
 	cout << endl;
 
 	return 0;
