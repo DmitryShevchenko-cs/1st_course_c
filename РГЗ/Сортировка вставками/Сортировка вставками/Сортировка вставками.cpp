@@ -13,7 +13,7 @@ void sort1(int* arr, int N) {
 
 	for (i = 1; i < N; i++)
 	{
-		buff = arr[i];
+		buff = arr[i];  
 		for (j = i - 1; j >= 0 && arr[j] > buff; j--)
 			arr[j + 1] = arr[j];
 
@@ -43,12 +43,12 @@ int main() {
 		}
 		b = 1;
 		
-		auto start = chrono::high_resolution_clock::now();
+		auto start = chrono::high_resolution_clock::now(); // начало счетчика
 
 		sort1(Arr, size);
 
 		auto end = chrono::high_resolution_clock::now();
-		chrono::duration<float> duration = end - start;
+		chrono::duration<float> duration = end - start;   // конец счетчика
 
 		dur_arr[i] = duration.count();
 		size += 5;
