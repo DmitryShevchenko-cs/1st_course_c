@@ -98,10 +98,8 @@ int main() {
 
 		auto end = chrono::high_resolution_clock::now();
 		chrono::duration<double> duration = end - start;
+
 		dur_arr[i] = duration.count();
-
-
-		//dur_arr[i] = duration.count();
 		a = size;
 	}
 	size = 5;
