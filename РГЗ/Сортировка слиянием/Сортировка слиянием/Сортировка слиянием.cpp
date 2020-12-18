@@ -7,6 +7,8 @@
 
 using namespace std;
 
+
+
 void merge(int* A, int first, int last)
 {
 	int middle, start, final, j;
@@ -32,7 +34,6 @@ void merge(int* A, int first, int last)
 	for (j = first; j <= last; j++) A[j] = mas[j];
 	delete[]mas;
 };
-
 
 void mergeSort(int* A, int first, int last) //рекурсивная процедура сортировки
 {
