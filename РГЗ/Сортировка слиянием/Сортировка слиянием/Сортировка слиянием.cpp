@@ -18,7 +18,7 @@ void merge(int* A, int first, int last)
 	start = first;   //начало левой части
 	final = middle + 1;   //начало правой части
 
-	for (j = first; j <= last; j++)    //выполнять от начала до конца
+	for (j = first; j <= last; j++)    //от начала до конца
 		if ((start <= middle) && ((final > last) || (A[start] < A[final]))){
 
 			mas[j] = A[start];
@@ -32,7 +32,7 @@ void merge(int* A, int first, int last)
 
 	  //возвращение результата в список
 	for (j = first; j <= last; j++) A[j] = mas[j];
-	
+
 };
 
 void mergeSort(int* A, int first, int last)  //рекурсивная процедура сортировки
@@ -62,17 +62,17 @@ int main() {
 
 	for (int i = 0; i < m; i++)
 	{
-		for (n = 0; n < size; n++) { // +
+		for (n = 0; n < size; n++) { // упорядоченое заполнение массива 
 			Arr[n] = b++;
 		}
 		b = 1;
 
-		auto start = chrono::high_resolution_clock::now();
+		auto start = chrono::high_resolution_clock::now(); // начало счетчика
 
 		merge(Arr, 0, size);
 
 		auto end = chrono::high_resolution_clock::now();
-		chrono::duration<float> duration = end - start;
+		chrono::duration<float> duration = end - start;   // конец счетчика
 
 		dur_arr[i] = duration.count();
 		size += 5;
