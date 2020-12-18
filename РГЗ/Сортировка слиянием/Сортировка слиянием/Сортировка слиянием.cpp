@@ -80,7 +80,7 @@ int main() {
 	size = 5;
 
 	for (int i = 0; i < m; i++) {
-		printf("%f  ", dur_arr[i]);
+		printf("%fs  ", dur_arr[i]);
 	}
 	cout << endl;
 	/////////////////////////////////////////////////////////////
@@ -104,7 +104,7 @@ int main() {
 	}
 	size = 5;
 	for (int i = 0; i < m; i++) {
-		printf("%f  ", dur_arr[i]);
+		printf("%fs  ", dur_arr[i]);
 	}
 	cout << endl;
 	///////////////////////////////////////////////////////////////////
@@ -126,7 +126,7 @@ int main() {
 	}
 	size = 5;
 	for (int i = 0; i < 9; i++) {
-		printf("%f  ", dur_arr[i]);
+		printf("%fs  ", dur_arr[i]);
 	}
 	cout << endl;
 
