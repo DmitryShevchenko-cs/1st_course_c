@@ -14,11 +14,11 @@ void merge(int* A, int first, int last)
 	int middle, start, final, j;
 	int* mas = new int[100];
 
-	middle = (first + last) / 2; //вычисление среднего элемента
-	start = first; //начало левой части
-	final = middle + 1; //начало правой части
+	middle = (first + last) / 2;  //вычисление среднего элемента
+	start = first;   //начало левой части
+	final = middle + 1;   //начало правой части
 
-	for (j = first; j <= last; j++) //выполнять от начала до конца
+	for (j = first; j <= last; j++)    //выполнять от начала до конца
 		if ((start <= middle) && ((final > last) || (A[start] < A[final]))){
 
 			mas[j] = A[start];
@@ -30,19 +30,19 @@ void merge(int* A, int first, int last)
 			final++;
 		}
 
-	//возвращение результата в список
+	  //возвращение результата в список
 	for (j = first; j <= last; j++) A[j] = mas[j];
-	delete[]mas;
+	
 };
 
-void mergeSort(int* A, int first, int last) //рекурсивная процедура сортировки
+void mergeSort(int* A, int first, int last)  //рекурсивная процедура сортировки
 {
 	{
-		if (first < last) //проверка того что это массив > 1 елемента
+		if (first < last)  //проверка того что это массив > 1 елемента
 		{
-			mergeSort(A, first, (first + last) / 2); //сортировка левой части
-			mergeSort(A, (first + last) / 2 + 1, last); //сортировка правой части
-			merge(A, first, last); //слияние двух частей
+			mergeSort(A, first, (first + last) / 2);  //сортировка левой части
+			mergeSort(A, (first + last) / 2 + 1, last);  //сортировка правой части
+			merge(A, first, last);  //слияние двух частей
 		}
 	}
 };
@@ -72,7 +72,6 @@ int main() {
 		merge(Arr, 0, size);
 
 		auto end = chrono::high_resolution_clock::now();
-		//auto duration = chrono::duration_cast <chrono::milliseconds>(end - start);
 		chrono::duration<float> duration = end - start;
 
 		dur_arr[i] = duration.count();
