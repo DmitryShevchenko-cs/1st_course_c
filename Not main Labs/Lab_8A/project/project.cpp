@@ -10,24 +10,25 @@ int main() {
 
 	int i=0 ;
 	short answer;
-	int arr[10]{};
-	int places_y=0, places_n=5;
-	int sm_y = 1, sm_n = 2;
-	int places1 = 5, places2 = 5;
+	short arr[10]{};
+	short places_y=0, places_n=5;   // занято
+	short sm_y = 1, sm_n = 2;  // ответ
+	short places1 = 5, places2 = 5; // свободно
 
+	cout << "Мест на борту 10, 5 для курящих и 5 для не курящих.\n";
+	
 	for (i; ;) {
-		cout << "Мест на борту 10, 5 для курящих и 5 для не курящих.\n";
-		cout<<"Вы курите?"<<endl<<"yes=1"<<endl<<"no=2"<<endl;
+		cout << "Вы курите?" << endl << "yes=1" << endl << "no=2" << endl;
 		cin >> answer;
 
-		if (answer == sm_y) {
+		if (answer == sm_y && places1 > 0) {
 			arr[places_y] = 1;
 			places_y++;
 			places1--;
 
 		}
 
-		else if (answer == sm_n) {
+		else if (answer == sm_n && places2 > 0) {
 
 			arr[places_n] = 2;
 			places_n++;
