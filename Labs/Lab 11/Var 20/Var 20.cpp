@@ -4,11 +4,23 @@
 using namespace std;
 
 void fun(int* a, int s) {
-	cout << a[s] << '\t';
+	if (a[s] % 2 == 0) {
+		cout << a[s] << '\t';
+	}
 	if (s > 0) {
 		fun(a, s - 1);
 	}
 }
+
+//void fun(int* a, int s) {
+//	int N = 0;
+//	if (a[N] % 2 == 0) {
+//		cout << a[N] << '\t';
+//	}
+//	if (N < s) {
+//		fun(a, s);
+//	}
+//}
 
 int main(){
 	SetConsoleCP(1251);
@@ -30,4 +42,3 @@ int main(){
 	cout << endl;
 	fun(A, size-1);
 }
-
