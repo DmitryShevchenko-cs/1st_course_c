@@ -18,11 +18,11 @@ int main(){
 	SetConsoleOutputCP(1251);
 
 	srand(time(NULL));
-	int size;
+	const int size=10;
+	int* A;
 	cout << "Введите количество елементов массива:\t";
-	cin >> size;
+
 	cout << "Массив:\n";
-	int* A = new int[size];
 	for (int i = 0; i < size; i++) {
 		A[i] = rand() % 50;
 	}
