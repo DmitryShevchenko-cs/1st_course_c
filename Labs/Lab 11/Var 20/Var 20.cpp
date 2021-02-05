@@ -5,7 +5,7 @@ using namespace std;
 
 void fun(int* a, int s) {
 	
-	if (s > 0) {
+	if (s >= 0) {
 		fun(a, s - 1);
 		if (a[s] % 2 == 0) {
 			cout << a[s] << '\t';
@@ -31,5 +31,5 @@ int main(){
 		cout<<A[i]<<'\t';
 	}
 	cout <<"\nЧетные елементы массива:"<< endl;
-	fun(A, size-1);
+	fun(A, size);
 }
