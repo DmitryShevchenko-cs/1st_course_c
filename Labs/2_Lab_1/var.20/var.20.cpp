@@ -1,8 +1,9 @@
-﻿
-#include <iostream>
+﻿#include <iostream>
 #include <stdio.h>
 #include <string.h>
 #include "windows.h"
+#include <time.h>
+#include <stdlib.h>
 #define S 4
 using namespace std;
 
@@ -12,52 +13,73 @@ struct Tabl {
 	short tem;
 	unsigned sp;
 	
-} t[S];
+} t[S]{};
 
-void f1() {
-	for (int i = 1; i < S; i++) {
-		cout << "Введите вещество, тип, температуру ,скорость: ";
+void input() {
+	for (int i = 0; i < S; i++) {
+		cout << i+1 << "." << " Введите вещество, тип, температуру ,скорость: ";
 		cin >> t[i].name >> t[i].type >> t[i].tem >> t[i].sp;
 	}
 }
 //+
 void f2() {
+	srand(time(NULL));
 
-	t[1].name = "Анилин";
-	t[2].name = "Ртуть";
-	t[3].name = "Кедровое";
+	int arr[S]{};
+	bool already;
 
-	t[1].type = 'Ч';
-	t[2].type = 'Ч';
-	t[3].type = 'М';
+	for (int i = 0; i < S; ) {
 
-	t[1].tem = 20;
-	t[2].tem = 20;
-	t[3].tem = 29;
+		already = false;
+		int newrand = rand() % S;
 
-	t[1].sp = 1656;
-	t[2].sp = 1451;
-	t[3].sp = 1406;
+		for (int j = 0; j < i; j++) {
+			if (arr[j] == newrand) {
+				already = true;
+			}	
+		}
+
+		if (already==false) {
+			arr[i] = newrand;
+			i++;
+		}
+
+	}
+
+	t[arr[0]] = { "Анилин" , 'Ч' , 20 , 1656 };
+	t[arr[1]] = { "Ртуть" , 'Ч' , 20 , 1451 };
+	t[arr[2]] = { "Кедровое" , 'М' , 29 , 1406 };
+	t[arr[3]] = { "рррррр" , 'Ч' , 10 , 16 };
+	
+
+	//t[0] = { "Анилин" , 'Ч' , 20 , 1656 };
+	//t[1] = { "Ртуть" , 'Ч' , 20 , 1451 };
+	//t[2] = { "Кедровое" , 'М' , 29 , 1406 };
+	//t[3] = { "рррррр" , 'Ч' , 10 , 16 };
+
+
 
 }
 
-void f3(){}
+void f3(){
 
-void f4() {
+}
+
+void print() {
 	printf("-----------------------------------------------\n");
 	printf("|          Скорость звука в жидкостях         |\n");
 	printf("|---------------------------------------------|\n");
 	printf("| Вещество  |  Тип  |Температура|  Скорость   |\n");
 	printf("|           |       |  (град.С) |   (м/сек)   |\n");
 	printf("|-----------|-------|-----------|-------------|\n");
-	for (int i = 1; i < 4; i++)
+	for (int i = 0; i < S; i++)
 		printf("| %9s | %5c | %9hd | %11u |\n",
 			t[i].name.c_str(), t[i].type, t[i].tem, t[i].sp);
 	printf("|---------------------------------------------|\n");
 	printf("| примечание:  ч - чистое вещество, м - масло |\n");
 	printf("-----------------------------------------------\n");
 }    
-//+
+//+ печать
 
 int main(void) {
 	
@@ -71,7 +93,7 @@ int main(void) {
 	cin >> a;
 
 	if (a == 1) {
-		f1();
+		input();
 
 		cout << "Что бдуем делать дальше?\n";
 		cout << "3 - сортировка  \n";
@@ -83,7 +105,7 @@ int main(void) {
 		}
 
 		else if (a == 4) {
-			f4();
+			print();
 		   
 		}
 	}
@@ -100,7 +122,7 @@ int main(void) {
 		}
 
 		else if (a == 4) {
-			f4();
+			print();
 		}
 
 		else cout << "wrong number\n";
