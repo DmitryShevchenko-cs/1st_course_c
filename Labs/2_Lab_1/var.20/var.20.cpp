@@ -58,7 +58,7 @@ void f3(){
 
 	for (int i = 0; i < S; i++) {
 		for (int j = 0; j < S-1; j++) {
-			if (t[j].sp > t[j + 1].sp) swap(t[j], t[j+1]);
+			if (t[j].name > t[j + 1].name) swap(t[j], t[j+1]);
 		}
 	}
 }
