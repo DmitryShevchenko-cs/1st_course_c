@@ -131,11 +131,7 @@ int main(void) {
 		else if (a == 4) {
 			print();
 		}
-
 		else cout << "wrong number\n";
-
 	}
-
 	else cout << "wrong number";
-
 }
