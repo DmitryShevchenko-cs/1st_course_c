@@ -108,7 +108,6 @@ int main(void) {
 
 		else if (a == 4) {
 			print();
-		   
 		}
 	}
 
