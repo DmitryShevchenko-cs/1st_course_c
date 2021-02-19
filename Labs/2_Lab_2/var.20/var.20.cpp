@@ -14,8 +14,9 @@ struct Tabl {
 
 };
 
-void input(Tabl t[]) {
-	for (int i = 0; i < S; i++) {
+void input(Tabl t[], int n) {
+	
+	for (int i = 0; i < n; i++) {
 		cout << i + 1 << "." << " Введите вещество, тип, температуру ,скорость: ";
 		cin >> t[i].name >> t[i].type >> t[i].tem >> t[i].sp;
 	}
@@ -54,9 +55,9 @@ void r(Tabl t[]) {
 
 }
 
-void f3(Tabl t[]) {
-	for (int i = 0; i < S; i++) {
-		for (int j = 0; j < S - 1; j++) {
+void f3(Tabl t[], int n) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n - 1; j++) {
 			if (t[j].name > t[j + 1].name) swap(t[j], t[j + 1]);
 		}
 	}
@@ -83,7 +84,7 @@ int main(void) {
 
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	
+	int n;
 	int a;
 	struct Tabl t[S]{};
 
@@ -92,8 +93,10 @@ int main(void) {
 	cin >> a;
 
 	if (a == 1) {
-		input(t);
+		cout << "Сколько строк в таблице:";
+		cin >> n;
 
+		input(t, n);
 		cout << "Что бдуем делать дальше?\n";
 		cout << "3 - сортировка  \n";
 		cout << "4 - печать \n";
@@ -104,7 +107,7 @@ int main(void) {
 			print(t);
 			cout << endl;
 			cout << "Отсортированная структура:" << endl;
-			f3(t);
+			f3(t, n);
 			print(t);
 		}
 
@@ -121,11 +124,12 @@ int main(void) {
 		cin >> a;
 
 		if (a == 3) {
+			n = S;
 			cout << "Не отсортированная структура:" << endl;
 			print(t);
 			cout << endl;
 			cout << "Отсортированная структура:" << endl;
-			f3(t);
+			f3(t, n);
 			print(t);
 		}
 
