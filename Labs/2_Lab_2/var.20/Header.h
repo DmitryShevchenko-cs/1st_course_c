@@ -1,15 +1,17 @@
 //#pragma once
+#ifndef XT
+#define XT
 
-#ifndef ST
-#define ST
-#include <stdio.h>
 #include "windows.h"
 #include <time.h>
 #include <iostream>
 
-using namespace std;
-
 #define S 7
+#define PRINT_TYPE a 
+
+//#define PRINT_TYPE cin >> a
+#define DEBAG 
+using namespace std;
 
 struct Tabl {
 	string name;

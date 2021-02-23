@@ -4,22 +4,23 @@ int main(void) {
 
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	int n;
+
 	int a;
 	struct Tabl t[S]{};
 
 	cout << "1 - ввод с экрана\n";
 	cout << "2 - случайным образом\n";
-	cin >> a;
+	
+	cin >> PRINT_TYPE;
 
-	if (a == 1) {
+	if (PRINT_TYPE == 1) {
 		input(t);
 		cout << "Что бдуем делать дальше?\n";
 		cout << "3 - сортировка  \n";
 		cout << "4 - печать \n";
-		cin >> a;
+		cin >> PRINT_TYPE;
 
-		if (a == 3) {
+		if (PRINT_TYPE == 3) {
 			cout << "Не отсортированная структура:" << endl;
 			print(t);
 			cout << endl;
@@ -28,20 +29,19 @@ int main(void) {
 			print(t);
 		}
 
-		else if (a == 4) {
+		else if (PRINT_TYPE == 4) {
 			print(t);
 		}
 	}
 
-	else if (a == 2) {
+	else if (PRINT_TYPE == 2) {
 		r(t);
 		cout << "Что бдуем делать дальше?\n";
 		cout << "3 - сортировка  \n";
 		cout << "4 - печать \n";
-		cin >> a;
+		cin >> PRINT_TYPE;
 
-		if (a == 3) {
-			n = S;
+		if (PRINT_TYPE == 3) {
 			cout << "Не отсортированная структура:" << endl;
 			print(t);
 			cout << endl;
@@ -50,7 +50,7 @@ int main(void) {
 			print(t);
 		}
 
-		else if (a == 4) {
+		else if (PRINT_TYPE == 4) {
 			print(t);
 		}
 		else cout << "wrong number\n";
