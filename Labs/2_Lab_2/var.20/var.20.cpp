@@ -4,9 +4,11 @@ int main(void) {
 
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-
+	
 	struct Tabl t[S]{};
 	int a;
+
+
 	cout << "1 - ввод с экрана\n";
 	cout << "2 - случайным образом\n";
 	

@@ -3,14 +3,12 @@
 #define XT
 
 #include "windows.h"
-#include <time.h>
+#include <ctime>
 #include <iostream>
 
-
+#define  _CRT_SECURE_NO_WARNINGS
 #define S 7
 #define PRINT_TYPE a
-
-//#define PRINT_TYPE cin >> a
 #define DEBAG 
 using namespace std;
 

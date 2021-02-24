@@ -1,23 +1,16 @@
 #include "Header.h"
 
 void input(Tabl t[]) {
-#ifdef DEBAG
-	cout << endl << __DATE__ << endl << __TIME__ << endl << endl;
-#endif
+
 	for (int i = 0; i < S; i++) {
 		cout << i + 1 << "." << " Введите вещество, тип, температуру ,скорость: ";
 		cin >> t[i].name >> t[i].type >> t[i].tem >> t[i].sp;
 	}
 	cout << endl;
-#ifdef DEBAG
-	cout << "Файл: " << __FILE__ << endl << "Функция: " << __FUNCTION__ << endl << endl;
-#endif
+
 }
 
 void random(Tabl t[]) {
-#ifdef DEBAG
-
-#endif
 	srand(time(NULL));
 
 	int arr[S]{};
@@ -48,24 +41,17 @@ void random(Tabl t[]) {
 	t[arr[5]] = { "Спирт" , 'Ч' , 20 , 1180 };
 	t[arr[6]] = { "Глицерин" , 'Ч' , 20 , 1923 };
 
-#ifdef DEBAG
-	cout << "Файл: " << __FILE__ << endl << "Функция: " << __FUNCTION__ << endl << endl;
-#endif
 }
 
 void sort(Tabl t[]) {
-#ifdef DEBAG
-	cout << endl << __DATE__ << endl << __TIME__ << endl << endl;
-#endif
+
 	for (int i = 0; i < S; i++) {
 		for (int j = 0; j < S - 1; j++) {
 			if (t[j].name > t[j + 1].name) swap(t[j], t[j + 1]);
 		}
 	}
 	cout << endl;
-#ifdef DEBAG
-	cout << "Файл: " << __FILE__ << endl << "Функция: " << __FUNCTION__ << endl << endl;
-#endif
+
 }
 
 void print(Tabl t[]) {
