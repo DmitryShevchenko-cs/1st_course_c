@@ -6,8 +6,9 @@
 #include <time.h>
 #include <iostream>
 
+
 #define S 7
-#define PRINT_TYPE a 
+#define PRINT_TYPE a
 
 //#define PRINT_TYPE cin >> a
 #define DEBAG 
@@ -21,8 +22,8 @@ struct Tabl {
 };
 
 void input(Tabl t[]);
-void r(Tabl t[]);
-void f3(Tabl t[]);
+void random(Tabl t[]);
+void sort(Tabl t[]);
 void print(Tabl t[]);
 
 #endif
