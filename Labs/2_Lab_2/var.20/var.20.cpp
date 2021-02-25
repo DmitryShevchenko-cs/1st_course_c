@@ -11,10 +11,11 @@ int main(void) {
 
 	cout << "1 - ввод с экрана\n";
 	cout << "2 - случайным образом\n";
-	
-	cin >> PRINT_TYPE;
 
-	if (PRINT_TYPE == 1) {
+	int b;
+	cin >> b;
+
+	if (PRINT_TYPE(b) == 1) {
 		input(t);
 		cout << "Что бдуем делать дальше?\n";
 		cout << "3 - сортировка  \n";
@@ -33,7 +34,7 @@ int main(void) {
 		}
 	}
 
-	else if (PRINT_TYPE == 2) {
+	else if (PRINT_TYPE(b) == 2) {
 		random(t);
 		cout << "Что бдуем делать дальше?\n";
 		cout << "3 - сортировка  \n";
