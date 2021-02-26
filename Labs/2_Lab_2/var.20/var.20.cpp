@@ -13,9 +13,9 @@ int main(void) {
 	cout << "2 - случайным образом\n";
 
 	int b;
-	cin >> b;
+	//cin >> b;
 
-	if (PRINT_TYPE(b) == 1) {
+#ifdef PRINT_TYPE
 		input(t);
 		cout << "Что бдуем делать дальше?\n";
 		cout << "3 - сортировка  \n";
@@ -33,8 +33,8 @@ int main(void) {
 			print(t);
 		}
 	}
-
-	else if (PRINT_TYPE(b) == 2) {
+#endif
+#ifndef PRINT_TYPE {
 		random(t);
 		cout << "Что бдуем делать дальше?\n";
 		cout << "3 - сортировка  \n";
@@ -53,5 +53,4 @@ int main(void) {
 		}
 		else cout << "wrong number\n";
 	}
-	else cout << "wrong number";
-}
+#endif

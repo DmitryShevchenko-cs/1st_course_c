@@ -1,4 +1,4 @@
-//#pragma once
+#pragma once
 #ifndef XT
 #define XT
 
@@ -8,7 +8,8 @@
 
 #define  _CRT_SECURE_NO_WARNINGS
 #define S 7
-#define PRINT_TYPE(a) (a==1 ? 1 : 2)
+//#define PRINT_TYPE(a) (a==1 ? 1 : 2)
+//#define PRINT_TYPE 
 #define DEBAG 
 using namespace std;
 
