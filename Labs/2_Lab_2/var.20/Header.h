@@ -8,7 +8,6 @@
 
 #define  _CRT_SECURE_NO_WARNINGS
 #define S 7
-
 //#define PRINT_TYPE 
 #define DEBAG 
 using namespace std;
