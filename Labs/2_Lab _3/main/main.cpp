@@ -5,8 +5,7 @@ int main(){
     SetConsoleOutputCP(1251);
     srand(time(NULL));
     int arr[size]{};
-    int s;
-    int narr[size]{};
+    int s = 0;
 
     for (int i = 0; i < size; i++)
     {
@@ -29,15 +28,22 @@ int main(){
     }
     cout << endl;
     cout << endl;
-    //
 
     //
-    //int* Arr = new int[];
+    for (int i = 1; i < size; ) {
+        if (arr[i] < 0) {
+            s++;
+        }
+
+        i += 2;
+    }
+    //
+
+    int* narr = new int[s];
     cout << "все отрицательные элементы с нечетными индексами" << endl;
     new_Arr(arr, narr);
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < s; i++) {
         cout << narr[i] << "   ";
     }
-
-    //delete[] Arr;
+    delete[] narr;
 }
