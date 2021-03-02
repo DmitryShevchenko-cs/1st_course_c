@@ -16,6 +16,15 @@ void swp(int *array){
 	swap(*min, *b);
 }
 
-void newArr(int* arr) {
+void new_Arr(int* Arr, int* Narr) {
+	int j = 0;
 
+	for (int i = 1; i < size; ) {
+		if (Arr[i] < 0) {
+			Narr[j] = Arr[i];
+			j++;
+		}
+
+		i += 2;
+	}
 }

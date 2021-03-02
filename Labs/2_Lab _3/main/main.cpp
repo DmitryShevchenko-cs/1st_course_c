@@ -3,11 +3,10 @@
 int main(){
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-
     srand(time(NULL));
-
     int arr[size]{};
-    //int* arr = new int[size];
+    int s;
+    int narr[size]{};
 
     for (int i = 0; i < size; i++)
     {
@@ -28,4 +27,17 @@ int main(){
     {
         cout << arr[i] << "   ";
     }
+    cout << endl;
+    cout << endl;
+    //
+
+    //
+    //int* Arr = new int[];
+    cout << "все отрицательные элементы с нечетными индексами" << endl;
+    new_Arr(arr, narr);
+    for (int i = 0; i < size; i++) {
+        cout << narr[i] << "   ";
+    }
+
+    //delete[] Arr;
 }
