@@ -9,13 +9,13 @@ int main(){
 
     for (int i = 0; i < size; i++)
     {
-        arr[i] = rand() % 100 - 50;
+        *(arr+i) = rand() % 100 - 50;
     }
 
     cout << "Массив до :\n";
     for (int i = 0; i < size; i++)
     {
-        cout << arr[i] << "   ";
+        cout << *(arr + i) << "   ";
     }
     cout << endl;
     cout << endl;
@@ -24,26 +24,25 @@ int main(){
     swp(arr);
     for (int i = 0; i < size; i++)
     {
-        cout << arr[i] << "   ";
+        cout << *(arr + i) << "   ";
     }
     cout << endl;
     cout << endl;
 
     //
     for (int i = 1; i < size; ) {
-        if (arr[i] < 0) {
+        if (*(arr + i) < 0) {
             s++;
         }
-
         i += 2;
     }
     //
 
     int* narr = new int[s];
-    cout << "все отрицательные элементы с нечетными индексами" << endl;
+    cout << "Все отрицательные элементы с нечетными индексами" << endl;
     new_Arr(arr, narr);
     for (int i = 0; i < s; i++) {
-        cout << narr[i] << "   ";
+        cout << *(narr+i) << "   ";
     }
     delete[] narr;
 }
