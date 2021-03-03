@@ -31,15 +31,3 @@ void swp(int* array, int* Arr, int* Narr) {
 		i += 2;
 	}
 }
-
-//void new_Arr(int* Arr, int* Narr) {
-//	int j = 0;
-//
-//	for (int i = 1; i < size; ) {
-//		if (*(Arr + i) < 0) {
-//			*(Narr + j) = *(Arr + i);
-//			j++;
-//		}
-//		i += 2;
-//	}
-//}
