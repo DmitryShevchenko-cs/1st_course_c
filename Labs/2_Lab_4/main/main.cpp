@@ -1,6 +1,6 @@
 ﻿#include "Fun.h"
 
-int main(){
+int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     srand(time(NULL));
@@ -10,7 +10,7 @@ int main(){
 
     for (int i = 0; i < size; i++)
     {
-        *(arr+i) = rand() % 100 - 50;
+        *(arr + i) = rand() % 100 - 50;
     }
 
     cout << "Массив до :\n";
@@ -39,10 +39,11 @@ int main(){
     }
     //
 
+    //int* narr = new int[s];
     cout << "Все отрицательные элементы с нечетными индексами" << endl;
     new_Arr(arr, narr);
     for (int i = 0; i < s; i++) {
-        cout << *(narr+i) << "   ";
+        cout << *(narr + i) << "   ";
     }
-
+    //delete[] narr;
 }
