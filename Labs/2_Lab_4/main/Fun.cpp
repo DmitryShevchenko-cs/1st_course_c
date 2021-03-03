@@ -1,10 +1,18 @@
 #include "Fun.h"
 
-void swp(int* array) {
+void Ent(int* array) {
+	for (int i = 0; i < size; i++)
+	{
+		*(array + i) = rand() % 100 - 50;
+	}
+}
+
+void swp(int* array, int* Arr, int* Narr) {
 	int* min, * b;
 	min = array;
 	b = array;
-	int s = size;
+	int j = 0;
+
 	for (int i = 0; i < size; i++, array++) {
 		if (*array < *min) {
 			min = array;
@@ -14,10 +22,6 @@ void swp(int* array) {
 		}
 	}
 	swap(*min, *b);
-}
-
-void new_Arr(int* Arr, int* Narr) {
-	int j = 0;
 
 	for (int i = 1; i < size; ) {
 		if (*(Arr + i) < 0) {
@@ -27,3 +31,15 @@ void new_Arr(int* Arr, int* Narr) {
 		i += 2;
 	}
 }
+
+//void new_Arr(int* Arr, int* Narr) {
+//	int j = 0;
+//
+//	for (int i = 1; i < size; ) {
+//		if (*(Arr + i) < 0) {
+//			*(Narr + j) = *(Arr + i);
+//			j++;
+//		}
+//		i += 2;
+//	}
+//}

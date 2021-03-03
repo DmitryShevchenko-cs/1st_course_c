@@ -5,14 +5,10 @@ int main() {
     SetConsoleOutputCP(1251);
     srand(time(NULL));
     int arr[size]{};
-    int narr[size]{};
     int s = 0;
 
-    for (int i = 0; i < size; i++)
-    {
-        *(arr + i) = rand() % 100 - 50;
-    }
-
+    Ent(arr);
+ 
     cout << "Массив до :\n";
     for (int i = 0; i < size; i++)
     {
@@ -21,16 +17,7 @@ int main() {
     cout << endl;
     cout << endl;
 
-    cout << "Массив после :\n";
-    swp(arr);
-    for (int i = 0; i < size; i++)
-    {
-        cout << *(arr + i) << "   ";
-    }
-    cout << endl;
-    cout << endl;
-
-    //
+    // отрицательные элементы с нечетными индексами
     for (int i = 1; i < size; ) {
         if (*(arr + i) < 0) {
             s++;
@@ -39,11 +26,22 @@ int main() {
     }
     //
 
-    //int* narr = new int[s];
+    int* narr = new int[s];
+    swp(arr,arr , narr);
+
+    cout << "Массив после :\n";
+    for (int i = 0; i < size; i++)
+    {
+        cout << *(arr + i) << "   ";
+    }
+    cout << endl;
+    cout << endl;
+
     cout << "Все отрицательные элементы с нечетными индексами" << endl;
-    new_Arr(arr, narr);
+   
     for (int i = 0; i < s; i++) {
         cout << *(narr + i) << "   ";
     }
-    //delete[] narr;
+    cout << endl;
+    delete[] narr;
 }

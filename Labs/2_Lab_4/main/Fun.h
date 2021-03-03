@@ -10,7 +10,7 @@
 #define size 10
 using namespace std;
 
-void swp(int* array);
-void new_Arr(int* Arr, int* Narr);
-
+void swp(int* array, int* Arr, int* Narr);
+//void new_Arr(int* Arr, int* Narr);
+void Ent(int* array);
 #endif
