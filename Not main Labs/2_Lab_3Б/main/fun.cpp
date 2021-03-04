@@ -9,8 +9,7 @@ void Ent(int* array) {
 }
 
 void gg(int* Arr, int* B, int* C, int* D) {
-	int d = 0, c = 0, b = 0;
-
+	
 	for (int i = 0; i < size; i++) {
 		if (*(Arr + i) > 0) {
 			*(B++) = *(Arr + i);
@@ -25,8 +24,10 @@ void gg(int* Arr, int* B, int* C, int* D) {
 		}
 
 	}
+}
 
-	//
+void GG(int*Arr, int b, int c, int d, int* B, int* C, int* D) {
+
 	for (int i = 0; i < size; i++) {
 		if (*(Arr + i) == 0) {
 			d++;
@@ -39,9 +40,6 @@ void gg(int* Arr, int* B, int* C, int* D) {
 		}
 	}
 	//
-
-	cout << b << "  " << c << "  " << d << "  " << endl << endl;
-	
 	int i = 0;
 	for (int j = 0; j < d; j++) {
 		*(Arr + i) = *(D + j);

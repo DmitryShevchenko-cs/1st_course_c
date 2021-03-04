@@ -11,6 +11,6 @@ using namespace std;
 
 void gg(int* Arr, int* B, int* C, int* D);
 void Ent(int* array);
-
+void GG(int* Arr, int b, int c, int d, int* B, int* C, int* D);
 
 #endif

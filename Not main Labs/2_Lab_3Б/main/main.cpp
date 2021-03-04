@@ -7,7 +7,7 @@ int main() {
 
     int arr[size]{};
     int B[size], C[size], D[size]; // >0  <0  =0
-
+    int d = 0, c = 0, b = 0;
 
     Ent(arr);
     for (int i = 0; i < size; i++) {
@@ -30,6 +30,8 @@ int main() {
     for (int i = 0; i < size; i++) {
         cout << *(D + i) << "   ";
     }
+
+    GG(arr, b, c, d, B, C, D);
 
     cout << endl << endl;
     cout << "=============================" << endl;
