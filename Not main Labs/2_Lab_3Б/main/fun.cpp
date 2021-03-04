@@ -22,7 +22,6 @@ void gg(int* Arr, int* B, int* C, int* D) {
 		else if (*(Arr + i) == 0) {
 			*(D++) = *(Arr + i);
 		}
-
 	}
 }
 
@@ -39,7 +38,7 @@ void GG(int*Arr, int b, int c, int d, int* B, int* C, int* D) {
 			b++;
 		}
 	}
-	//
+	
 	int i = 0;
 	for (int j = 0; j < d; j++) {
 		*(Arr + i) = *(D + j);
