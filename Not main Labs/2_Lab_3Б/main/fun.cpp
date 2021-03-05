@@ -26,6 +26,7 @@ void gg(int* Arr, int* B, int* C, int* D) {
 }
 
 void GG(int*Arr, int b, int c, int d, int* B, int* C, int* D) {
+	
 
 	for (int i = 0; i < size; i++) {
 		if (*(Arr + i) == 0) {
