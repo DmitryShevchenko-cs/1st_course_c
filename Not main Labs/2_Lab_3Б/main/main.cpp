@@ -16,7 +16,9 @@ int main() {
     cout << endl << endl;
 
     gg (arr, B, C, D);
+    GG(arr, b, c, d, B, C, D);
 
+    //
     for (int i = 0; i < size; i++) {
         cout << *(B + i) << "   ";
     }
@@ -30,10 +32,8 @@ int main() {
     for (int i = 0; i < size; i++) {
         cout << *(D + i) << "   ";
     }
-
-    GG(arr, b, c, d, B, C, D);
-
     cout << endl << endl;
+    //
     cout << "=============================" << endl;
     for (int i = 0; i < size; i++) {
         cout << *(arr + i) << "   ";
