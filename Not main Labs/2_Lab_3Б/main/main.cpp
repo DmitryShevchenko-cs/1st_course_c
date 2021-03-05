@@ -19,17 +19,17 @@ int main() {
     GG(arr, b, c, d, B, C, D);
 
     //
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < b; i++) {
         cout << *(B + i) << "   ";
     }
     cout << endl << endl;
 
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < c; i++) {
         cout << *(C + i) << "   ";
     }
     cout << endl << endl;
 
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < d; i++) {
         cout << *(D + i) << "   ";
     }
     cout << endl << endl;
