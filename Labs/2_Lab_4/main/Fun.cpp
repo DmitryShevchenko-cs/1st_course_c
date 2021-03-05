@@ -1,13 +1,14 @@
 #include "Fun.h"
 
-void Ent(int* array) {
+void Ent(int* array, int size) {
+
 	for (int i = 0; i < size; i++)
 	{
 		*(array + i) = rand() % 100 - 50;
 	}
 }
 
-void swp(int* array, int* Arr, int* Narr) {
+void swp(int* array, int* Arr, int* Narr, int size) {
 	int* min, * b;
 	min = array;
 	b = array;

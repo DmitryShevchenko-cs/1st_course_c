@@ -7,9 +7,8 @@
 #include "windows.h"
 #include <stdio.h>
 #include <stdlib.h>
-#define size 10
 using namespace std;
 
-void swp(int* array, int* Arr, int* Narr);
-void Ent(int* array);
+void swp(int* array, int* Arr, int* Narr, int size);
+void Ent(int* array, int size);
 #endif

@@ -4,10 +4,13 @@ int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     srand(time(NULL));
-    int arr[size]{};
+    //int arr[size];
     int s = 0;
+    int size;
+    cin >> size;
+    int* arr = new int[size];
 
-    Ent(arr);
+    Ent(arr, size);
  
     cout << "Массив до :\n";
     for (int i = 0; i < size; i++)
@@ -27,7 +30,7 @@ int main() {
     //
 
     int* narr = new int[s];
-    swp(arr,arr , narr);
+    swp(arr, arr , narr, size);
 
     cout << "Массив после :\n";
     for (int i = 0; i < size; i++)
@@ -44,4 +47,5 @@ int main() {
     }
     cout << endl;
     delete[] narr;
+    delete[] arr;
 }
