@@ -4,7 +4,7 @@ int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     srand(time(NULL));
-    //int arr[size];
+
     int s = 0;
     cout << "Введите количество елементов массива" << endl;
     int size;
