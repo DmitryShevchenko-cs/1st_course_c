@@ -6,6 +6,7 @@ int main() {
     srand(time(NULL));
     //int arr[size];
     int s = 0;
+    cout << "Введите количество елементов массива" << endl;
     int size;
     cin >> size;
     int* arr = new int[size];
