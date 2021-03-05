@@ -1,3 +1,4 @@
+#pragma once 
 #ifndef XT
 #define XT
 
