@@ -5,7 +5,7 @@ int main() {
     SetConsoleOutputCP(1251);
     srand(time(NULL));
 
-    int arr[size]{};
+    int arr[size];
     int B[size], C[size], D[size]; // >0  <0  =0
     int d = 0, c = 0, b = 0;
 
