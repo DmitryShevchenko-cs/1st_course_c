@@ -10,8 +10,6 @@ void initialize_1(int* Ar, int n)// матрица заполнения
     printf("\n");
 }
 
-
-
 void count_1(int* Ar, int n)          //расчет и заполение матрицы 
 {
     int sum_j = 0, sum_i = 0;
@@ -21,13 +19,13 @@ void count_1(int* Ar, int n)          //расчет и заполение матрицы
         for (int j = 0; j < n; j++) {
 
             // сумма ряда
-            sum_j += *(Ar + r1) + j;
+            sum_j += *(Ar + r1 * n + j);
 
             // сумма столбца
-            sum_i += *(Ar + j) + k;
+            sum_i += *(Ar + j * n + k);
         }
 
-        //*(Ar + r1) + k = sum_i + sum_j - *(Ar + r1) + k;
+        *(Ar + r1 * n + k) = sum_i + sum_j - *(Ar + r1 * n + k);
         r1++;
         sum_i = 0;
         sum_j = 0;
