@@ -3,7 +3,7 @@
 void initialize_1(int* Ar, int n)// матрица заполнения
 {
     srand(time(0));
-    for (int i = 0; i < (n*n); i++) {
+    for (int i = 0; i < n*n; i++) {
         *(Ar + i) = rand() % 99;
         printf("%4d", *(Ar + i));
     }
@@ -12,7 +12,7 @@ void initialize_1(int* Ar, int n)// матрица заполнения
 
 
 
-void count_1(int** A, int n)          //расчет и заполение матрицы 
+void count_1(int* Ar, int n)          //расчет и заполение матрицы 
 {
     int sum_j = 0, sum_i = 0;
     int r1 = 0;
@@ -21,13 +21,13 @@ void count_1(int** A, int n)          //расчет и заполение матрицы
         for (int j = 0; j < n; j++) {
 
             // сумма ряда
-            sum_j += *(*(A + r1) + j);
+            sum_j += *(Ar + r1) + j;
 
             // сумма столбца
-            sum_i += *(*(A + j) + k);
+            sum_i += *(Ar + j) + k;
         }
 
-        *(*(A + r1) + k) = sum_i + sum_j - *(*(A + r1) + k);
+        //*(Ar + r1) + k = sum_i + sum_j - *(Ar + r1) + k;
         r1++;
         sum_i = 0;
         sum_j = 0;

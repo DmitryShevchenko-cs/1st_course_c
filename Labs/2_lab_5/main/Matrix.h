@@ -12,7 +12,7 @@ using namespace std;
 
 void initialize_1(int* Ar, int n);
 void initialize_2(int** A, int n);
-void count_1(int** A, int n);
+void count_1(int* Ar, int n);
 void count_2(int **A, int n);
 
 #ifndef choise

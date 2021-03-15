@@ -19,7 +19,15 @@ int main() {
 		{
 			int *A = new int[n * n];
 			initialize_1(A, n);
-			
+
+			printf("\nОдномерный как двумерный:\n");
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < n; j++) {
+					printf("%4d", *(A + i * n + j));
+				}
+				printf("\n");
+			}
+
 			break; 
 		}
 		case 2: 
