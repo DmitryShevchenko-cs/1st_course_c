@@ -24,12 +24,10 @@ int main()
 	
 
 	operation = sum;
-	result = operation(A, n, m);
-	printf("\nСумма положительных элементов \n%d\n", result);
+	printf("\nСумма положительных элементов \n%d\n", operation(A, n, m));
 	
 	operation = prod;
-	result = operation(A, n, m);
-	printf("\nПроизведение отрицательных элементов\n%d\n", result);
+	printf("\nПроизведение отрицательных элементов\n%d\n", operation(A, n, m));
 
 	for (int i = 0; i < n; i++)
 	{
