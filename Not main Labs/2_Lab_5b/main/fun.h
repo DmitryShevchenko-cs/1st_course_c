@@ -9,6 +9,6 @@
 using namespace std;
 
 void initialize(int** A, int n, int m);
-int* sum(int** A, int n, int m);
-int* prod(int** A, int n, int m);
+int sum(int** A, int n, int m);
+int prod(int** A, int n, int m);
 #endif

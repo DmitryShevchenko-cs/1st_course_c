@@ -13,7 +13,7 @@ void initialize(int** A, int n, int m)
     }
 }
 
-int* sum(int** A, int n, int m)
+int sum(int** A, int n, int m)
 {
     int sum = 0;
     for (int i = 0; i < n; i++)
@@ -24,10 +24,10 @@ int* sum(int** A, int n, int m)
         }
     }
 
-    return &sum;
+    return sum;
 }
 
-int* prod(int** A, int n, int m)
+int prod(int** A, int n, int m)
 {
     int pr = 1;
     for (int i = 0; i < n; i++)
@@ -38,6 +38,6 @@ int* prod(int** A, int n, int m)
         }
     }
 
-    return &pr;
+    return pr;
 
 }
