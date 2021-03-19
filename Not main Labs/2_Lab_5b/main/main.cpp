@@ -25,4 +25,10 @@ int main()
 	
 	product = prod(A, n, m);
 	printf("\nПроизведение отрицательных элементов\n%d\n", *product);
+
+	for (int i = 0; i < n; i++)
+	{
+		delete[] A[i];
+	}
+	delete[] A;
 }
