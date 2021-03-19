@@ -7,7 +7,7 @@ int main() {
     SetConsoleOutputCP(1251);
    
 	int n = 0;
-	printf("Введите кол-во строк и столбцов: ");
+	printf("Введите кол-во строк и столбцов(кол-во строк и столбцов равны): ");
 	scanf("%d", &n);
 	printf("\n");
 	if (n > 0) {
@@ -18,6 +18,7 @@ int main() {
 			case 1:
 			{
 				int* A = new int[n * n];
+				printf("\nОдномерный массив:\n");
 				initialize_1(A, n);
 
 				printf("\nОдномерный как двумерный:\n");
