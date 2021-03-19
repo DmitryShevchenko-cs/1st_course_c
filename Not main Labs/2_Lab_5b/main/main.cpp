@@ -20,15 +20,15 @@ int main()
 	printf("Матрица: \n");
 	initialize(A, n, m);
 
-	int(*s)(int** A, int n, int m);
-	int(*product)(int** A, int n, int m);
-
-	s = sum;
-	result = s(A, n, m);
-	printf("\nСумма положительных элементов \n%d\n",result);
+	int(*operation)(int** A, int n, int m);
 	
-	product = prod;
-	result = product(A, n, m);
+
+	operation = sum;
+	result = operation(A, n, m);
+	printf("\nСумма положительных элементов \n%d\n", result);
+	
+	operation = prod;
+	result = operation(A, n, m);
 	printf("\nПроизведение отрицательных элементов\n%d\n", result);
 
 	for (int i = 0; i < n; i++)
