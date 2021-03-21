@@ -9,6 +9,8 @@
 #include <ctime>
 
 using namespace std;
-int point_a(int A);
-void sort();
+void SS(int(*sort)(int*, int), int* mas, int size);
+int bubbleSort_1(int* mas, int size);
+int InsertionSort_2(int* mas, int size);
+int selectionSort_3(int* mas, int size);
 #endif
