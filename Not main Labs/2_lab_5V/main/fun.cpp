@@ -23,13 +23,13 @@ int bubbleSort_1(int* mas, int size) {
 }
 
 int InsertionSort_2(int* mas, int size) {
+    
     int tmp;
-    for (int i = 1; i < size; i++)
-    {
-        tmp = mas[i];
-        for (int j = i - 1; j >= 0 && mas[j] > tmp; j--) {
-            mas[j + 1] = mas[j];
-            mas[j + 1] = tmp;
+    for (int i = 1; i < size; i++) {
+        for (int j = i; j > 0 && *(mas + j - 1) > *(mas + j); j--) {
+            int tmp = *(mas + j - 1);
+            *(mas + j - 1) = *(mas + j);
+            *(mas + j) = tmp;
         }
     }
     return 0;
@@ -48,7 +48,7 @@ int selectionSort_3(int *mas, int size)
             }
         }
         tmp = mas[i];
-        *(mas+i) = *(mas+j);
+        *(mas + i) = *(mas + j);
         *(mas + j) = tmp;
     }
     return 0;
