@@ -11,7 +11,7 @@ int main()
 		printf("Введите сообщение> ");
 		if (!strcmp(gets_s(STR), "***")) break;
 		cout << STR << endl;
-		cout << push(STR,str) << endl;
+		cout << push(STR, str) << endl;
 	}
 	
 	return 0;
