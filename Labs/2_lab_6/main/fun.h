@@ -7,6 +7,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "windows.h"
+#define N 10
 using namespace std;
-void push(char* STR, char* str);
+char* push(char* STR, char* str);
 #endif

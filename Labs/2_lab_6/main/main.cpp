@@ -5,7 +5,14 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	char STR[100], str[100];//ввод, результат
+	char STR[N], str[N];
+	while (true)
+	{
+		printf("Введите сообщение> ");
+		if (!strcmp(gets_s(STR), "***")) break;
+		cout << STR << endl;
+		cout << push(STR,str) << endl;
+	}
 	
 	return 0;
 }
