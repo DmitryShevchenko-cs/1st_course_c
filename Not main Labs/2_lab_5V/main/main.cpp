@@ -15,7 +15,7 @@ int main() {
 		*(A + i) = rand() % 10;
 		printf("%4d", *(A + i));
 	}
-	while (k<3) {
+	
 		cout << endl;
 		cout << endl;
 		printf("Выберите метод соритировки :\n");
@@ -30,7 +30,6 @@ int main() {
 		case 1:
 		{
 			SS(bubbleSort_1, A, n);
-			k++;
 			printf("\nМассив после :\n");
 			for (int i = 0; i < n; i++) {
 				printf("%4d", *(A + i));
@@ -41,7 +40,6 @@ int main() {
 		case 2:
 		{
 			SS(InsertionSort_2, A, n);
-			k++;
 			printf("\nМассив после :\n");
 			for (int i = 0; i < n; i++) {
 				printf("%4d", *(A + i));
@@ -52,7 +50,6 @@ int main() {
 		case 3:
 		{
 			SS(selectionSort_3, A, n);
-			k++;
 			printf("\nМассив после :\n");
 			for (int i = 0; i < n; i++) {
 				printf("%4d", *(A + i));
@@ -66,6 +63,6 @@ int main() {
 		}
 		}
 	
-	}
+
 	return 0;
 }
