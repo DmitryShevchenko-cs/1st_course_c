@@ -6,11 +6,11 @@ int main()
 
 	
 	int n = 0, m = 0;
-	int result;
+	
 
 	printf("Введите кол-во строк и столбцов: ");
-	scanf("%d", &n);
-	scanf("%d", &m);
+	scanf_s("%d", &n);
+	scanf_s("%d", &m);
 	printf("\n");
 
 	int** A = new int* [n];
