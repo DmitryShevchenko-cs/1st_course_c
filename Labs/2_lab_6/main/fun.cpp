@@ -1,12 +1,69 @@
 #include "fun.h"
 
+char* myGets(char* s) {
+	// Use int to distinguish the typical 257 different returns values of getchar() 
+	int ch;
+	char* p = s;
+
+	// stop when a \n or EOF encountered 
+	// while ( (ch=getchar()) != '0' )
+	while ((ch = getchar()) != '\n' && ch != EOF) {
+		// Note lack of check for adequate array space
+		*s = (char)ch;
+		s++;
+	}
+
+	// Append a null character, not assign a zero to the pointer
+	// s='\0';
+	*s = '\0';
+	return p;
+}
+
+bool myStrcmp(char* str1, char* str2){
+
+	for (int i = 0; i < N; i++) {
+		if (*(str1 + i) != *(str2 + i)) return 1;
+		else return 0;
+	}
+
+}
+int myStrlen(const char* str)
+{
+	int counter = 0;
+	while (*(str+counter) != '\0')
+	{
+		counter++;
+	}
+	return counter;
+}
+
+char* myStrcat(char* str1, char* str2)
+{
+	while (*str1)
+	{
+		str1++;
+	}
+	while (*str2)
+	{
+		*str1 = *str2;
+		str1++;
+		str2++;
+	}
+	*str1 = '\0';
+	return str1;
+}
+
 char* push(char* STR, char* str)
 {
-	memset(str, 0, N + 1); 
-	for (int i = 0; i < N - strlen(STR); i++) 
+	
+	for (int i = 0; i <= N; i++)
 	{
-		str[i] = ' ';
+		*(str + i) = '\0';
 	}
-	strcat(str, STR);
+	for (int i = 0; i < N - myStrlen(STR); i++)
+	{
+		*(str + i) = ' ';
+	}
+	myStrcat(str, STR);
 	return str;
 }

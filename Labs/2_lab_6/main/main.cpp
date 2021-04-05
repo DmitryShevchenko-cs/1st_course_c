@@ -5,14 +5,17 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	char STR[N], str[N];
+	char STR[N+1], str[N+2];
+	char stars[]="***", zero[]="";
 	while (true)
 	{
-		printf("Введите сообщение> ");
-		if (!strcmp(gets_s(STR), "***")) break;
-		cout << STR << endl;
-		cout << push(STR, str) << endl;
+		printf("Введите сообщение, '***'-прекратить ввод> ");
+		
+		if (!myStrcmp(myGets(STR),stars)) break;
+		if (!myStrcmp(STR, zero)) printf("Тут пусто (\n");
+		printf("%s\n", STR);
+		printf("%s\n", push(STR, str));
+		
 	}
-	
-	return 0;
+	return 0; 
 }
