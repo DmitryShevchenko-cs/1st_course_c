@@ -11,8 +11,6 @@ char* myGets(char* s) {
 		s++;
 	}
 
-	// Append a null character, not assign a zero to the pointer
-	// s='\0';
 	*s = '\0';
 	return p;
 }
