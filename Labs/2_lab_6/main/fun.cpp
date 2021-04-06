@@ -1,14 +1,12 @@
 #include "fun.h"
 
 char* myGets(char* s) {
-	// Use int to distinguish the typical 257 different returns values of getchar() 
+	
 	int ch;
 	char* p = s;
 
-	// stop when a \n or EOF encountered 
-	// while ( (ch=getchar()) != '0' )
 	while ((ch = getchar()) != '\n' && ch != EOF) {
-		// Note lack of check for adequate array space
+	
 		*s = (char)ch;
 		s++;
 	}
