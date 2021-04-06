@@ -7,7 +7,7 @@ char* myGets(char* s) {
 
 	while ((ch = getchar()) != '\n' && ch != EOF) {
 	
-		*s = (char)ch;
+		*s = ch;
 		s++;
 	}
 
