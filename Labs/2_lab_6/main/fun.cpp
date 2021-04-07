@@ -49,17 +49,17 @@ char* myStrcat(char* str1, char* str2)
 	return str1;
 }
 
-char* push(char* STR, char* str)
+char* push(char* str1, char* str2)
 {
 	
 	for (int i = 0; i <= N; i++)
 	{
-		*(str + i) = '\0';
+		*(str2 + i) = '\0';
 	}
-	for (int i = 0; i < N - myStrlen(STR); i++)
+	for (int i = 0; i < N - myStrlen(str1); i++)
 	{
-		*(str + i) = ' ';
+		*(str1 + i) = ' ';
 	}
-	myStrcat(str, STR);
-	return str;
+	myStrcat(str1, str2);
+	return str1;
 }
