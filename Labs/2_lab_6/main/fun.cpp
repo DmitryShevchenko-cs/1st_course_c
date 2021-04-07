@@ -51,15 +51,16 @@ char* myStrcat(char* str1, char* str2)
 
 char* push(char* str1, char* str2)
 {
-	
+	int q = myStrlen(str1);
 	for (int i = 0; i <= N; i++)
 	{
 		*(str2 + i) = '\0';
 	}
-	for (int i = 0; i < N - myStrlen(str1); i++)
+	
+	for (int i = 0; i < N - q; i++)
 	{
-		*(str1 + i) = ' ';
+		*(str2 + i) = ' ';
 	}
-	myStrcat(str1, str2);
-	return str1;
+	myStrcat(str2, str1);
+	return str2;
 }

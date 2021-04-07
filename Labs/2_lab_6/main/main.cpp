@@ -18,10 +18,16 @@ int main()
 	while (true)
 	{
 		
-		if (!myStrcmp(STR,stars)) break;
+		if (!myStrcmp(STR, stars)) {
+			printf("ВЫХОД\n");
+			break;
+		}
 		if (!myStrcmp(STR, zero)) printf("Тут пусто (\n");
-		printf("%s\n", STR);
-		printf("%s\n", push(STR, str));
+		else {
+			printf("%s\n", STR);
+			printf("%s\n", push(STR, str));
+		}
+		
 
 		int c;
 		while ((c = getchar()) != EOF && c != '\n');
