@@ -1,19 +1,5 @@
 #include "fun.h"
 
-char* myGets(char* s) {
-	
-	int ch;
-	char* p = s;
-
-	while ((ch = getchar()) != '\n' && ch != EOF) {
-	
-		*s = ch;
-		s++;
-	}
-
-	*s = '\0';
-	return p;
-}
 
 bool myStrcmp(char* str1, char* str2){
 
@@ -35,17 +21,11 @@ int myStrlen(const char* str)
 
 char* myStrcat(char* str1, char* str2)
 {
-	while (*str1)
-	{
-		str1++;
+	
+	while (*str1) str1++;
+	while (*str2) {
+		*str1++ = *str2++;
 	}
-	while (*str2)
-	{
-		*str1 = *str2;
-		str1++;
-		str2++;
-	}
-	*str1 = '\0';
 	return str1;
 }
 

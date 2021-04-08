@@ -22,7 +22,8 @@ int main()
 			printf("ВЫХОД\n");
 			break;
 		}
-		if (!myStrcmp(STR, zero)) printf("Тут пусто (\n");
+		if (!myStrcmp(STR, zero)) 
+			printf("Тут пусто (\n");
 		else {
 			printf("%s\n", STR);
 			printf("%s\n", push(STR, str));

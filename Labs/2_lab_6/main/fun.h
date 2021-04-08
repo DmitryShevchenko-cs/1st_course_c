@@ -7,7 +7,6 @@
 #include "windows.h"
 #define N 10
 using namespace std;
-char* myGets(char* s);
 bool myStrcmp(char* str1, char* str2);
 int myStrlen(const char* str);
 char* myStrcat(char* str1, char* str2);
