@@ -9,7 +9,7 @@ bool myStrcmp(char* str1, char* str2){
 	}
 
 }
-int myStrlen(const char* str)
+int myStrlen(char* str)
 {
 	int counter = 0;
 	while (*(str+counter) != '\0')
