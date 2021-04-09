@@ -8,10 +8,7 @@ int main()
 	char STR[N+1], str[N+2];
 	char stars[]="***", zero[]="";
 
-	for (int i = 0; i < N; i++)
-	{
-		*(STR + i) = '\0';
-	}
+	
 	printf("Введите сообщение, '***'-прекратить ввод> ");
 	scanf("%[^\n]s", STR);
 
