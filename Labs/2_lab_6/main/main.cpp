@@ -29,9 +29,9 @@ int main()
 			printf("%s\n", push(STR, str));
 		}
 		
-
-		int c;
-		while ((c = getchar()) != EOF && c != '\n');
+	
+		int c = getchar();
+		while (c != EOF && c != '\n');
 
 		if (c == EOF) {
 			if (feof(stdin)) {
@@ -48,6 +48,7 @@ int main()
 		}
 		printf("Введите сообщение, '***'-прекратить ввод> ");
 		scanf("%[^\n]s", STR);
+		
 	}
 	
 	return 0; 
