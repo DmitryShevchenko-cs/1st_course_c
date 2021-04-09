@@ -23,7 +23,7 @@ int main()
 			printf("Тут пусто (\n");
 		else {
 			printf("%s\n", STR);
-			printf("%s\n", push(STR, str));
+			printf("%s\n", push_str(STR, str));
 		}
 
 		if (scanf("%*[^\n]") == EOF) {

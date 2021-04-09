@@ -9,7 +9,7 @@ bool myStrcmp(char* str1, char* str2){
 	}
 
 }
-int myStrlen(char* str)
+int myStrlen(const char* str)
 {
 	int counter = 0;
 	while (*(str+counter) != '\0')
@@ -29,15 +29,15 @@ char* myStrcat(char* str1, char* str2)
 	return str1;
 }
 
-char* push(char* str1, char* str2)
+char* push_str(char* str1, char* str2)
 {
-	int q = myStrlen(str1);
+	int i_strlen = myStrlen(str1);
 	for (int i = 0; i <= N; i++)
 	{
 		*(str2 + i) = '\0';
 	}
 	
-	for (int i = 0; i < N - q; i++)
+	for (int i = 0; i < N - i_strlen; i++)
 	{
 		*(str2 + i) = ' ';
 	}
