@@ -28,19 +28,16 @@ int main()
 			printf("%s\n", STR);
 			printf("%s\n", push(STR, str));
 		}
-		
-	
-		int c = getchar();
-		while (c != EOF && c != '\n');
 
-		if (c == EOF) {
+		if (scanf("%*[^\n]") == EOF) {
 			if (feof(stdin)) {
-				/* Handle stdin EOF. */
+				// Handle stdin EOF.
 			}
 			else {
-				/* Handle stdin error. */
+				// Handle stdin error.
 			}
 		}
+		getchar();
 
 		for (int i = 0; i < N; i++)
 		{
