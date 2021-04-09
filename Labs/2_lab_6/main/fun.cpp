@@ -3,13 +3,38 @@
 
 bool myStrcmp(char* str1, char* str2){
 
-	for (int i = 0; i < N; i++) {
-		if (*(str1 + i) != *(str2 + i)) return 1;
-		else return 0;
+	for (int i = 0; ; i++)
+	{
+		if (*(str1 + i) != *(str2 + i))
+		{
+			return *(str1 + i) < *(str2 + i) ? -1 : 1;
+		}
+
+		if (*(str1 + i) == '\0')
+		{
+			return 0;
+		}
 	}
 
+	//int i = 0, flag = 0;
+	//while (flag == 0)
+	//{
+	//	if (*(str1 + i) == *(str2 + i))
+	//	{
+	//		flag = 1;
+	//	}
+	//	else if (*(str1 + i) != *(str2 + i))
+	//	{
+	//		flag = 0;
+	//	}
+	//	else
+	//	{
+	//		i++;
+	//	}
+	//}
+	//return flag;
 }
-int myStrlen(const char* str)
+int myStrlen(char* str)
 {
 	int counter = 0;
 	while (*(str+counter) != '\0')

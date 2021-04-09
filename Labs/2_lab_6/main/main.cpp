@@ -10,6 +10,10 @@ int main()
 
 	
 	printf("Введите сообщение, '***'-прекратить ввод> ");
+	for (int i = 0; i < N; i++)
+	{
+		*(STR + i) = '\0';
+	}
 	scanf("%[^\n]s", STR);
 
 	while (true)
