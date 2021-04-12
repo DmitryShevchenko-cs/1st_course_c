@@ -11,9 +11,7 @@ void input(Tabl t[]) {
 }
 
 void random(Tabl t[]) {
-#ifdef DEBAG
-	cout << endl << __DATE__ << endl << __TIME__ << endl << endl;
-#endif
+
 	srand(time(NULL));
 	int arr[S]{};
 	bool already;
@@ -45,33 +43,14 @@ void random(Tabl t[]) {
 
 	cout << "Произошло заполнение" << endl;
 	cout << endl;
-#ifdef DEBAG
-	cout << "Файл: " << __FILE__ << endl << "Функция: " << __FUNCTION__ << endl << endl;
-#endif
+
 	cout << endl;
 }
 
-void sort(Tabl t[]) {
-#ifdef DEBAG
-	cout << endl << __DATE__ << endl << __TIME__ << endl << endl;
-#endif
-	for (int i = 0; i < S; i++) {
-		for (int j = 0; j < S - 1; j++) {
-			if (t[j].sp > t[j + 1].sp) swap(*(t+j), *(t + j + 1));
-		}
-	}
-	cout << "Произошла сортировка" << endl;
-	cout << endl;
-#ifdef DEBAG
-	cout << "Файл: " << __FILE__ << endl << "Функция: " << __FUNCTION__ << endl << endl;
-#endif
-	cout << endl;
-}
+
 
 void print(Tabl t[]) {
-#ifdef DEBAG
-	cout << endl << __DATE__ << endl << __TIME__ << endl << endl;
-#endif
+
 	printf("-----------------------------------------------\n");
 	printf("|          Скорость звука в жидкостях         |\n");
 	printf("|---------------------------------------------|\n");
@@ -85,7 +64,5 @@ void print(Tabl t[]) {
 	printf("| примечание:  ч - чистое вещество, м - масло |\n");
 	printf("-----------------------------------------------\n");
 	cout << endl;
-#ifdef DEBAG
-	cout << "Файл: " << __FILE__ << endl << "Функция: " << __FUNCTION__ << endl << endl;
-#endif
+
 }
