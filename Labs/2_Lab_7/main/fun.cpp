@@ -9,7 +9,7 @@ void input(Tabl t) {
 		exit(0);
 	}
 
-
+	printf("Введите вещество, тип, температуру, скорость:\n");
 	scanf_s("%s", t.name, 10);
 	setbuf(stdin, NULL);
 	scanf_s("%c", &t.type, 2);
