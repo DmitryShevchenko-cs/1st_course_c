@@ -3,24 +3,28 @@
 #define XT
 
 #include "windows.h"
-#include <ctime>
 #include <iostream>
+#include <iomanip>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctime>
+#include <fstream>
 
+#pragma warning(disable : 4996)
 #define  _CRT_SECURE_NO_WARNINGS
-#define S 7
-#define DEBAG 
+
 using namespace std;
 
 struct Tabl {
 	char name[10];
 	char type;
-	short tem;
-	unsigned sp;
+	int tem;
+	int sp;
 };
 
-void input(Tabl t[]);
-void random(Tabl t[]);
-
-void print(Tabl t[]);
+void input(Tabl t);
+void random(Tabl t);
+void print(Tabl t);
 
 #endif
