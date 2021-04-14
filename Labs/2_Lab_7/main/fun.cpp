@@ -1,7 +1,7 @@
 #include "fun.h"
 
 void input(Tabl t) {
-
+	system("cls");
 	FILE* file = NULL;
 	fopen_s(&file ,"Tab.txt", "w");
 	if (file == NULL) {
@@ -13,6 +13,7 @@ void input(Tabl t) {
 	scanf_s("%s", t.name, 10);
 	setbuf(stdin, NULL);
 	scanf_s("%c", &t.type, 2);
+	setbuf(stdin, NULL);
 	scanf_s("%d", &t.tem);
 	scanf_s("%d", &t.sp);
 
@@ -23,7 +24,7 @@ void input(Tabl t) {
 }
 
 void random(Tabl t) {
-
+	
 	srand(time(NULL));
 	int arr[7]{};
 	bool already;

@@ -1,6 +1,7 @@
 #pragma once
 #ifndef XT
 #define XT
+#define  _CRT_SECURE_NO_WARNINGS
 
 #include "windows.h"
 #include <iostream>
@@ -10,9 +11,6 @@
 #include <string.h>
 #include <ctime>
 #include <fstream>
-
-#pragma warning(disable : 4996)
-#define  _CRT_SECURE_NO_WARNINGS
 
 using namespace std;
 
