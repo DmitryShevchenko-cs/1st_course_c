@@ -183,6 +183,10 @@ void add_after(Tabl t, int& line) {
 	line++;
 }
 
+void choice(Tabl t) {
+
+}
+
 void print(Tabl t, int& line) {
 	
 	system("cls");
