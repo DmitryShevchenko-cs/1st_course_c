@@ -17,7 +17,7 @@ using namespace std;
 struct Tabl {
 	char name[10];
 	char type;
-	int tem;
+	float tem;
 	int sp;
 };
 

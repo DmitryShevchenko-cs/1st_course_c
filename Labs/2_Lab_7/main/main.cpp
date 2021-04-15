@@ -12,6 +12,7 @@ int main(void) {
 
 	while (true)
 	{
+	
 		printf("1 - ввод с экрана и запись в файл\n");
 		printf("2 - ввод случайным образом и запись в файл\n");
 		printf("3 - добавить запись в начало файла\n");
@@ -24,7 +25,7 @@ int main(void) {
 		scanf_s("%d", &choice);
 
 		switch (choice) {
-		case(1): input(t); // ввод с экрана
+		case(1): input(t); // ввод с экрана+++++++++++
 			break;
 
 		case(2): random(t); // случайный ввод
@@ -33,7 +34,7 @@ int main(void) {
 		case(3): break; // добавить в начало
 
 		case(4): add(t);
-			break; // добавить в конец
+			break; // добавить в конец+++++++++++++++++++++++++==
 
 		case(5):  // печать по номеру
 			scanf_s("%d", &num);
@@ -41,13 +42,13 @@ int main(void) {
 			if (!b) cout << "Файл пуст или данной строки несуществует" << endl;
 			break;
 
-		case(6): // печать всей
+		case(6): // печать всей++++++++++++++++++++
 			print(t);
 			break;
 
 		case(7):
 			printf("Выход\n");
-			return 0; //выход
+			return 0; //выход++++++++++++++++++
 
 		default:
 			printf("Неверное число\n");

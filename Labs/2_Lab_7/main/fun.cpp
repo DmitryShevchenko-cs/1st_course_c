@@ -12,12 +12,12 @@ void input(Tabl t) {
 	printf("Введите вещество, тип, температуру, скорость:\n");
 	scanf_s("%s", t.name, 10);
 	setbuf(stdin, NULL);
-	scanf_s("%c", &t.type, 2);
+	scanf_s("%c", &t.type, 1);
 	setbuf(stdin, NULL);
-	scanf_s("%d", &t.tem);
+	scanf_s("%f", &t.tem);
 	scanf_s("%d", &t.sp);
 
-	fprintf_s(file, "%s %c %d %d\n", t.name, t.type, t.tem, t.sp);
+	fprintf_s(file, "%-10s %-c %-4.2f %-4d\n", t.name, t.type, t.tem, t.sp);
 	fclose(file);
 
 
@@ -73,31 +73,30 @@ void add(Tabl t) {
 	printf("Введите вещество, тип, температуру, скорость:\n");
 	scanf_s("%s", t.name, 10);
 	setbuf(stdin, NULL);
-	scanf_s("%c", &t.type, 2);
+	scanf_s("%c", &t.type, 1);
 	setbuf(stdin, NULL);
-	scanf_s("%d", &t.tem);
+	scanf_s("%f", &t.tem);
 	scanf_s("%d", &t.sp);
 
-	fprintf_s(file, "%s %c %d %d\n", t.name, t.type, t.tem, t.sp);
+	fprintf_s(file, "%-10s %-c %-3.2f %-4d\n", t.name, t.type, t.tem, t.sp);
 	fclose(file);
-
-
 }
 
 void print(Tabl t) {
-
-	//printf("-----------------------------------------------\n");
-	//printf("|          Скорость звука в жидкостях         |\n");
-	//printf("|---------------------------------------------|\n");
-	//printf("| Вещество  |  Тип  |Температура|  Скорость   |\n");
-	//printf("|           |       |  (град.С) |   (м/сек)   |\n");
-	//printf("|-----------|-------|-----------|-------------|\n");
-	//for (int i = 0; i < S; i++)
-	//	printf("| %9s | %5c | %9hd | %11u |\n",
-	//		t[i].name, t[i].type, t[i].tem, t[i].sp);
-	//printf("|---------------------------------------------|\n");
-	//printf("| примечание:  ч - чистое вещество, м - масло |\n");
-	//printf("-----------------------------------------------\n");
-	//cout << endl;
+	
+	system("cls");
+	FILE* file = NULL;
+	fopen_s(&file, "Tab.txt", "r");
+	if (!file) {
+		puts("Ошибка открытия файла");
+		exit(0);
+	}
+	char ch = fgetc(file);
+	while (!feof(file)) {
+		putchar(ch);
+		ch = fgetc(file);
+	}
+	fclose(file);
+	printf("\n\n\n");
 
 }
