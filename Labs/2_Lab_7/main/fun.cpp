@@ -180,7 +180,7 @@ void add_after(Tabl t) {
 	
 }
 
-int choice_str(Tabl t, bool& B) {
+void choice_str(Tabl t, bool& B) {
 	system("cls");
 	char c;
 	int size = 0;
@@ -189,7 +189,8 @@ int choice_str(Tabl t, bool& B) {
 	FILE* file_read;
 	fopen_s(&file_read, "Tab.txt", "r");
 	if (file_read == NULL) {
-		return B = 0;
+		B = 0;
+		return;
 	}
 
 	while (true) {
@@ -206,14 +207,15 @@ int choice_str(Tabl t, bool& B) {
 	scanf("%d", &num);
 
 	if (num > size) {
-		return B = 0;
-		exit(0);
+		B = 0;
+		return;
 	}
 
 	FILE* file_print = NULL;
 	fopen_s(&file_print, "Tab.txt", "rt");
 	if (!file_print) {
-		return B = 0;
+		B = 0;
+		return;
 	}
 	
 	int i = 0;
@@ -230,7 +232,7 @@ int choice_str(Tabl t, bool& B) {
 	printf("%-10s %-8s  %-3.2f  %4d\n", t.name, t.type, t.tem, t.sp);
 	fclose(file_print);
 	printf("\n\n\n");
-	return B;
+	
 }
 
 void print(Tabl t) {
