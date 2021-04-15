@@ -16,12 +16,12 @@ struct Tabl {
 	int sp;
 };
 
-void input(Tabl t, int& line);
+void input(Tabl t);
 int random_number();
-void random(Tabl t, int& line);
-void add_before(Tabl t, int& line);
-void add_after(Tabl t, int& line);
-void choice(Tabl t);
-void print(Tabl t, int& line);
+void random(Tabl t);
+void add_before(Tabl t);
+void add_after(Tabl t);
+void choice_str(Tabl t, int num);
+void print(Tabl t);
 
 #endif

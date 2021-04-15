@@ -1,6 +1,6 @@
 #include "fun.h"
 
-void input(Tabl t, int& line) {
+void input(Tabl t) {
 	system("cls");
 	FILE* file = NULL;
 	fopen_s(&file ,"Tab.txt", "w");
@@ -20,7 +20,6 @@ void input(Tabl t, int& line) {
 	fprintf_s(file, "%-10s %-8s  %-4.2f  %4d\n", t.name, t.type, t.tem, t.sp);
 	fclose(file);
 
-	line++;
 }
 
 int random_number() {
@@ -48,7 +47,7 @@ int random_number() {
 	return *(arr + k++);
 }
 
-void random(Tabl t, int& line) {
+void random(Tabl t) {
 	
 	int randnum = random_number();
 	char NAME[7][10]{ "Анилин", "Рутуть", "Кедровое", "Бензол", "Вода", "Спирт", "Глицерин" };
@@ -70,14 +69,13 @@ void random(Tabl t, int& line) {
 
 	fprintf_s(file, "%-10s %-8s  %-4.2f  %4d\n", t.name, t.type, t.tem, t.sp);
 	fclose(file);
-	line++;
 }
 
-void add_before(Tabl t, int& line) {
+void add_before(Tabl t) {
 	
 	int size = 0, i = 0, j = 0;
-	char c, d;
-
+	char c;
+	int line = 0;
 	FILE* f;
 	fopen_s(&f, "Tab.txt", "r");
 	if (f == NULL) {
@@ -91,13 +89,9 @@ void add_before(Tabl t, int& line) {
 	}
 	
 	fclose(f);
-	line = size;
-	int size_string = 50;
-	cout << size << endl;
-	cout << line << endl;
-	
-	////////////////////////
 
+	////////////////////////
+	int size_string = 50;
 	
 	char** str = new char* [size];
 	for (int u = 0; u < size; u++)
@@ -112,7 +106,7 @@ void add_before(Tabl t, int& line) {
 		exit(0);
 	}
 	i = 0;
-	
+	line = size;
 	while (line != 0) {
 		fgets(*(str+i), size_string, file2);
 		i++;
@@ -120,7 +114,7 @@ void add_before(Tabl t, int& line) {
 	}
 	fclose(file2);
 	i = 0;
-	line = size;
+	
 	////////////////////////
 
 	FILE* file = NULL;
@@ -140,27 +134,28 @@ void add_before(Tabl t, int& line) {
 
 	fprintf_s(file, "%-10s %-8s  %-4.2f  %4d\n", t.name, t.type, t.tem, t.sp);
 	fclose(file);
-
+	////////////////////////
 	
 	fopen_s(&file, "Tab.txt", "a");
 	if (file == NULL) {
 
 		exit(0);
 	}
-	for (int u = 0; u < line; u++)
+	for (int u = 0; u < size; u++)
 	{
-		fprintf(file, "%s", str[u]); //остальное возвращем после первой записи
+		fprintf(file, "%s", str[u]); 
 	}
 	fclose(file);
-	for (int u = 0; u < line; u++)
+
+	for (int u = 0; u < size; u++)
 	{
 		delete[] str[u];
 	}
 	delete[] str;
-	line++;
+	
 }
 
-void add_after(Tabl t, int& line) {
+void add_after(Tabl t) {
 
 	system("cls");
 	FILE* file = NULL;
@@ -180,14 +175,34 @@ void add_after(Tabl t, int& line) {
 
 	fprintf_s(file, "%-10s %-8s  %-3.2f  %4d\n", t.name, t.type, t.tem, t.sp);
 	fclose(file);
-	line++;
+	
 }
 
-void choice(Tabl t) {
+void choice_str(Tabl t, int num) {
+	char c;
+	int size = 0;
+
+	FILE* file_read;
+	fopen_s(&file_read, "Tab.txt", "r");
+	if (file_read == NULL) {
+
+		exit(0);
+	}
+
+	while (true) {
+		c = fgetc(file_read);
+		if (c == '\n')size++;
+		else if (c == EOF)  break;
+	}
+	fclose(file_read);
+
+	scanf("%d", &num);
+
+
 
 }
 
-void print(Tabl t, int& line) {
+void print(Tabl t) {
 	
 	system("cls");
 	FILE* file = NULL;
