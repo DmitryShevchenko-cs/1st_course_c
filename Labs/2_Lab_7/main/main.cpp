@@ -7,7 +7,7 @@ int main(void) {
 	
 
 	struct Tabl t {};
-	int choice, num;
+	int choice, num = 0;
 	bool b=0;
 	int line;
 	while (true)

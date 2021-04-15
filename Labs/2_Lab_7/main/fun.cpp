@@ -76,19 +76,20 @@ void add_before(Tabl t) {
 	int size = 0, i = 0, j = 0;
 	char c;
 	int line = 0;
-	FILE* f;
-	fopen_s(&f, "Tab.txt", "r");
-	if (f == NULL) {
+
+	FILE* f_size;
+	fopen_s(&f_size, "Tab.txt", "r");
+	if (f_size == NULL) {
 
 		exit(0);
 	}
 	while (true) {
-		c = fgetc(f);
+		c = fgetc(f_size);
 		if (c == '\n')size++;
 		else if (c == EOF)  break;
 	}
 	
-	fclose(f);
+	fclose(f_size);
 
 	////////////////////////
 	int size_string = 50;
@@ -99,27 +100,27 @@ void add_before(Tabl t) {
 		str[u] = new char[size_string];
 	}
 
-	FILE* file2;
-	fopen_s(&file2, "Tab.txt", "r");
-	if (file2 == NULL) {
+	FILE* f_copy;
+	fopen_s(&f_copy, "Tab.txt", "r");
+	if (f_copy == NULL) {
 
 		exit(0);
 	}
 	i = 0;
 	line = size;
 	while (line != 0) {
-		fgets(*(str+i), size_string, file2);
+		fgets(*(str+i), size_string, f_copy);
 		i++;
 		line--;
 	}
-	fclose(file2);
+	fclose(f_copy);
 	i = 0;
 	
 	////////////////////////
 
-	FILE* file = NULL;
-	fopen_s(&file, "Tab.txt", "w");
-	if (file == NULL) {
+	FILE* f_write = NULL;
+	fopen_s(&f_write, "Tab.txt", "w");
+	if (f_write == NULL) {
 		exit(0);
 	}
 	
@@ -132,20 +133,20 @@ void add_before(Tabl t) {
 	scanf_s("%f", &t.tem);
 	scanf_s("%d", &t.sp);
 
-	fprintf_s(file, "%-10s %-8s  %-4.2f  %4d\n", t.name, t.type, t.tem, t.sp);
-	fclose(file);
+	fprintf_s(f_write, "%-10s %-8s  %-4.2f  %4d\n", t.name, t.type, t.tem, t.sp);
+	fclose(f_write);
 	////////////////////////
 	
-	fopen_s(&file, "Tab.txt", "a");
-	if (file == NULL) {
+	fopen_s(&f_write, "Tab.txt", "a");
+	if (f_write == NULL) {
 
 		exit(0);
 	}
 	for (int u = 0; u < size; u++)
 	{
-		fprintf(file, "%s", str[u]); 
+		fprintf(f_write, "%s", str[u]);
 	}
-	fclose(file);
+	fclose(f_write);
 
 	for (int u = 0; u < size; u++)
 	{
