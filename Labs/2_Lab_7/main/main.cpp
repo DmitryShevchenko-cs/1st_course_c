@@ -9,10 +9,10 @@ int main(void) {
 	struct Tabl t {};
 	int choice, num;
 	bool b=0;
-
+	int line;
 	while (true)
 	{
-	
+		
 		printf("1 - ввод с экрана и запись в файл\n");
 		printf("2 - ввод случайным образом и запись в файл\n");
 		printf("3 - добавить запись в начало файла\n");
@@ -25,16 +25,17 @@ int main(void) {
 		scanf_s("%d", &choice);
 
 		switch (choice) {
-		case(1): input(t); // ввод с экрана+++++++++++
+		case(1): input(t, line); // ввод с экрана+++++++++++
 			break;
 
-		case(2): random(t); // случайный ввод++++++++
+		case(2): random(t, line); // случайный ввод++++++++
 			break;
 
-		case(3): break; // добавить в начало
+		case(3):add_before(t, line);
+			break; // добавить в начало
 
-		case(4): add(t);
-			break; // добавить в конец+++++++++++++++++++++++++==
+		case(4): add_after(t, line);
+			break; // добавить в конец+++++++++++++++++++++++++
 
 		case(5):  // печать по номеру
 			scanf_s("%d", &num);
@@ -43,7 +44,7 @@ int main(void) {
 			break;
 
 		case(6): // печать всей++++++++++++++++++++
-			print(t);
+			print(t, line);
 			break;
 
 		case(7):

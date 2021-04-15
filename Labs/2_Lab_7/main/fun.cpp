@@ -1,6 +1,6 @@
 #include "fun.h"
 
-void input(Tabl t) {
+void input(Tabl t, int& line) {
 	system("cls");
 	FILE* file = NULL;
 	fopen_s(&file ,"Tab.txt", "w");
@@ -12,7 +12,7 @@ void input(Tabl t) {
 	printf("Введите вещество, тип, температуру, скорость:\n");
 	scanf_s("%s", t.name, 10);
 	setbuf(stdin, NULL);
-	scanf_s("%c", t.type, 7);
+	scanf_s("%s", t.type, 7);
 	setbuf(stdin, NULL);
 	scanf_s("%f", &t.tem);
 	scanf_s("%d", &t.sp);
@@ -20,8 +20,9 @@ void input(Tabl t) {
 	fprintf_s(file, "%-10s %-8s  %-4.2f  %4d\n", t.name, t.type, t.tem, t.sp);
 	fclose(file);
 
-
+	line++;
 }
+
 int random_number() {
 	srand(time(NULL));
 	int arr[7]{};
@@ -46,7 +47,8 @@ int random_number() {
 	int k = 0;
 	return *(arr + k++);
 }
-void random(Tabl t) {
+
+void random(Tabl t, int& line) {
 	
 	int randnum = random_number();
 	char NAME[7][10]{ "Анилин", "Рутуть", "Кедровое", "Бензол", "Вода", "Спирт", "Глицерин" };
@@ -68,9 +70,97 @@ void random(Tabl t) {
 
 	fprintf_s(file, "%-10s %-8s  %-4.2f  %4d\n", t.name, t.type, t.tem, t.sp);
 	fclose(file);
+	line++;
 }
 
-void add(Tabl t) {
+void add_before(Tabl t, int& line) {
+	
+	int size = 0, i = 0, j = 0;
+	char c, d;
+
+	FILE* f;
+	fopen_s(&f, "Tab.txt", "w");
+	if (f == NULL) {
+
+		exit(0);
+	}
+	while (true) {
+		c = fgetc(f);
+		if (c == '\n')size++;
+		else if (c == EOF)  break;
+	}
+	
+	fclose(f);
+	line = size;
+	int size_string = 50;
+	cout << size << endl;
+	cout << line << endl;
+	
+	////////////////////////
+
+	
+	char** str = new char* [size];
+	for (int u = 0; u < size; u++)
+	{
+		str[u] = new char[size_string];
+	}
+
+	FILE* file2;
+	fopen_s(&file2, "Tab.txt", "w");
+	if (file2 == NULL) {
+
+		exit(0);
+	}
+	i = 0;
+	
+	while (line != 0) {
+		fgets(*(str+i), size_string, file2);
+		i++;
+		line--;
+	}
+	fclose(file2);
+	i = 0;
+	line = size;
+	////////////////////////
+
+	FILE* file = NULL;
+	fopen_s(&file, "Tab.txt", "w");
+	if (file == NULL) {
+		exit(0);
+	}
+	
+	printf("Введите имя группу место число: ");
+	
+	scanf_s("%s", t.name, 10);
+	setbuf(stdin, NULL);
+	scanf_s("%s", t.type, 7);
+	setbuf(stdin, NULL);
+	scanf_s("%f", &t.tem);
+	scanf_s("%d", &t.sp);
+
+	fprintf_s(file, "%-10s %-8s  %-4.2f  %4d\n", t.name, t.type, t.tem, t.sp);
+	fclose(file);
+
+	
+	fopen_s(&file, "Tab.txt", "a");
+	if (file == NULL) {
+
+		exit(0);
+	}
+	for (int u = 0; u < line; u++)
+	{
+		fprintf(file, "%s", str[u]); //остальное возвращем после первой записи
+	}
+	fclose(file);
+	for (int u = 0; u < line; u++)
+	{
+		delete[] str[u];
+	}
+	delete[] str;
+	line++;
+}
+
+void add_after(Tabl t, int& line) {
 
 	system("cls");
 	FILE* file = NULL;
@@ -83,16 +173,17 @@ void add(Tabl t) {
 	printf("Введите вещество, тип, температуру, скорость:\n");
 	scanf_s("%s", t.name, 10);
 	setbuf(stdin, NULL);
-	scanf_s("%c", t.type, 7);
+	scanf_s("%s", t.type, 7);
 	setbuf(stdin, NULL);
 	scanf_s("%f", &t.tem);
 	scanf_s("%d", &t.sp);
 
 	fprintf_s(file, "%-10s %-8s  %-3.2f  %4d\n", t.name, t.type, t.tem, t.sp);
 	fclose(file);
+	line++;
 }
 
-void print(Tabl t) {
+void print(Tabl t, int& line) {
 	
 	system("cls");
 	FILE* file = NULL;
