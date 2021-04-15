@@ -39,8 +39,8 @@ int main(void) {
 
 		case(5):  // печать по номеру
 			choice_str(t, b);
-
 			if (!b) cout << "Файл пуст или данной строки несуществует" << endl;
+			printf("\n\n\n");
 			break;
 
 		case(6): // печать всей++++++++++++++++++++
@@ -52,6 +52,7 @@ int main(void) {
 			return 0; //выход++++++++++++++++++
 
 		default:
+			system("cls");
 			printf("Неверное число\n");
 			break;
 		}

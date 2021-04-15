@@ -72,7 +72,7 @@ void random(Tabl t) {
 }
 
 void add_before(Tabl t) {
-	
+	system("cls");
 	int size = 0, i = 0, j = 0;
 	char c;
 	int line = 0;
@@ -180,7 +180,7 @@ void add_after(Tabl t) {
 	
 }
 
-void choice_str(Tabl t, bool& B) {
+int choice_str(Tabl t, bool& B) {
 	system("cls");
 	char c;
 	int size = 0;
@@ -189,8 +189,7 @@ void choice_str(Tabl t, bool& B) {
 	FILE* file_read;
 	fopen_s(&file_read, "Tab.txt", "r");
 	if (file_read == NULL) {
-		B = 0;
-		exit(0);
+		return B = 0;
 	}
 
 	while (true) {
@@ -201,20 +200,20 @@ void choice_str(Tabl t, bool& B) {
 	fclose(file_read);
 
 	/////////////////////
-	if (num > size) {
-		B = 0;
-		exit(0);
-	}
+	
 	printf("Строк всего: %d\n",size);
 	printf("Введите номер строки: ");
 	scanf("%d", &num);
 
+	if (num > size) {
+		return B = 0;
+		exit(0);
+	}
 
 	FILE* file_print = NULL;
 	fopen_s(&file_print, "Tab.txt", "rt");
 	if (!file_print) {
-		puts("Ошибка открытия файла");
-		exit(0);
+		return B = 0;
 	}
 	
 	int i = 0;
@@ -230,8 +229,8 @@ void choice_str(Tabl t, bool& B) {
 	}
 	printf("%-10s %-8s  %-3.2f  %4d\n", t.name, t.type, t.tem, t.sp);
 	fclose(file_print);
-
 	printf("\n\n\n");
+	return B;
 }
 
 void print(Tabl t) {
