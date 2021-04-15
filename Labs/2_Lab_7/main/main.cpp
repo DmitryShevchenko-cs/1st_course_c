@@ -28,7 +28,7 @@ int main(void) {
 		case(1): input(t); // ввод с экрана+++++++++++
 			break;
 
-		case(2): random(t); // случайный ввод
+		case(2): random(t); // случайный ввод++++++++
 			break;
 
 		case(3): break; // добавить в начало

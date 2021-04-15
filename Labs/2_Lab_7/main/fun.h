@@ -5,23 +5,19 @@
 
 #include "windows.h"
 #include <iostream>
-#include <iomanip>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <ctime>
-#include <fstream>
 
 using namespace std;
 
 struct Tabl {
 	char name[10];
-	char type;
+	char type[7];
 	float tem;
 	int sp;
 };
 
 void input(Tabl t);
+int random_number();
 void random(Tabl t);
 void add(Tabl t);
 void print(Tabl t);

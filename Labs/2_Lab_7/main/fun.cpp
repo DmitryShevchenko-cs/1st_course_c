@@ -12,19 +12,17 @@ void input(Tabl t) {
 	printf("Введите вещество, тип, температуру, скорость:\n");
 	scanf_s("%s", t.name, 10);
 	setbuf(stdin, NULL);
-	scanf_s("%c", &t.type, 1);
+	scanf_s("%c", t.type, 7);
 	setbuf(stdin, NULL);
 	scanf_s("%f", &t.tem);
 	scanf_s("%d", &t.sp);
 
-	fprintf_s(file, "%-10s %-c %-4.2f %-4d\n", t.name, t.type, t.tem, t.sp);
+	fprintf_s(file, "%-10s %-8s  %-4.2f  %4d\n", t.name, t.type, t.tem, t.sp);
 	fclose(file);
 
 
 }
-
-void random(Tabl t) {
-	
+int random_number() {
 	srand(time(NULL));
 	int arr[7]{};
 	bool already;
@@ -41,23 +39,35 @@ void random(Tabl t) {
 		}
 
 		if (already == false) {
-			*(arr+i) = newrand;
+			*(arr + i) = newrand;
 			i++;
 		}
 	}
+	int k = 0;
+	return *(arr + k++);
+}
+void random(Tabl t) {
+	
+	int randnum = random_number();
+	char NAME[7][10]{ "Анилин", "Рутуть", "Кедровое", "Бензол", "Вода", "Спирт", "Глицерин" };
+	char TYPE[7][7]{ "Чистое", "Чистое", "Масло", "Чистое", "Чистое", "Чистое", "Чистое" };
+	float TEMP[7]{ 20, 21, 29, 23, 30, 25, 28 };
+	int SP[7]{ 1656, 1451, 1406, 1324, 1481, 1180, 1923 };
+	
+	strcpy(t.name, *(NAME + randnum));
+	strcpy(t.type, *(TYPE + randnum));
+	t.tem = *(TEMP + randnum);
+	t.sp = *(SP + randnum);
 
-	/*t[arr[0]] = { {'А', 'н', 'и', 'л', 'и', 'н', '\0'}, 'Ч' , 20 , 1656 };
-	t[arr[1]] = { {'Р', 'т', 'у', 'т', 'ь', '\0'} , 'Ч' , 20 , 1451 };
-	t[arr[2]] = { {'К', 'е', 'д', 'р', 'о', 'в', 'о', 'е', '\0'} , 'М' , 29 , 1406 };
-	t[arr[3]] = { {'Б', 'е', 'н', 'з', 'о', 'л', '\0'} , 'Ч' , 20 , 1324 };
-	t[arr[4]] = { {'В', 'о', 'д', 'а', '\0'} , 'Ч' , 20 , 1481 };
-	t[arr[5]] = { {'С', 'п', 'и', 'р', 'т', '\0'} , 'Ч' , 20 , 1180 };
-	t[arr[6]] = { {'Г', 'л', 'и', 'ц', 'е', 'р', 'и', 'н', '\0'} , 'Ч' , 20 , 1923 };*/
+	FILE* file = NULL;
+	fopen_s(&file, "Tab.txt", "w");
+	if (file == NULL) {
 
-	cout << "Произошло заполнение" << endl;
-	cout << endl;
+		exit(0);
+	}
 
-	cout << endl;
+	fprintf_s(file, "%-10s %-8s  %-4.2f  %4d\n", t.name, t.type, t.tem, t.sp);
+	fclose(file);
 }
 
 void add(Tabl t) {
@@ -73,12 +83,12 @@ void add(Tabl t) {
 	printf("Введите вещество, тип, температуру, скорость:\n");
 	scanf_s("%s", t.name, 10);
 	setbuf(stdin, NULL);
-	scanf_s("%c", &t.type, 1);
+	scanf_s("%c", t.type, 7);
 	setbuf(stdin, NULL);
 	scanf_s("%f", &t.tem);
 	scanf_s("%d", &t.sp);
 
-	fprintf_s(file, "%-10s %-c %-3.2f %-4d\n", t.name, t.type, t.tem, t.sp);
+	fprintf_s(file, "%-10s %-8s  %-3.2f  %4d\n", t.name, t.type, t.tem, t.sp);
 	fclose(file);
 }
 
