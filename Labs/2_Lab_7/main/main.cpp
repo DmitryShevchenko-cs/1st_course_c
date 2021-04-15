@@ -38,8 +38,8 @@ int main(void) {
 			break; // добавить в конец+++++++++++++++++++++++++
 
 		case(5):  // печать по номеру
-			scanf_s("%d", num);
-			choice_str(t, num);
+			choice_str(t, b);
+
 			if (!b) cout << "Файл пуст или данной строки несуществует" << endl;
 			break;
 

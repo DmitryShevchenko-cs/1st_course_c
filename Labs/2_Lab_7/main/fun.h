@@ -21,7 +21,7 @@ int random_number();
 void random(Tabl t);
 void add_before(Tabl t);
 void add_after(Tabl t);
-void choice_str(Tabl t, int num);
+void choice_str(Tabl t, bool &B);
 void print(Tabl t);
 
 #endif

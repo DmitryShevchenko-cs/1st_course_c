@@ -124,7 +124,7 @@ void add_before(Tabl t) {
 		exit(0);
 	}
 	
-	printf("Введите имя группу место число: ");
+	printf("Введите вещество, тип, температуру, скорость:\n");
 	
 	scanf_s("%s", t.name, 10);
 	setbuf(stdin, NULL);
@@ -137,16 +137,17 @@ void add_before(Tabl t) {
 	fclose(f_write);
 	////////////////////////
 	
-	fopen_s(&f_write, "Tab.txt", "a");
-	if (f_write == NULL) {
+	FILE* f_add = NULL;
+	fopen_s(&f_add, "Tab.txt", "a");
+	if (f_add == NULL) {
 
 		exit(0);
 	}
 	for (int u = 0; u < size; u++)
 	{
-		fprintf(f_write, "%s", str[u]);
+		fprintf(f_add, "%s", str[u]);
 	}
-	fclose(f_write);
+	fclose(f_add);
 
 	for (int u = 0; u < size; u++)
 	{
@@ -179,14 +180,16 @@ void add_after(Tabl t) {
 	
 }
 
-void choice_str(Tabl t, int num) {
+void choice_str(Tabl t, bool& B) {
+	system("cls");
 	char c;
 	int size = 0;
-
+	int num = 0;
+	B = 1;
 	FILE* file_read;
 	fopen_s(&file_read, "Tab.txt", "r");
 	if (file_read == NULL) {
-
+		B = 0;
 		exit(0);
 	}
 
@@ -197,10 +200,38 @@ void choice_str(Tabl t, int num) {
 	}
 	fclose(file_read);
 
+	/////////////////////
+	if (num > size) {
+		B = 0;
+		exit(0);
+	}
+	printf("Строк всего: %d\n",size);
+	printf("Введите номер строки: ");
 	scanf("%d", &num);
 
 
+	FILE* file_print = NULL;
+	fopen_s(&file_print, "Tab.txt", "rt");
+	if (!file_print) {
+		puts("Ошибка открытия файла");
+		exit(0);
+	}
+	
+	int i = 0;
+	while (i != num) {
+		fscanf_s(file_print, "%s", t.name, 50);
+		fseek(file_print, 1, SEEK_CUR);
+		fscanf_s(file_print, "%s", t.type, 50);
+		fseek(file_print, 1, SEEK_CUR);
+		fscanf_s(file_print, "%f", &t.tem);
+		fseek(file_print, 1, SEEK_CUR);
+		fscanf_s(file_print, "%d", &t.sp);
+		i++;
+	}
+	printf("%-10s %-8s  %-3.2f  %4d\n", t.name, t.type, t.tem, t.sp);
+	fclose(file_print);
 
+	printf("\n\n\n");
 }
 
 void print(Tabl t) {
