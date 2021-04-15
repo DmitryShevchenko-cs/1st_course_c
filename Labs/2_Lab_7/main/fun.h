@@ -23,6 +23,7 @@ struct Tabl {
 
 void input(Tabl t);
 void random(Tabl t);
+void add(Tabl t);
 void print(Tabl t);
 
 #endif

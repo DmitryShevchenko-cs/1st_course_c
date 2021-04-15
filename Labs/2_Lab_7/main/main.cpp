@@ -30,9 +30,10 @@ int main(void) {
 		case(2): random(t); // случайный ввод
 			break;
 
-		case(3): break;
+		case(3): break; // добавить в начало
 
-		case(4): break;
+		case(4): add(t);
+			break; // добавить в конец
 
 		case(5):  // печать по номеру
 			scanf_s("%d", &num);

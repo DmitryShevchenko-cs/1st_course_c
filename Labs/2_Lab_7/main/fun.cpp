@@ -60,7 +60,29 @@ void random(Tabl t) {
 	cout << endl;
 }
 
+void add(Tabl t) {
 
+	system("cls");
+	FILE* file = NULL;
+	fopen_s(&file, "Tab.txt", "a");
+	if (file == NULL) {
+		puts("Ошибка открытия файла");
+		exit(0);
+	}
+
+	printf("Введите вещество, тип, температуру, скорость:\n");
+	scanf_s("%s", t.name, 10);
+	setbuf(stdin, NULL);
+	scanf_s("%c", &t.type, 2);
+	setbuf(stdin, NULL);
+	scanf_s("%d", &t.tem);
+	scanf_s("%d", &t.sp);
+
+	fprintf_s(file, "%s %c %d %d\n", t.name, t.type, t.tem, t.sp);
+	fclose(file);
+
+
+}
 
 void print(Tabl t) {
 
