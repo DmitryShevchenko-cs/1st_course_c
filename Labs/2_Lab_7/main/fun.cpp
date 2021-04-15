@@ -79,7 +79,7 @@ void add_before(Tabl t, int& line) {
 	char c, d;
 
 	FILE* f;
-	fopen_s(&f, "Tab.txt", "w");
+	fopen_s(&f, "Tab.txt", "r");
 	if (f == NULL) {
 
 		exit(0);
@@ -106,7 +106,7 @@ void add_before(Tabl t, int& line) {
 	}
 
 	FILE* file2;
-	fopen_s(&file2, "Tab.txt", "w");
+	fopen_s(&file2, "Tab.txt", "r");
 	if (file2 == NULL) {
 
 		exit(0);
