@@ -4,8 +4,6 @@ int main(void) {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	
-
 	struct Tabl t {};
 	int choice, num = 0;
 	bool b=0;
