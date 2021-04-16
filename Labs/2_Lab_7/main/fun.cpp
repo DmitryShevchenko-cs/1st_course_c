@@ -212,7 +212,7 @@ void choice_str(Tabl t, bool& B) {
 	}
 
 	FILE* file_print = NULL;
-	fopen_s(&file_print, "Tab.txt", "rt");
+	fopen_s(&file_print, "Tab.txt", "r");
 	if (!file_print) {
 		B = 0;
 		return;
@@ -220,12 +220,9 @@ void choice_str(Tabl t, bool& B) {
 	
 	int i = 0;
 	while (i != num) {
-		fscanf_s(file_print, "%s", t.name, 50);
-		fseek(file_print, 1, SEEK_CUR);
-		fscanf_s(file_print, "%s", t.type, 50);
-		fseek(file_print, 1, SEEK_CUR);
+		fscanf_s(file_print, "%s", t.name, 10);
+		fscanf_s(file_print, "%s", t.type, 7);
 		fscanf_s(file_print, "%f", &t.tem);
-		fseek(file_print, 1, SEEK_CUR);
 		fscanf_s(file_print, "%d", &t.sp);
 		i++;
 	}

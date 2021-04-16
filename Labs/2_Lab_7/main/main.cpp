@@ -25,31 +25,31 @@ int main(void) {
 		scanf_s("%d", &choice);
 
 		switch (choice) {
-		case(1): input(t); // ввод с экрана+++++++++++
+		case(1): input(t); 
 			break;
 
-		case(2): random(t); // случайный ввод++++++++
+		case(2): random(t); 
 			break;
 
 		case(3):add_before(t);
-			break; // добавить в начало
+			break; 
 
 		case(4): add_after(t);
-			break; // добавить в конец+++++++++++++++++++++++++
+			break; 
 
-		case(5):  // печать по номеру
+		case(5):  
 			choice_str(t, b);
 			if (!b) cout << "Файл пуст или данной строки несуществует" << endl;
 			printf("\n\n\n");
 			break;
 
-		case(6): // печать всей++++++++++++++++++++
+		case(6): 
 			print(t);
 			break;
 
 		case(7):
 			printf("Выход\n");
-			return 0; //выход++++++++++++++++++
+			return 0; 
 
 		default:
 			system("cls");
