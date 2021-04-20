@@ -8,7 +8,6 @@
 #include <ctime>
 
 using namespace std;
-void fread(int* mas1, int* mas2);
-void fwrite(int* mas1);
+int count(int* mas2);
 
 #endif
