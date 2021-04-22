@@ -7,6 +7,7 @@
 #include "windows.h"
 #include <time.h>
 #include <conio.h>
+#include <malloc.h>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ struct List {
 	int sp;
 	List* next = NULL;
 };
-//struct List* head;
+
 struct List* create(void);
 void print(List* head);
 

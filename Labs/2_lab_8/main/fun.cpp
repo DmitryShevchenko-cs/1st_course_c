@@ -2,9 +2,9 @@
 
 struct List* create(void)
 {
-	// pred - покажчик на попередню структуру
+
 	List* data, * tail; char c;
-	// виділяємо пам'ять для першого запису
+
 
 	struct List* head = tail = data = (List*)malloc(sizeof(List));
 

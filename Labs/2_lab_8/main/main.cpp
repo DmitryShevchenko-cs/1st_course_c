@@ -60,6 +60,7 @@ int main(void) {
 		}
 	}*/
 
+	free(head);
 	return 0;
 }
 
