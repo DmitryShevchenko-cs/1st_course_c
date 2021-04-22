@@ -1,21 +1,14 @@
 ﻿#include "fun.h"
+
 int main(void) {
 
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	int choice;
+	
 
-	Tlist* head = NULL;
-	Tlist* tail = NULL;
 
-	
-	
-	
-	
-	cout << endl << temp->info.name << endl;
-	cout << temp->info.type << endl;
-
-	while (true)
+	/*while (true)
 	{
 
 		printf("1 - Создание списка\n");
@@ -65,7 +58,7 @@ int main(void) {
 			printf("Неверное число\n");
 			break;
 		}
-	}
+	}*/
 
 	return 0;
 }

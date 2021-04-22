@@ -16,10 +16,11 @@ struct Tabl {
 	float tem;
 	int sp;
 };
+
 struct Tlist {
 	Tabl info;
 	Tlist* next;
 };
-void create(Tabl* t);
+
 
 #endif
