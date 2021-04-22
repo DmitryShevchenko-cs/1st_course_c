@@ -10,17 +10,15 @@
 
 using namespace std;
 
-struct Tabl {
+struct List {
 	char name[10];
 	char type[7];
 	float tem;
 	int sp;
+	List* next = NULL;
 };
-
-struct Tlist {
-	Tabl info;
-	Tlist* next;
-};
-
+//struct List* head;
+struct List* create(void);
+void print(List* head);
 
 #endif

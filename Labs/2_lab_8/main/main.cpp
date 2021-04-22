@@ -5,9 +5,9 @@ int main(void) {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	int choice;
-	
-
-
+	struct List* head;
+	head = create();
+	print(head);
 	/*while (true)
 	{
 
