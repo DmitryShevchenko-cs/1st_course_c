@@ -5,13 +5,12 @@ int main(void) {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	int choice;
-	struct List* head;
-	head = create();
-	print(head);
-	/*while (true)
+	struct List* head=NULL;
+	
+	while (true)
 	{
 
-		printf("1 - Создание списка\n");
+		printf("\n1 - Создание списка\n");
 		printf("2 - Печать спика\n");
 		printf("3 - Поиск по критерию (осуществить выбор критерия)\n");
 		printf("4 - Добавление элемента (в любое заданное место)\n");
@@ -25,10 +24,15 @@ int main(void) {
 		scanf_s("%d", &choice);
 
 		switch (choice) {
-		case(1): 
+		case(1): head = create();
 			break;
 
-		case(2):
+		case(2): 
+			if (head == NULL) {
+				printf("Структуры не существует!!!\n\n");
+				break;
+			}
+			print(head);
 			break;
 
 		case(3):
@@ -58,7 +62,7 @@ int main(void) {
 			printf("Неверное число\n");
 			break;
 		}
-	}*/
+	}
 
 	free(head);
 	return 0;
