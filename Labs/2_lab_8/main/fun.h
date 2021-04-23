@@ -21,5 +21,11 @@ struct List {
 
 struct List* create(void);
 void print(List* head);
+void search();
+void ADD(int el, List tt, List* head);
+void del(int el, List* head);
+void sort();
+void addfile();
+void CreateFromFile();
 
 #endif
