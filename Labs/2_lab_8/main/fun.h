@@ -24,7 +24,7 @@ void print(List* head);
 void search();
 void ADD(int el, List tt, List* head);
 void del(int el, List* head);
-void sort();
+struct List* sort(List* head);
 void addfile(List* head);
 struct List* CreateFromFile();
 
