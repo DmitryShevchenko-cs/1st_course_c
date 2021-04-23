@@ -121,7 +121,7 @@ void addfile(List* head){
 	}
 	while (temp != NULL)
 	{
-		fprintf_s(f, "%d- %-10s %-8s  %-3.2f  %4d\n", i, temp->name, temp->type, temp->tem, temp->sp);
+		fprintf_s(f, "%-10s %-8s  %-3.2f  %4d\n", temp->name, temp->type, temp->tem, temp->sp);
 		temp = temp->next;
 		i++;
 	}
@@ -132,7 +132,7 @@ struct List* CreateFromFile(){
 	
 
 	struct List* head = (struct List*)malloc(sizeof(struct List));
-	struct List* s = head, *temp = head;
+	struct List* tail = head, *temp = head;
 	int size = 0, i = 0;
 
 
@@ -154,20 +154,16 @@ struct List* CreateFromFile(){
 	//	fseek(file, 1, SEEK_CUR);
 	while (i != size) {
 		fscanf_s(file, "%s", temp->name, 10);
-		fseek(file, 1, SEEK_CUR);
 		fscanf_s(file, "%s", temp->type, 7);
-		fseek(file, 1, SEEK_CUR);
 		fscanf_s(file, "%fl", &temp->tem);
-		fseek(file, 1, SEEK_CUR);
 		fscanf_s(file, "%d", &temp->sp);
-		fseek(file, 1, SEEK_CUR);
 
 		i++;
-		s->next = temp;
-		s = temp;
+		tail->next = temp;
+		tail = temp;
 		temp = (List*)malloc(sizeof(List));
 	}
-	s->next = NULL;
+	tail->next = NULL;
 
 	fclose(file);
 	return head;
