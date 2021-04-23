@@ -106,6 +106,69 @@ void del(int el, List* head) {
 
 void sort(){}
 
-void addfile(){}
+void addfile(List* head){
 
-void CreateFromFile(){}
+	system("cls");
+	List* temp;
+	temp = head;
+	int i = 1;
+
+	FILE* f;
+	fopen_s(&f, "Spis.txt", "w");
+	if (!f) {
+		puts("error opening");
+		exit(0);
+	}
+	while (temp != NULL)
+	{
+		fprintf_s(f, "%d- %-10s %-8s  %-3.2f  %4d\n", i, temp->name, temp->type, temp->tem, temp->sp);
+		temp = temp->next;
+		i++;
+	}
+
+}
+
+struct List* CreateFromFile(){
+	
+
+	struct List* head = (struct List*)malloc(sizeof(struct List));
+	struct List* s = head, *temp = head;
+	int size = 0, i = 0;
+
+
+	FILE* file = NULL;
+	fopen_s(&file, "Spis.txt", "r");
+	if (file == NULL) {
+
+		exit(0);
+	}
+	
+	char xxx;
+	while (true) {
+		xxx = fgetc(file);
+		if (xxx == '\n')size++;
+		else if (xxx == EOF) break;
+	}
+	cout << size << endl;
+	fseek(file, 0, SEEK_SET);
+	//	fseek(file, 1, SEEK_CUR);
+	while (i != size) {
+		fscanf_s(file, "%s", temp->name, 10);
+		fseek(file, 1, SEEK_CUR);
+		fscanf_s(file, "%s", temp->type, 7);
+		fseek(file, 1, SEEK_CUR);
+		fscanf_s(file, "%fl", &temp->tem);
+		fseek(file, 1, SEEK_CUR);
+		fscanf_s(file, "%d", &temp->sp);
+		fseek(file, 1, SEEK_CUR);
+
+		i++;
+		s->next = temp;
+		s = temp;
+		temp = (List*)malloc(sizeof(List));
+	}
+	s->next = NULL;
+
+	fclose(file);
+	return head;
+}

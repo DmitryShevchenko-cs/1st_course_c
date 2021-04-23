@@ -17,7 +17,7 @@ int main(void) {
 		printf("\n  4 - Добавление элемента (в любое заданное место)\n");///////////+
 		printf("\n  5 - Удаление любого элемента\n");////////////////+
 		printf("\n  6 - Сортировка\n");
-		printf("\n  7 - Запись списка в файл \n");
+		printf("\n  7 - Запись списка в файл \n");////////////////+
 		printf("\n  8 - Создание нового списка из файла \n");
 		printf("\n  9 - Выход из программы\n");/////////////+
 		printf("\n  >> ");
@@ -66,10 +66,10 @@ int main(void) {
 		case(6):
 			break;
 
-		case(7):
+		case(7): addfile(head);
 			break;
 
-		case(8):
+		case(8): head = CreateFromFile();
 			break;
 
 		case(9):
