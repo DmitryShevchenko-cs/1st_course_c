@@ -59,7 +59,163 @@ void print(List* head)
 	//_getch();
 }
 
-void search(){}
+int search(List* head){
+	system("cls");
+	int choice;
+	List* temp = head;
+	char type1[10];
+	int tem1, sp1;
+	int i = 1;
+	bool q = true;
+	while (true)
+	{
+		
+		printf("\n  1 - Поиск по имени\n");
+		printf("\n  2 - Поиск по типу\n");
+		printf("\n  3 - Поиск по температуре \n");
+		printf("\n  4 - Поиск по скорости\n");
+		printf("\n  5 - Выход\n");
+		printf("\n  >> ");
+
+		scanf_s("%d", &choice);
+
+		switch (choice) {
+
+		case 1:
+			char name1[10];
+			temp = head;
+
+			printf("\n  name>");
+			scanf("%s", name1, 10);
+			setbuf(stdin, NULL);
+
+			while (temp != NULL) {
+				if (strcmp(temp->name, name1) == 0) {
+					q = false;
+
+					break;
+				}
+				i++;
+				temp = temp->next;
+			}
+			if (q) printf("Нечего не найдено!!!");
+			else {
+				printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
+					i, temp->name, temp->type, temp->tem, temp->sp);
+
+				temp = NULL;
+				i = 1;
+			}
+
+
+			free(temp);
+			break;
+
+		case 2:
+
+			char type1[10];
+			temp = head;
+
+			printf("\n  type>");
+			scanf("%s", type1, 10);
+			setbuf(stdin, NULL);
+
+			while (temp != NULL) {
+				if (strcmp(temp->name, type1) == 0) {
+					q = false;
+					break;
+				}
+				i++;
+				temp = temp->next;
+			}
+			if (q) printf("Нечего не найдено!!!");
+			else {
+				printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
+					i, temp->name, temp->type, temp->tem, temp->sp);
+
+				temp = NULL;
+				i = 1;
+			}
+
+
+			free(temp);
+			break;
+
+		case 3:
+
+			float tem1;
+			temp = head;
+
+			printf("\n  temperature>");
+			scanf("%fl", &tem1);
+			setbuf(stdin, NULL);
+
+			while (temp != NULL) {
+				if (temp->tem==tem1) {
+					q = false;
+					break;
+				}
+				i++;
+				temp = temp->next;
+			}
+			if (q) { 
+				printf("Нечего не найдено!!!"); 
+				break;
+			}
+			else {
+				printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
+					i, temp->name, temp->type, temp->tem, temp->sp);
+
+				temp = NULL;
+				i = 1;
+			}
+
+			free(temp);
+			break;
+
+		case 4:
+
+			int sp1;
+			temp = head;
+
+			printf("\n  temperature>");
+			scanf("%d", &sp1);
+			setbuf(stdin, NULL);
+
+			while (temp != NULL) {
+				if (temp->sp == sp1) {
+					q = false;
+					break;
+				}
+				i++;
+				temp = temp->next;
+			}
+			if (q) {
+				printf("\n  Нечего не найдено!!!");
+			}
+			else {
+				printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
+					i, temp->name, temp->type, temp->tem, temp->sp);
+
+				temp = NULL;
+				i = 1;
+			}
+
+			free(temp);
+			break;
+
+		case 5:
+			printf("Выход");
+			return 0;
+			break;
+
+
+		default:
+			printf("Вы ввели не то число!!!");
+			break;
+		}
+	}
+}
 
 void ADD(int el, List tt, List* head) { 
 	List* temp = (List*)malloc(sizeof(List));  
@@ -140,7 +296,6 @@ struct List* sort(List* head) {
 	free(tmp);
 	return(head);
 }
-
 
 void addfile(List* head){
 

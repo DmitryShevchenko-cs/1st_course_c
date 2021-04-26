@@ -21,7 +21,7 @@ struct List {
 
 struct List* create(void);
 void print(List* head);
-void search();
+int search(List* head);
 void ADD(int el, List tt, List* head);
 void del(int el, List* head);
 struct List* sort(List* head);
