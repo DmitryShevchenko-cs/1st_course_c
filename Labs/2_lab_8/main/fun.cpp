@@ -92,27 +92,23 @@ int search(List* head){
 			while (temp != NULL) {
 				if (strcmp(temp->name, name1) == 0) {
 					q = false;
+					printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
+						i, temp->name, temp->type, temp->tem, temp->sp);
 
-					break;
 				}
 				i++;
 				temp = temp->next;
 			}
-			if (q) printf("Нечего не найдено!!!");
-			else {
-				printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
-					i, temp->name, temp->type, temp->tem, temp->sp);
+			if (q) printf("\n  Нечего не найдено!!!\n\n");
 
-				temp = NULL;
-				i = 1;
-			}
-
-
+			q = true;
+			temp = NULL;
+			i = 1;
 			free(temp);
 			break;
 
 		case 2:
-
+			
 			char type1[10];
 			temp = head;
 
@@ -121,23 +117,20 @@ int search(List* head){
 			setbuf(stdin, NULL);
 
 			while (temp != NULL) {
-				if (strcmp(temp->name, type1) == 0) {
+				if (strcmp(temp->type, type1) == 0) {
 					q = false;
-					break;
+					printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
+						i, temp->name, temp->type, temp->tem, temp->sp);
+
 				}
 				i++;
 				temp = temp->next;
 			}
-			if (q) printf("Нечего не найдено!!!");
-			else {
-				printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
-					i, temp->name, temp->type, temp->tem, temp->sp);
+			if (q) printf("\n  Нечего не найдено!!!\n\n");
 
-				temp = NULL;
-				i = 1;
-			}
-
-
+			q = true;
+			temp = NULL;
+			i = 1;
 			free(temp);
 			break;
 
@@ -150,26 +143,22 @@ int search(List* head){
 			scanf("%fl", &tem1);
 			setbuf(stdin, NULL);
 
+
 			while (temp != NULL) {
 				if (temp->tem==tem1) {
 					q = false;
-					break;
+					printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
+						i, temp->name, temp->type, temp->tem, temp->sp);
+
 				}
 				i++;
 				temp = temp->next;
 			}
-			if (q) { 
-				printf("Нечего не найдено!!!"); 
-				break;
-			}
-			else {
-				printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
-					i, temp->name, temp->type, temp->tem, temp->sp);
+			if (q) printf("\n  Нечего не найдено!!!\n\n");
 
-				temp = NULL;
-				i = 1;
-			}
-
+			q = true;
+			temp = NULL;
+			i = 1;
 			free(temp);
 			break;
 
@@ -185,33 +174,28 @@ int search(List* head){
 			while (temp != NULL) {
 				if (temp->sp == sp1) {
 					q = false;
-					break;
+					printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
+						i, temp->name, temp->type, temp->tem, temp->sp);
 				}
 				i++;
 				temp = temp->next;
 			}
-			if (q) {
-				printf("\n  Нечего не найдено!!!");
-			}
-			else {
-				printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
-					i, temp->name, temp->type, temp->tem, temp->sp);
+			if (q) printf("\n  Нечего не найдено!!!\n\n");
 
-				temp = NULL;
-				i = 1;
-			}
-
+			q = true;
+			temp = NULL;
+			i = 1;
 			free(temp);
 			break;
 
 		case 5:
-			printf("Выход");
+			printf("\n  Выход\n\n");
 			return 0;
 			break;
 
 
 		default:
-			printf("Вы ввели не то число!!!");
+			printf("\n  Вы ввели не то число!!!\n\n");
 			break;
 		}
 	}
