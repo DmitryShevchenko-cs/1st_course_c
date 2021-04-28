@@ -22,12 +22,11 @@ int main(void) {
 		printf("\n  8 - Создание нового списка из файла \n");
 		printf("\n  9 - Выход из программы\n");
 		printf("\n  >> ");
-
+		
 		scanf_s("%d", &choice);
-
+		if (choice == 1 || choice == 8) what = true;
 		switch (choice) {
 		case(1): head = create();
-			what = true;
 			break;
 
 		case(2): 
@@ -99,7 +98,6 @@ int main(void) {
 			break;
 
 		case(8): head = CreateFromFile();
-			what = true;
 			break;
 
 		case(9):
