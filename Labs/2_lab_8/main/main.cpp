@@ -7,6 +7,7 @@ int main(void) {
 	int choice, el;
 	struct List* head=NULL;
 	List tt;
+	bool what = false;
 
 	while (true)
 	{
@@ -26,6 +27,7 @@ int main(void) {
 
 		switch (choice) {
 		case(1): head = create();
+			what = true;
 			break;
 
 		case(2): 
@@ -37,7 +39,13 @@ int main(void) {
 			break;
 
 		case(3):
-			search(head);
+			if (head == NULL) {
+				printf("Структуры не существует!!!\n\n");
+				break;
+			}
+			else 
+				search(head);
+
 			break;
 
 		case(4):
@@ -59,18 +67,39 @@ int main(void) {
 			break;
 
 		case(5): 
-			cout << "Введите номер удаляемого элемента -> ";
-			scanf_s("%d", &el);
-			head = del(el, head);
+			if (head == NULL) {
+				printf("Структуры не существует!!!\n\n");
+				break;
+			}
+			else {
+				cout << "Введите номер удаляемого элемента -> ";
+				scanf_s("%d", &el);
+				head = del(el, head);
+
+			}
+			
 			break;
 
-		case(6): head = sort(head);
+		case(6): 
+			if (head == NULL) {
+				printf("Структуры не существует!!!\n\n");
+				break;
+			}
+			else
+				head = sort(head);
 			break;
 
-		case(7): addfile(head);
+		case(7): 
+			if (head == NULL) {
+				printf("Структуры не существует!!!\n\n");
+				break;
+			}
+			else
+				addfile(head);
 			break;
 
 		case(8): head = CreateFromFile();
+			what = true;
 			break;
 
 		case(9):

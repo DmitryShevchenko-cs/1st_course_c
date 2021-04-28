@@ -17,15 +17,16 @@ struct List {
 	float tem;
 	int sp;
 	List* next = NULL;
+	List* prev = NULL;
 };
 
-struct List* create(void);
-void print(List* head);
-int search(List* head);
-void ADD(int el, List tt, List* head);
-void del(int el, List* head);
-struct List* sort(List* head);
-void addfile(List* head);
+struct List* create();
+void print(List* head, List* tail);
+int search(List* head, List* tail);
+void ADD(int el, List tt, List* head, List* tail);
+void del(int el, List* head, List* tail);
+struct List* sort(List* head, List* tail);
+void addfile(List* head, List* tail);
 struct List* CreateFromFile();
 
 #endif

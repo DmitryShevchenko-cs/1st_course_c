@@ -1,9 +1,10 @@
 #include "fun.h"
 
-struct List* create(void)
+struct List* create()
 {
 	system("cls");
-	List* temp, * tail; char c;
+	char c;
+	List* temp, * tail;
 	struct List* head = tail = temp = (List*)malloc(sizeof(List));
 
 	printf("\n  name: ");
@@ -40,10 +41,10 @@ struct List* create(void)
 	} while (c != 'y');
 	temp->next = NULL;
 	system("cls");
-	return head;
+	return head, tail;
 }
 
-void print(List* head)
+void print(List* head, List* tail)
 {
 	system("cls");
 	List* temp;
@@ -59,7 +60,7 @@ void print(List* head)
 	//_getch();
 }
 
-int search(List* head) {
+int search(List* head, List* tail) {
 	system("cls");
 	int choice;
 	List* temp = head;
@@ -201,7 +202,7 @@ int search(List* head) {
 	}
 }
 
-void ADD(int el, List tt, List* head) {
+void ADD(int el, List tt, List* head, List* tail) {
 	List* temp = (List*)malloc(sizeof(List));
 
 	if (el == 0) {
@@ -225,7 +226,7 @@ void ADD(int el, List tt, List* head) {
 	temp->sp = tt.sp;
 }
 
-void del(int el, List* head) {
+void del(int el, List* head, List* tail) {
 	List* temp_pos = head;
 
 	if (el == 0) {
@@ -245,7 +246,7 @@ void del(int el, List* head) {
 	}//else
 }
 
-struct List* sort(List* head) {
+struct List* sort(List* head, List* tail) {
 	struct List* temp = head;
 
 	int lines = 0;
@@ -282,7 +283,7 @@ struct List* sort(List* head) {
 	return(head);
 }
 
-void addfile(List* head) {
+void addfile(List* head, List* tail) {
 
 	system("cls");
 	List* temp;
