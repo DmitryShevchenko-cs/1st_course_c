@@ -1,4 +1,4 @@
-п»ї#include "fun.h"
+#include "fun.h"
 
 struct List* create(void)
 {
@@ -19,7 +19,7 @@ struct List* create(void)
 	do {
 		temp = (List*)malloc(sizeof(List));
 
-		printf("\n  name: "); 
+		printf("\n  name: ");
 		scanf_s("%s", temp->name, 10);
 		setbuf(stdin, NULL);
 		printf("\n  type: ");
@@ -34,7 +34,7 @@ struct List* create(void)
 		tail->next = temp;
 
 		tail = temp;
-		printf(" Р—Р°РєС–РЅС‡РёС‚Рё? y/n  ");
+		printf(" Закінчити? y/n  ");
 		c = _getch();
 
 	} while (c != 'y');
@@ -49,9 +49,9 @@ void print(List* head)
 	List* temp;
 	temp = head;
 	int i = 1;
-	while (temp != NULL) 
+	while (temp != NULL)
 	{
-		printf( "\n  %d- %-10s %-8s  %-4.2f  %4d\n", i, temp->name, temp->type, temp->tem, temp->sp);
+		printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n", i, temp->name, temp->type, temp->tem, temp->sp);
 		temp = temp->next;
 		i++;
 	}
@@ -59,7 +59,7 @@ void print(List* head)
 	//_getch();
 }
 
-int search(List* head){
+int search(List* head) {
 	system("cls");
 	int choice;
 	List* temp = head;
@@ -69,12 +69,12 @@ int search(List* head){
 	bool q = true;
 	while (true)
 	{
-		
-		printf("\n  1 - РџРѕРёСЃРє РїРѕ РёРјРµРЅРё\n");
-		printf("\n  2 - РџРѕРёСЃРє РїРѕ С‚РёРїСѓ\n");
-		printf("\n  3 - РџРѕРёСЃРє РїРѕ С‚РµРјРїРµСЂР°С‚СѓСЂРµ \n");
-		printf("\n  4 - РџРѕРёСЃРє РїРѕ СЃРєРѕСЂРѕСЃС‚Рё\n");
-		printf("\n  5 - Р’С‹С…РѕРґ\n");
+
+		printf("\n  1 - Поиск по имени\n");
+		printf("\n  2 - Поиск по типу\n");
+		printf("\n  3 - Поиск по температуре \n");
+		printf("\n  4 - Поиск по скорости\n");
+		printf("\n  5 - Выход\n");
 		printf("\n  >> ");
 
 		scanf_s("%d", &choice);
@@ -99,7 +99,7 @@ int search(List* head){
 				i++;
 				temp = temp->next;
 			}
-			if (q) printf("\n  РќРµС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ!!!\n\n");
+			if (q) printf("\n  Нечего не найдено!!!\n\n");
 
 			q = true;
 			temp = NULL;
@@ -108,7 +108,7 @@ int search(List* head){
 			break;
 
 		case 2:
-			
+
 			char type1[10];
 			temp = head;
 
@@ -126,7 +126,7 @@ int search(List* head){
 				i++;
 				temp = temp->next;
 			}
-			if (q) printf("\n  РќРµС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ!!!\n\n");
+			if (q) printf("\n  Нечего не найдено!!!\n\n");
 
 			q = true;
 			temp = NULL;
@@ -145,7 +145,7 @@ int search(List* head){
 
 
 			while (temp != NULL) {
-				if (temp->tem==tem1) {
+				if (temp->tem == tem1) {
 					q = false;
 					printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
 						i, temp->name, temp->type, temp->tem, temp->sp);
@@ -154,7 +154,7 @@ int search(List* head){
 				i++;
 				temp = temp->next;
 			}
-			if (q) printf("\n  РќРµС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ!!!\n\n");
+			if (q) printf("\n  Нечего не найдено!!!\n\n");
 
 			q = true;
 			temp = NULL;
@@ -180,7 +180,7 @@ int search(List* head){
 				i++;
 				temp = temp->next;
 			}
-			if (q) printf("\n  РќРµС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ!!!\n\n");
+			if (q) printf("\n  Нечего не найдено!!!\n\n");
 
 			q = true;
 			temp = NULL;
@@ -189,62 +189,60 @@ int search(List* head){
 			break;
 
 		case 5:
-			printf("\n  Р’С‹С…РѕРґ\n\n");
+			printf("\n  Выход\n\n");
 			return 0;
 			break;
 
 
 		default:
-			printf("\n  Р’С‹ РІРІРµР»Рё РЅРµ С‚Рѕ С‡РёСЃР»Рѕ!!!\n\n");
+			printf("\n  Вы ввели не то число!!!\n\n");
 			break;
 		}
 	}
 }
 
-struct List* ADD(int el, List tt, List* head) { 
-	List* temp = (List*)malloc(sizeof(List));  
+void ADD(int el, List tt, List* head) {
+	List* temp = (List*)malloc(sizeof(List));
 
-	if (el == 1) {		
+	if (el == 0) {
 		temp->next = head;
-		head = temp; 
+		head = temp;
 
 	}
 	else {
 		List* temp_pos = head;
 
-		for (int i = 0; i < el - 2; i++) 
-			temp_pos = temp_pos->next;  
+		for (int i = 0; i < el - 2; i++)
+			temp_pos = temp_pos->next;
 
-		temp->next = temp_pos->next; 
-		temp_pos->next = temp; 
-					
-	} 
+		temp->next = temp_pos->next;
+		temp_pos->next = temp;
+
+	}
 	strcpy(temp->name, tt.name);
 	strcpy(temp->type, tt.type);
 	temp->tem = tt.tem;
 	temp->sp = tt.sp;
-	return head;
 }
 
-struct List* del(int el, List* head) {
-	List* temp_pos = head;   
+void del(int el, List* head) {
+	List* temp_pos = head;
 
-	if (el == 1) {	        
-		head = head->next;  
-		free (temp_pos);        
+	if (el == 0) {
+		head = head->next;
+		free(temp_pos);
 	}
-	else {			 
-		for (int i = 0; i < el - 2; i++)  
-			temp_pos = temp_pos->next;    
+	else {
+		for (int i = 0; i < el - 2; i++)
+			temp_pos = temp_pos->next;
 
-		List* temp = temp_pos->next; 
+		List* temp = temp_pos->next;
 
-		if (temp->next == NULL) temp_pos->next = NULL; 
-		else temp_pos->next = temp->next; 
+		if (temp->next == NULL) temp_pos->next = NULL;
+		else temp_pos->next = temp->next;
 
-		free(temp);   
-	}
-	return head;
+		free(temp);
+	}//else
 }
 
 struct List* sort(List* head) {
@@ -284,7 +282,7 @@ struct List* sort(List* head) {
 	return(head);
 }
 
-void addfile(List* head){
+void addfile(List* head) {
 
 	system("cls");
 	List* temp;
@@ -303,14 +301,14 @@ void addfile(List* head){
 		temp = temp->next;
 		i++;
 	}
-	
+
 }
 
-struct List* CreateFromFile(){
-	
+struct List* CreateFromFile() {
+
 
 	struct List* head = (struct List*)malloc(sizeof(struct List));
-	struct List* tail = head, *temp = head;
+	struct List* tail = head, * temp = head;
 	int size = 0, i = 0;
 
 
@@ -320,15 +318,16 @@ struct List* CreateFromFile(){
 
 		exit(0);
 	}
-	
-	char text;
-	while (true) {
-		text = fgetc(file);
-		if (text == '\n')size++;
-		else if (text == EOF) break;
-	}
 
+	char xxx;
+	while (true) {
+		xxx = fgetc(file);
+		if (xxx == '\n')size++;
+		else if (xxx == EOF) break;
+	}
+	cout << size << endl;
 	fseek(file, 0, SEEK_SET);
+	//	fseek(file, 1, SEEK_CUR);
 	while (i != size) {
 		fscanf_s(file, "%s", temp->name, 10);
 		fscanf_s(file, "%s", temp->type, 7);
@@ -341,7 +340,7 @@ struct List* CreateFromFile(){
 		temp = (List*)malloc(sizeof(List));
 	}
 	tail->next = NULL;
-	
+
 	fclose(file);
 	return head;
 }

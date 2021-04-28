@@ -22,8 +22,8 @@ struct List {
 struct List* create(void);
 void print(List* head);
 int search(List* head);
-struct List* ADD(int el, List tt, List* head);
-struct List* del(int el, List* head);
+void ADD(int el, List tt, List* head);
+void del(int el, List* head);
 struct List* sort(List* head);
 void addfile(List* head);
 struct List* CreateFromFile();

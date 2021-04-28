@@ -5,7 +5,7 @@ int main(void) {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	int choice, el;
-	struct List* head=NULL;
+	struct List* head = NULL;
 	List tt;
 
 	while (true)
@@ -28,7 +28,7 @@ int main(void) {
 		case(1): head = create();
 			break;
 
-		case(2): 
+		case(2):
 			if (head == NULL) {
 				printf("Структуры не существует!!!\n\n");
 				break;
@@ -54,14 +54,14 @@ int main(void) {
 			scanf_s("%fl", &tt.tem);
 			printf("\n  speed: ");
 			scanf_s("%d", &tt.sp);
-			
-			head = ADD(el, tt, head);
+
+			ADD(el, tt, head);
 			break;
 
-		case(5): 
+		case(5):
 			cout << "Введите номер удаляемого элемента -> ";
 			scanf_s("%d", &el);
-			head = del(el, head);
+			del(el, head);
 			break;
 
 		case(6): head = sort(head);
