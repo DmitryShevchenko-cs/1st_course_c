@@ -145,6 +145,8 @@ namespace Project {
 			// numericUpDownC
 			// 
 			this->numericUpDownC->Location = System::Drawing::Point(91, 325);
+			this->numericUpDownC->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
+			this->numericUpDownC->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, System::Int32::MinValue });
 			this->numericUpDownC->Name = L"numericUpDownC";
 			this->numericUpDownC->Size = System::Drawing::Size(120, 22);
 			this->numericUpDownC->TabIndex = 15;
@@ -152,6 +154,8 @@ namespace Project {
 			// numericUpDownB
 			// 
 			this->numericUpDownB->Location = System::Drawing::Point(91, 294);
+			this->numericUpDownB->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
+			this->numericUpDownB->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, System::Int32::MinValue });
 			this->numericUpDownB->Name = L"numericUpDownB";
 			this->numericUpDownB->Size = System::Drawing::Size(120, 22);
 			this->numericUpDownB->TabIndex = 14;
@@ -159,6 +163,8 @@ namespace Project {
 			// numericUpDownA
 			// 
 			this->numericUpDownA->Location = System::Drawing::Point(91, 263);
+			this->numericUpDownA->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
+			this->numericUpDownA->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, System::Int32::MinValue });
 			this->numericUpDownA->Name = L"numericUpDownA";
 			this->numericUpDownA->Size = System::Drawing::Size(120, 22);
 			this->numericUpDownA->TabIndex = 13;
@@ -295,7 +301,7 @@ namespace Project {
 				break;
 			case 1:
 				for (float i = from; i < to; i += 0.1)
-					chart1->Series["Series1"]->Points->AddXY(i, i * i);
+					chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 				break;
 			case 2:
 				for (float i = from; i < to; i += 0.1)
