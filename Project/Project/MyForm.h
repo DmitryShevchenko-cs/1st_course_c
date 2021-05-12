@@ -67,9 +67,9 @@ namespace Project {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->textBoxC = (gcnew System::Windows::Forms::TextBox());
@@ -91,23 +91,28 @@ namespace Project {
 			// 
 			// chart1
 			// 
-			chartArea2->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea2);
-			legend2->Name = L"Legend1";
-			this->chart1->Legends->Add(legend2);
+			this->chart1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			chartArea1->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chart1->Legends->Add(legend1);
 			this->chart1->Location = System::Drawing::Point(12, 12);
 			this->chart1->Name = L"chart1";
-			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series2->Legend = L"Legend1";
-			series2->Name = L"Series1";
-			this->chart1->Series->Add(series2);
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series1->Legend = L"Legend1";
+			series1->Name = L"Series1";
+			this->chart1->Series->Add(series1);
 			this->chart1->Size = System::Drawing::Size(641, 648);
 			this->chart1->TabIndex = 0;
 			this->chart1->Text = L"chart1";
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->groupBox1->Controls->Add(this->textBoxC);
 			this->groupBox1->Controls->Add(this->textBoxB);
 			this->groupBox1->Controls->Add(this->textBoxA);
@@ -148,7 +153,6 @@ namespace Project {
 			this->textBoxA->Name = L"textBoxA";
 			this->textBoxA->Size = System::Drawing::Size(100, 22);
 			this->textBoxA->TabIndex = 10;
-			
 			// 
 			// textBox2
 			// 
@@ -233,13 +237,14 @@ namespace Project {
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-				L"y=ax+b", L"y=a(x^2)+bx+c", L"y=asin(bx)+c", L"y=a√(x+b)+c",
+				L"y=ax+b", L"y=a(x^2)+bx+c", L"y=asin(bx)+c", L"y=(√ax + b)",
 					L"y=(a/x)+b"
 			});
 			this->comboBox1->Location = System::Drawing::Point(31, 54);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(121, 24);
 			this->comboBox1->TabIndex = 0;
+			this->comboBox1->Text = L"Не выбрано";
 			// 
 			// MyForm
 			// 
@@ -260,19 +265,15 @@ namespace Project {
 		float from, to;
 		float a, b, c;
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		chart1->Series["Series1"]->Points->Clear();
+		if(comboBox1->SelectedIndex != -1 && textBox1->Text != "" && textBox2->Text != "") {
+			chart1->Series["Series1"]->Points->Clear();
 
-		from = Convert::ToDouble(textBox1->Text);
-		to = Convert::ToDouble(textBox2->Text);
+			from = Convert::ToDouble(textBox1->Text);
+			to = Convert::ToDouble(textBox2->Text);
 
-		a = Convert::ToDouble(textBoxA->Text);
-		b = Convert::ToDouble(textBoxB->Text);
-		c = Convert::ToDouble(textBoxC->Text);
-
-		if (from > to) {
-
-		}
-		else {
+			a = Convert::ToDouble(textBoxA->Text);
+			b = Convert::ToDouble(textBoxB->Text);
+			c = Convert::ToDouble(textBoxC->Text);
 			switch (comboBox1->SelectedIndex) {
 			case 0:
 				for (float i = from; i < to; i += 0.1)
@@ -288,7 +289,7 @@ namespace Project {
 				break;
 			case 3:
 				for (float i = from; i < to; i += 0.1)
-					chart1->Series["Series1"]->Points->AddXY(i, sqrt(i));
+					chart1->Series["Series1"]->Points->AddXY(i, sqrt(a*i+b));
 				break;
 			case 4:
 				for (float i = from; i < to; i += 0.1)
@@ -296,6 +297,8 @@ namespace Project {
 				break;
 			}
 		}
+		else 
+			MessageBox::Show("Возможно не все поля заполнены.\nПроверте данные и повторите попытку.");
 	}
 
 };
