@@ -1,5 +1,26 @@
 #include "fun.h"
 
+struct List* init()  //create
+{
+	struct List* lst;
+	// выделение пам€ти под корень списка
+	lst = (struct List*)malloc(sizeof(struct List));
+
+	printf("\n  name: ");
+	scanf_s("%s", lst->name, 10);
+	setbuf(stdin, NULL);
+	printf("\n  type: ");
+	scanf_s("%s", lst->type, 10);
+	setbuf(stdin, NULL);
+	printf("\n  temperature: ");
+	scanf_s("%fl", &lst->tem);
+	printf("\n  speed: ");
+	scanf_s("%d", &lst->sp);
+
+	lst->next = NULL; // указатель на следующий узел
+	lst->prev = NULL; // указатель на предыдущий узел
+	return(lst);
+}
 struct List* create()
 {
 	system("cls");
@@ -58,6 +79,33 @@ void print(List* head, List* tail)
 	}
 	printf("\n\n");
 	//_getch();
+}
+void listprint(List * lst)///next
+{
+	struct List* p;
+	p = lst;
+	int i = 1;
+	do {
+		printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n", i, p->name, p->type, p->tem, p->sp); // вывод значени€ элемента p
+		p = p->next; 
+		i++;
+
+	} while (p != NULL); 
+	printf("\n\n");
+}
+void listprintr(List* lst) ////prev
+{
+	struct List* p;
+	p = lst;
+	int i = 1;
+	while (p->next != NULL)
+		p = p->next;  
+	do {
+		printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n", i, p->name, p->type, p->tem, p->sp); // вывод значени€ элемента p
+		p = p->prev; 
+		i++;
+	} while (p != NULL); 
+	printf("\n\n");
 }
 
 int search(List* head, List* tail) {
@@ -225,6 +273,24 @@ void ADD(int el, List tt, List* head, List* tail) {
 	temp->tem = tt.tem;
 	temp->sp = tt.sp;
 }
+struct List* addelem(List * lst, List tt)
+{
+	struct List* temp, * p;
+	temp = (struct List*)malloc(sizeof(List));
+	p = lst->next;
+	lst->next = temp; 
+	strcpy(temp->name, tt.name);
+	strcpy(temp->type, tt.type);
+	temp->tem = tt.tem;
+	temp->sp = tt.sp;
+
+	temp->next = p; 
+	temp->prev = lst; 
+	if (p != NULL)
+		p->prev = temp;
+	return(temp);
+}
+
 
 void del(int el, List* head, List* tail) {
 	List* temp_pos = head;
@@ -245,7 +311,18 @@ void del(int el, List* head, List* tail) {
 		free(temp);
 	}//else
 }
-
+struct List* deletelem(List* lst)
+{
+	struct List* prev, * next;
+	prev = lst->prev; // узел, предшествующий lst
+	next = lst->next; // узел, следующий за lst
+	if (prev != NULL)
+		prev->next = lst->next; // переставл€ем указатель
+	if (next != NULL)
+		next->prev = lst->prev; // переставл€ем указатель
+	free(lst); // освобождаем пам€ть удал€емого элемента
+	return(prev);
+}
 struct List* sort(List* head, List* tail) {
 	struct List* temp = head;
 

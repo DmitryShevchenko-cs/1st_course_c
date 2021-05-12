@@ -19,14 +19,28 @@ struct List {
 	List* next = NULL;
 	List* prev = NULL;
 };
-
+struct List* init();
 struct List* create();
+
 void print(List* head, List* tail);
+void listprint(List* lst);
+void listprintr(List* lst);
+
 int search(List* head, List* tail);
+
+
 void ADD(int el, List tt, List* head, List* tail);
+
+
 void del(int el, List* head, List* tail);
+struct List* deletelem(List* lst);
+
 struct List* sort(List* head, List* tail);
+
+
 void addfile(List* head, List* tail);
+
+
 struct List* CreateFromFile();
 
 #endif
