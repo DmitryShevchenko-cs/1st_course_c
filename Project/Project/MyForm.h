@@ -47,11 +47,17 @@ namespace Project {
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::TextBox^ textBoxC;
 
-	private: System::Windows::Forms::TextBox^ textBoxB;
 
-	private: System::Windows::Forms::TextBox^ textBoxA;
+
+
+
+	private: System::Windows::Forms::NumericUpDown^ numericUpDownA;
+	private: System::Windows::Forms::NumericUpDown^ numericUpDownC;
+
+	private: System::Windows::Forms::NumericUpDown^ numericUpDownB;
+
+
 
 
 	private:
@@ -72,9 +78,9 @@ namespace Project {
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->textBoxC = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxB = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxA = (gcnew System::Windows::Forms::TextBox());
+			this->numericUpDownC = (gcnew System::Windows::Forms::NumericUpDown());
+			this->numericUpDownB = (gcnew System::Windows::Forms::NumericUpDown());
+			this->numericUpDownA = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -87,6 +93,9 @@ namespace Project {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownC))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownB))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownA))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// chart1
@@ -113,9 +122,9 @@ namespace Project {
 			// 
 			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->groupBox1->Controls->Add(this->textBoxC);
-			this->groupBox1->Controls->Add(this->textBoxB);
-			this->groupBox1->Controls->Add(this->textBoxA);
+			this->groupBox1->Controls->Add(this->numericUpDownC);
+			this->groupBox1->Controls->Add(this->numericUpDownB);
+			this->groupBox1->Controls->Add(this->numericUpDownA);
 			this->groupBox1->Controls->Add(this->textBox2);
 			this->groupBox1->Controls->Add(this->textBox1);
 			this->groupBox1->Controls->Add(this->button1);
@@ -133,26 +142,26 @@ namespace Project {
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"groupBox1";
 			// 
-			// textBoxC
+			// numericUpDownC
 			// 
-			this->textBoxC->Location = System::Drawing::Point(121, 322);
-			this->textBoxC->Name = L"textBoxC";
-			this->textBoxC->Size = System::Drawing::Size(100, 22);
-			this->textBoxC->TabIndex = 12;
+			this->numericUpDownC->Location = System::Drawing::Point(91, 325);
+			this->numericUpDownC->Name = L"numericUpDownC";
+			this->numericUpDownC->Size = System::Drawing::Size(120, 22);
+			this->numericUpDownC->TabIndex = 15;
 			// 
-			// textBoxB
+			// numericUpDownB
 			// 
-			this->textBoxB->Location = System::Drawing::Point(121, 288);
-			this->textBoxB->Name = L"textBoxB";
-			this->textBoxB->Size = System::Drawing::Size(100, 22);
-			this->textBoxB->TabIndex = 11;
+			this->numericUpDownB->Location = System::Drawing::Point(91, 294);
+			this->numericUpDownB->Name = L"numericUpDownB";
+			this->numericUpDownB->Size = System::Drawing::Size(120, 22);
+			this->numericUpDownB->TabIndex = 14;
 			// 
-			// textBoxA
+			// numericUpDownA
 			// 
-			this->textBoxA->Location = System::Drawing::Point(121, 260);
-			this->textBoxA->Name = L"textBoxA";
-			this->textBoxA->Size = System::Drawing::Size(100, 22);
-			this->textBoxA->TabIndex = 10;
+			this->numericUpDownA->Location = System::Drawing::Point(91, 263);
+			this->numericUpDownA->Name = L"numericUpDownA";
+			this->numericUpDownA->Size = System::Drawing::Size(120, 22);
+			this->numericUpDownA->TabIndex = 13;
 			// 
 			// textBox2
 			// 
@@ -258,6 +267,9 @@ namespace Project {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownC))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownB))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownA))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -271,9 +283,11 @@ namespace Project {
 			from = Convert::ToDouble(textBox1->Text);
 			to = Convert::ToDouble(textBox2->Text);
 
-			a = Convert::ToDouble(textBoxA->Text);
-			b = Convert::ToDouble(textBoxB->Text);
-			c = Convert::ToDouble(textBoxC->Text);
+			
+			a = Convert::ToDouble(numericUpDownA->Text);
+			b = Convert::ToDouble(numericUpDownB->Text);
+			c = Convert::ToDouble(numericUpDownC->Text);
+
 			switch (comboBox1->SelectedIndex) {
 			case 0:
 				for (float i = from; i < to; i += 0.1)
@@ -289,7 +303,7 @@ namespace Project {
 				break;
 			case 3:
 				for (float i = from; i < to; i += 0.1)
-					chart1->Series["Series1"]->Points->AddXY(i, sqrt(a*i+b));
+					chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b));
 				break;
 			case 4:
 				for (float i = from; i < to; i += 0.1)
