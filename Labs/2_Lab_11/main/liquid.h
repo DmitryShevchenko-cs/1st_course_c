@@ -7,10 +7,9 @@
 #include <iostream>
 #include "windows.h"
 #include <time.h>
-#include <conio.h>
-#include <malloc.h>
+#include <iomanip>
 
-#define S 3
+#define S 7
 
 using namespace std;
 
@@ -21,11 +20,14 @@ private:
 	short tem;
 	unsigned sp;
 public:
+	
 	liquid();
 	liquid(string name1, char type1, short tem1, unsigned sp1);
 	liquid(const liquid& liq);
+
 	void random();
-	
+	int random_number();
+	void sort(liquid* A);
 	void show();
 	void setter(string name1, char type1, short tem1, unsigned sp1);
 	~liquid();
