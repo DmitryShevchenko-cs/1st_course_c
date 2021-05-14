@@ -82,17 +82,6 @@ void liquid::random() {
 	sp = *(SP + randnum);
 }
 
-void sort(liquid* A) {
-
-
-	/*for (int i = 0; i < S; i++) {
-		for (int j = 0; j < S - 1; j++) {
-			if (A[j] > *(A + j + 1)) 
-				swap(*(A + j), *(A + j + 1));
-		}
-	}*/
-}
-
 void liquid::show() {
 
 	cout << "| " << setw(9) << name << " | " << setw(5) << type << " | " <<

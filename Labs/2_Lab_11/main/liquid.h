@@ -9,7 +9,7 @@
 #include <time.h>
 #include <iomanip>
 
-#define S 7
+#define S 4
 
 using namespace std;
 
@@ -27,7 +27,6 @@ public:
 
 	void random();
 	int random_number();
-	void sort(liquid* A);
 	void show();
 	void setter(string name1, char type1, short tem1, unsigned sp1);
 	~liquid();
