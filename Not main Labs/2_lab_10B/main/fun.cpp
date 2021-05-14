@@ -1,6 +1,6 @@
 #include "fun.h"
 
-    void SUM::get(int a, int b) {
+    void SUM::set(int a, int b) {
         x = a;
         y = b;
     }

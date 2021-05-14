@@ -20,7 +20,7 @@ public:
     SUM() : x(0), y(0) {}
     SUM(int a, int b) : x(a), y(b) {}
 
-    void get(int a, int b);
+    void set(int a, int b);
     void print();
     void sum();
     void NUL();
