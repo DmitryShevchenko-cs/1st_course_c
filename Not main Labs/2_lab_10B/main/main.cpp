@@ -37,7 +37,7 @@ int main() {
 	
 	cout << "Введите двва числа" << endl;
 	cin >> a1 >> a2;
-	c.get(a1, a2);
+	c.set(a1, a2);
 	c.print();
 	c.sum();
 	c.print();
@@ -45,7 +45,7 @@ int main() {
 	cout << endl;
 	cout << "Введите двва числа" << endl;
 	cin >> a1 >> a2;
-	cc->get(a1, a2);
+	cc->set(a1, a2);
 	cc->print();
 	cc->sum();
 	cc->print();
