@@ -14,3 +14,6 @@
         cout << "Sum = " << Sum << endl;
         
     }
+    void SUM::NUL() {
+        Sum = 0;
+    }

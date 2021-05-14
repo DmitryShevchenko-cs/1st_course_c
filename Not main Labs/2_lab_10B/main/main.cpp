@@ -16,6 +16,7 @@ int main() {
 	cout << endl;
 	a.print();
 	aa->print();
+	a.NUL();
 
 	cout << "-------------------------" << endl;
 	cout << endl;
@@ -28,17 +29,19 @@ int main() {
 	cout << endl;
 	b.print();
 	bb->print();
+	b.NUL();
 	
 	cout << "-------------------------" << endl;
 	cout << endl;
 	cc = &c;
+	
 	cout << "Введите двва числа" << endl;
 	cin >> a1 >> a2;
 	c.get(a1, a2);
 	c.print();
 	c.sum();
 	c.print();
-	
+	c.NUL();
 	cout << endl;
 	cout << "Введите двва числа" << endl;
 	cin >> a1 >> a2;
@@ -46,6 +49,7 @@ int main() {
 	cc->print();
 	cc->sum();
 	cc->print();
-	
+	c.NUL();
+
 	return 0;
 }

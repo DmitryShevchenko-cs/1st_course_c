@@ -23,7 +23,7 @@ public:
     void get(int a, int b);
     void print();
     void sum();
-
+    void NUL();
 
 
 };
