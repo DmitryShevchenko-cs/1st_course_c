@@ -12,8 +12,6 @@ int main() {
 	short tem;
 	unsigned sp;
 
-
-
 	cout << "Что делаем?\n1-сами ввести\t2-рандомную таблицу\n";
 	cin >> a;
 	liquid A[S];
