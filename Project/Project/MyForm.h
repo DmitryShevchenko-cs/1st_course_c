@@ -38,7 +38,7 @@ namespace Project {
 	protected:
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Label^ label6;
+
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label3;
@@ -53,6 +53,17 @@ namespace Project {
 
 	private: System::Windows::Forms::NumericUpDown^ numericUpDownB;
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
+	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
+	private: System::Windows::Forms::Button^ button5;
+	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::Button^ buttonD;
+
+
+	private: System::Windows::Forms::Button^ buttonUP;
+	private: System::Windows::Forms::TextBox^ textBoxC;
+	private: System::Windows::Forms::TextBox^ textBoxB;
+	private: System::Windows::Forms::TextBox^ textBoxA;
+
 
 
 
@@ -70,17 +81,22 @@ namespace Project {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBoxC = (gcnew System::Windows::Forms::TextBox());
+			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->buttonD = (gcnew System::Windows::Forms::Button());
+			this->buttonUP = (gcnew System::Windows::Forms::Button());
 			this->numericUpDownC = (gcnew System::Windows::Forms::NumericUpDown());
 			this->numericUpDownB = (gcnew System::Windows::Forms::NumericUpDown());
 			this->numericUpDownA = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -88,6 +104,9 @@ namespace Project {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
+			this->textBoxA = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxB = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownC))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownB))->BeginInit();
@@ -99,13 +118,19 @@ namespace Project {
 			// 
 			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox1->Controls->Add(this->textBoxB);
+			this->groupBox1->Controls->Add(this->textBoxA);
+			this->groupBox1->Controls->Add(this->textBoxC);
+			this->groupBox1->Controls->Add(this->button5);
+			this->groupBox1->Controls->Add(this->button4);
+			this->groupBox1->Controls->Add(this->buttonD);
+			this->groupBox1->Controls->Add(this->buttonUP);
 			this->groupBox1->Controls->Add(this->numericUpDownC);
 			this->groupBox1->Controls->Add(this->numericUpDownB);
 			this->groupBox1->Controls->Add(this->numericUpDownA);
 			this->groupBox1->Controls->Add(this->textBox2);
 			this->groupBox1->Controls->Add(this->textBox1);
 			this->groupBox1->Controls->Add(this->button1);
-			this->groupBox1->Controls->Add(this->label6);
 			this->groupBox1->Controls->Add(this->label5);
 			this->groupBox1->Controls->Add(this->label4);
 			this->groupBox1->Controls->Add(this->label3);
@@ -118,6 +143,51 @@ namespace Project {
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"groupBox1";
+			// 
+			// textBoxC
+			// 
+			this->textBoxC->Location = System::Drawing::Point(239, 325);
+			this->textBoxC->Name = L"textBoxC";
+			this->textBoxC->Size = System::Drawing::Size(100, 22);
+			this->textBoxC->TabIndex = 20;
+			// 
+			// button5
+			// 
+			this->button5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button5.Image")));
+			this->button5->Location = System::Drawing::Point(88, 566);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(59, 59);
+			this->button5->TabIndex = 19;
+			this->button5->UseVisualStyleBackColor = true;
+			// 
+			// button4
+			// 
+			this->button4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button4.Image")));
+			this->button4->Location = System::Drawing::Point(217, 566);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(59, 59);
+			this->button4->TabIndex = 18;
+			this->button4->UseVisualStyleBackColor = true;
+			// 
+			// buttonD
+			// 
+			this->buttonD->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonD.Image")));
+			this->buttonD->Location = System::Drawing::Point(152, 566);
+			this->buttonD->Name = L"buttonD";
+			this->buttonD->Size = System::Drawing::Size(59, 59);
+			this->buttonD->TabIndex = 17;
+			this->buttonD->UseVisualStyleBackColor = true;
+			this->buttonD->Click += gcnew System::EventHandler(this, &MyForm::buttonD_Click);
+			// 
+			// buttonUP
+			// 
+			this->buttonUP->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonUP.Image")));
+			this->buttonUP->Location = System::Drawing::Point(152, 501);
+			this->buttonUP->Name = L"buttonUP";
+			this->buttonUP->Size = System::Drawing::Size(59, 59);
+			this->buttonUP->TabIndex = 16;
+			this->buttonUP->UseVisualStyleBackColor = true;
+			this->buttonUP->Click += gcnew System::EventHandler(this, &MyForm::buttonUP_Click);
 			// 
 			// numericUpDownC
 			// 
@@ -170,15 +240,6 @@ namespace Project {
 			this->button1->Text = L"Нарисовать";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(108, 447);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(46, 17);
-			this->label6->TabIndex = 6;
-			this->label6->Text = L"label6";
 			// 
 			// label5
 			// 
@@ -243,21 +304,35 @@ namespace Project {
 			this->chart1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			chartArea2->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea2);
-			legend2->Name = L"Legend1";
-			this->chart1->Legends->Add(legend2);
+			chartArea1->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chart1->Legends->Add(legend1);
 			this->chart1->Location = System::Drawing::Point(12, 12);
 			this->chart1->Name = L"chart1";
 			this->chart1->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
-			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series2->Legend = L"Legend1";
-			series2->Name = L"Series1";
-			this->chart1->Series->Add(series2);
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series1->Legend = L"Legend1";
+			series1->Name = L"Series1";
+			this->chart1->Series->Add(series1);
 			this->chart1->Size = System::Drawing::Size(650, 648);
 			this->chart1->TabIndex = 2;
 			this->chart1->Text = L"chart1";
+			// 
+			// textBoxA
+			// 
+			this->textBoxA->Location = System::Drawing::Point(239, 262);
+			this->textBoxA->Name = L"textBoxA";
+			this->textBoxA->Size = System::Drawing::Size(100, 22);
+			this->textBoxA->TabIndex = 21;
+			// 
+			// textBoxB
+			// 
+			this->textBoxB->Location = System::Drawing::Point(239, 293);
+			this->textBoxB->Name = L"textBoxB";
+			this->textBoxB->Size = System::Drawing::Size(100, 22);
+			this->textBoxB->TabIndex = 22;
 			// 
 			// MyForm
 			// 
@@ -287,10 +362,9 @@ namespace Project {
 			from = Convert::ToDouble(textBox1->Text);
 			to = Convert::ToDouble(textBox2->Text);
 
-			
-			a = Convert::ToDouble(numericUpDownA->Text);
-			b = Convert::ToDouble(numericUpDownB->Text);
-			c = Convert::ToDouble(numericUpDownC->Text);
+			a = Convert::ToDouble(textBoxA->Text);
+			b = Convert::ToDouble(textBoxB->Text);
+			c = Convert::ToDouble(textBoxC->Text);
 
 			switch (comboBox1->SelectedIndex) {
 			case 0:
@@ -318,6 +392,74 @@ namespace Project {
 		else 
 			MessageBox::Show("Возможно не все поля заполнены.\nПроверте данные и повторите попытку.");
 	}
+//кнопка вверх
+private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (comboBox1->SelectedIndex != -1 && textBox1->Text != "" && textBox2->Text != "") {
+		chart1->Series["Series1"]->Points->Clear();
 
+		switch (comboBox1->SelectedIndex) {
+		case 0:
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
+			break;
+		case 1:
+			c++;
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
+			break;
+		case 2:
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+			break;
+		case 3:
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b));
+			break;
+		case 4:
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, i);
+			break;
+		}
+	}
+	else
+		MessageBox::Show("Возможно не все поля заполнены.\nПроверте данные и повторите попытку.");
+
+}
+//кнопка вверх
+////	   
+// кнопка вниз
+private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (comboBox1->SelectedIndex != -1 && textBox1->Text != "" && textBox2->Text != "") {
+		chart1->Series["Series1"]->Points->Clear();
+
+		switch (comboBox1->SelectedIndex) {
+		case 0:
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
+			break;
+		case 1:
+			c--;
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
+			break;
+		case 2:
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+			break;
+		case 3:
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b));
+			break;
+		case 4:
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, i);
+			break;
+		}
+	}
+	else
+		MessageBox::Show("Возможно не все поля заполнены.\nПроверте данные и повторите попытку.");
+}
+// кнопка вниз
+////
 };
 }
