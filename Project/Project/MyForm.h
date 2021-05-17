@@ -565,6 +565,7 @@ private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArg
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 		break;
 	case 2:
+		c++;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
 		break;
@@ -599,6 +600,7 @@ private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 		break;
 	case 2:
+		c--;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
 		break;
@@ -630,6 +632,7 @@ private: System::Void buttonConstriction_Click(System::Object^ sender, System::E
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 		break;
 	case 2:
+		a--;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
 		break;
@@ -661,6 +664,7 @@ private: System::Void buttonExpansion_Click(System::Object^ sender, System::Even
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 		break;
 	case 2:
+		a++;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
 		break;
