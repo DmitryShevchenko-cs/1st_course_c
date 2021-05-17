@@ -154,7 +154,7 @@ namespace Project {
 			this->groupBox1->Size = System::Drawing::Size(371, 648);
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"groupBox1";
+			this->groupBox1->Text = L"Данные";
 			// 
 			// textBoxD
 			// 
@@ -465,6 +465,7 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 				chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 			break;
 		case 3:
+			d++;
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b));
 			break;
@@ -502,6 +503,7 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 				chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 			break;
 		case 3:
+			d--;
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b));
 			break;
