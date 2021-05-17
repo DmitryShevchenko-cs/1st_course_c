@@ -63,6 +63,8 @@ namespace Project {
 	private: System::Windows::Forms::TextBox^ textBoxC;
 	private: System::Windows::Forms::TextBox^ textBoxB;
 	private: System::Windows::Forms::TextBox^ textBoxA;
+	private: System::Windows::Forms::Button^ buttonL;
+	private: System::Windows::Forms::Button^ buttonR;
 
 
 
@@ -86,6 +88,8 @@ namespace Project {
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->buttonL = (gcnew System::Windows::Forms::Button());
+			this->buttonR = (gcnew System::Windows::Forms::Button());
 			this->textBoxB = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxA = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxC = (gcnew System::Windows::Forms::TextBox());
@@ -118,6 +122,8 @@ namespace Project {
 			// 
 			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox1->Controls->Add(this->buttonL);
+			this->groupBox1->Controls->Add(this->buttonR);
 			this->groupBox1->Controls->Add(this->textBoxB);
 			this->groupBox1->Controls->Add(this->textBoxA);
 			this->groupBox1->Controls->Add(this->textBoxC);
@@ -143,6 +149,26 @@ namespace Project {
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"groupBox1";
+			// 
+			// buttonL
+			// 
+			this->buttonL->Location = System::Drawing::Point(87, 501);
+			this->buttonL->Name = L"buttonL";
+			this->buttonL->Size = System::Drawing::Size(59, 59);
+			this->buttonL->TabIndex = 24;
+			this->buttonL->Text = L"L";
+			this->buttonL->UseVisualStyleBackColor = true;
+			this->buttonL->Click += gcnew System::EventHandler(this, &MyForm::buttonL_Click);
+			// 
+			// buttonR
+			// 
+			this->buttonR->Location = System::Drawing::Point(217, 501);
+			this->buttonR->Name = L"buttonR";
+			this->buttonR->Size = System::Drawing::Size(59, 59);
+			this->buttonR->TabIndex = 23;
+			this->buttonR->Text = L"R";
+			this->buttonR->UseVisualStyleBackColor = true;
+			this->buttonR->Click += gcnew System::EventHandler(this, &MyForm::buttonR_Click);
 			// 
 			// textBoxB
 			// 
@@ -239,6 +265,7 @@ namespace Project {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(100, 22);
 			this->textBox2->TabIndex = 9;
+			this->textBox2->Text = L"10";
 			// 
 			// textBox1
 			// 
@@ -246,6 +273,7 @@ namespace Project {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 22);
 			this->textBox1->TabIndex = 8;
+			this->textBox1->Text = L"-10";
 			// 
 			// button1
 			// 
@@ -466,5 +494,68 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 }
 // кнопка вниз
 ////
+// turn left
+private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e) {
+	chart1->Series["Series1"]->Points->Clear();
+
+	switch (comboBox1->SelectedIndex) {
+	case 0:
+		a++;
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
+		break;
+	case 1:
+		c--;
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
+		break;
+	case 2:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+		break;
+	case 3:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b));
+		break;
+	case 4:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, i);
+		break;
+	}
+}
+// turn left
+//////
+// turn right
+private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e) {
+	chart1->Series["Series1"]->Points->Clear();
+
+	switch (comboBox1->SelectedIndex) {
+	case 0:
+		a--;
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
+		break;
+	case 1:
+		c--;
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
+		break;
+	case 2:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+		break;
+	case 3:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b));
+		break;
+	case 4:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, i);
+		break;
+	}
+}
+// turn right
+////
+//
 };
 }
