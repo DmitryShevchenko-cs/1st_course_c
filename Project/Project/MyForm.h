@@ -67,11 +67,15 @@ namespace Project {
 	private: System::Windows::Forms::TextBox^ textBoxA;
 	private: System::Windows::Forms::Button^ buttonL;
 	private: System::Windows::Forms::Button^ buttonR;
-	private: System::Windows::Forms::Button^ buttonConstriction;
+	private: System::Windows::Forms::Button^ buttonShort;
 
-	private: System::Windows::Forms::Button^ buttonExpansion;
+	private: System::Windows::Forms::Button^ buttonTall;
+
+
 	private: System::Windows::Forms::TextBox^ textBoxD;
 	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Button^ button;
 
 
 
@@ -91,14 +95,14 @@ namespace Project {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->textBoxD = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->buttonConstriction = (gcnew System::Windows::Forms::Button());
-			this->buttonExpansion = (gcnew System::Windows::Forms::Button());
+			this->buttonShort = (gcnew System::Windows::Forms::Button());
+			this->buttonTall = (gcnew System::Windows::Forms::Button());
 			this->buttonL = (gcnew System::Windows::Forms::Button());
 			this->buttonR = (gcnew System::Windows::Forms::Button());
 			this->textBoxB = (gcnew System::Windows::Forms::TextBox());
@@ -119,6 +123,8 @@ namespace Project {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
+			this->button = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
@@ -127,10 +133,12 @@ namespace Project {
 			// 
 			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox1->Controls->Add(this->button3);
+			this->groupBox1->Controls->Add(this->button);
 			this->groupBox1->Controls->Add(this->textBoxD);
 			this->groupBox1->Controls->Add(this->label6);
-			this->groupBox1->Controls->Add(this->buttonConstriction);
-			this->groupBox1->Controls->Add(this->buttonExpansion);
+			this->groupBox1->Controls->Add(this->buttonShort);
+			this->groupBox1->Controls->Add(this->buttonTall);
 			this->groupBox1->Controls->Add(this->buttonL);
 			this->groupBox1->Controls->Add(this->buttonR);
 			this->groupBox1->Controls->Add(this->textBoxB);
@@ -172,25 +180,27 @@ namespace Project {
 			this->label6->TabIndex = 27;
 			this->label6->Text = L"d";
 			// 
-			// buttonConstriction
+			// buttonShort
 			// 
-			this->buttonConstriction->Location = System::Drawing::Point(88, 552);
-			this->buttonConstriction->Name = L"buttonConstriction";
-			this->buttonConstriction->Size = System::Drawing::Size(75, 23);
-			this->buttonConstriction->TabIndex = 26;
-			this->buttonConstriction->Text = L"сужение";
-			this->buttonConstriction->UseVisualStyleBackColor = true;
-			this->buttonConstriction->Click += gcnew System::EventHandler(this, &MyForm::buttonConstriction_Click);
+			this->buttonShort->AutoSize = true;
+			this->buttonShort->Location = System::Drawing::Point(31, 422);
+			this->buttonShort->Name = L"buttonShort";
+			this->buttonShort->Size = System::Drawing::Size(39, 27);
+			this->buttonShort->TabIndex = 26;
+			this->buttonShort->Text = L")(";
+			this->buttonShort->UseVisualStyleBackColor = true;
+			this->buttonShort->Click += gcnew System::EventHandler(this, &MyForm::buttonShort_Click);
 			// 
-			// buttonExpansion
+			// buttonTall
 			// 
-			this->buttonExpansion->Location = System::Drawing::Point(88, 523);
-			this->buttonExpansion->Name = L"buttonExpansion";
-			this->buttonExpansion->Size = System::Drawing::Size(75, 23);
-			this->buttonExpansion->TabIndex = 25;
-			this->buttonExpansion->Text = L"разширение";
-			this->buttonExpansion->UseVisualStyleBackColor = true;
-			this->buttonExpansion->Click += gcnew System::EventHandler(this, &MyForm::buttonExpansion_Click);
+			this->buttonTall->AutoSize = true;
+			this->buttonTall->Location = System::Drawing::Point(31, 393);
+			this->buttonTall->Name = L"buttonTall";
+			this->buttonTall->Size = System::Drawing::Size(39, 27);
+			this->buttonTall->TabIndex = 25;
+			this->buttonTall->Text = L"()";
+			this->buttonTall->UseVisualStyleBackColor = true;
+			this->buttonTall->Click += gcnew System::EventHandler(this, &MyForm::buttonTall_Click);
 			// 
 			// buttonL
 			// 
@@ -366,21 +376,39 @@ namespace Project {
 			this->chart1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			chartArea1->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea1);
-			legend1->Name = L"Legend1";
-			this->chart1->Legends->Add(legend1);
+			chartArea2->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea2);
+			legend2->Name = L"Legend1";
+			this->chart1->Legends->Add(legend2);
 			this->chart1->Location = System::Drawing::Point(12, 12);
 			this->chart1->Name = L"chart1";
 			this->chart1->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
-			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series1->Legend = L"Legend1";
-			series1->Name = L"Series1";
-			this->chart1->Series->Add(series1);
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series2->Legend = L"Legend1";
+			series2->Name = L"Series1";
+			this->chart1->Series->Add(series2);
 			this->chart1->Size = System::Drawing::Size(650, 648);
 			this->chart1->TabIndex = 2;
 			this->chart1->Text = L"chart1";
+			// 
+			// button
+			// 
+			this->button->Location = System::Drawing::Point(282, 395);
+			this->button->Name = L"button";
+			this->button->Size = System::Drawing::Size(75, 23);
+			this->button->TabIndex = 29;
+			this->button->Text = L"button2";
+			this->button->UseVisualStyleBackColor = true;
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(281, 424);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(75, 23);
+			this->button3->TabIndex = 30;
+			this->button3->Text = L"button3";
+			this->button3->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
 			// 
@@ -648,9 +676,9 @@ private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs
 	}
 }
 			//
-			//Constriction_button
+			//buttonShort
 			//
-private: System::Void buttonConstriction_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void buttonShort_Click(System::Object^ sender, System::EventArgs^ e) {
 	chart1->Series["Series1"]->Points->Clear();
 
 	switch (comboBox1->SelectedIndex) {
@@ -680,9 +708,9 @@ private: System::Void buttonConstriction_Click(System::Object^ sender, System::E
 	}
 }
 			//
-			//Expansion_button
+			//buttonTall
 			//
-private: System::Void buttonExpansion_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void buttonTall_Click(System::Object^ sender, System::EventArgs^ e) {
 	chart1->Series["Series1"]->Points->Clear();
 
 	switch (comboBox1->SelectedIndex) {
