@@ -48,14 +48,16 @@ namespace Project {
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox1;
 
-	private: System::Windows::Forms::NumericUpDown^ numericUpDownA;
-	private: System::Windows::Forms::NumericUpDown^ numericUpDownC;
 
-	private: System::Windows::Forms::NumericUpDown^ numericUpDownB;
+
+
+
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
 	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
-	private: System::Windows::Forms::Button^ button5;
-	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::Button^ buttonLEFT;
+
+	private: System::Windows::Forms::Button^ buttonRIGHT;
+
 	private: System::Windows::Forms::Button^ buttonD;
 
 
@@ -65,6 +67,9 @@ namespace Project {
 	private: System::Windows::Forms::TextBox^ textBoxA;
 	private: System::Windows::Forms::Button^ buttonL;
 	private: System::Windows::Forms::Button^ buttonR;
+	private: System::Windows::Forms::Button^ buttonConstriction;
+
+	private: System::Windows::Forms::Button^ buttonExpansion;
 
 
 
@@ -84,22 +89,21 @@ namespace Project {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->buttonConstriction = (gcnew System::Windows::Forms::Button());
+			this->buttonExpansion = (gcnew System::Windows::Forms::Button());
 			this->buttonL = (gcnew System::Windows::Forms::Button());
 			this->buttonR = (gcnew System::Windows::Forms::Button());
 			this->textBoxB = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxA = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxC = (gcnew System::Windows::Forms::TextBox());
-			this->button5 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->buttonLEFT = (gcnew System::Windows::Forms::Button());
+			this->buttonRIGHT = (gcnew System::Windows::Forms::Button());
 			this->buttonD = (gcnew System::Windows::Forms::Button());
 			this->buttonUP = (gcnew System::Windows::Forms::Button());
-			this->numericUpDownC = (gcnew System::Windows::Forms::NumericUpDown());
-			this->numericUpDownB = (gcnew System::Windows::Forms::NumericUpDown());
-			this->numericUpDownA = (gcnew System::Windows::Forms::NumericUpDown());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -112,9 +116,6 @@ namespace Project {
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
 			this->groupBox1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownC))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownB))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownA))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -122,18 +123,17 @@ namespace Project {
 			// 
 			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox1->Controls->Add(this->buttonConstriction);
+			this->groupBox1->Controls->Add(this->buttonExpansion);
 			this->groupBox1->Controls->Add(this->buttonL);
 			this->groupBox1->Controls->Add(this->buttonR);
 			this->groupBox1->Controls->Add(this->textBoxB);
 			this->groupBox1->Controls->Add(this->textBoxA);
 			this->groupBox1->Controls->Add(this->textBoxC);
-			this->groupBox1->Controls->Add(this->button5);
-			this->groupBox1->Controls->Add(this->button4);
+			this->groupBox1->Controls->Add(this->buttonLEFT);
+			this->groupBox1->Controls->Add(this->buttonRIGHT);
 			this->groupBox1->Controls->Add(this->buttonD);
 			this->groupBox1->Controls->Add(this->buttonUP);
-			this->groupBox1->Controls->Add(this->numericUpDownC);
-			this->groupBox1->Controls->Add(this->numericUpDownB);
-			this->groupBox1->Controls->Add(this->numericUpDownA);
 			this->groupBox1->Controls->Add(this->textBox2);
 			this->groupBox1->Controls->Add(this->textBox1);
 			this->groupBox1->Controls->Add(this->button1);
@@ -150,9 +150,29 @@ namespace Project {
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"groupBox1";
 			// 
+			// buttonConstriction
+			// 
+			this->buttonConstriction->Location = System::Drawing::Point(88, 552);
+			this->buttonConstriction->Name = L"buttonConstriction";
+			this->buttonConstriction->Size = System::Drawing::Size(75, 23);
+			this->buttonConstriction->TabIndex = 26;
+			this->buttonConstriction->Text = L"сужение";
+			this->buttonConstriction->UseVisualStyleBackColor = true;
+			this->buttonConstriction->Click += gcnew System::EventHandler(this, &MyForm::buttonConstriction_Click);
+			// 
+			// buttonExpansion
+			// 
+			this->buttonExpansion->Location = System::Drawing::Point(88, 523);
+			this->buttonExpansion->Name = L"buttonExpansion";
+			this->buttonExpansion->Size = System::Drawing::Size(75, 23);
+			this->buttonExpansion->TabIndex = 25;
+			this->buttonExpansion->Text = L"разширение";
+			this->buttonExpansion->UseVisualStyleBackColor = true;
+			this->buttonExpansion->Click += gcnew System::EventHandler(this, &MyForm::buttonExpansion_Click);
+			// 
 			// buttonL
 			// 
-			this->buttonL->Location = System::Drawing::Point(87, 501);
+			this->buttonL->Location = System::Drawing::Point(88, 393);
 			this->buttonL->Name = L"buttonL";
 			this->buttonL->Size = System::Drawing::Size(59, 59);
 			this->buttonL->TabIndex = 24;
@@ -162,7 +182,7 @@ namespace Project {
 			// 
 			// buttonR
 			// 
-			this->buttonR->Location = System::Drawing::Point(217, 501);
+			this->buttonR->Location = System::Drawing::Point(217, 393);
 			this->buttonR->Name = L"buttonR";
 			this->buttonR->Size = System::Drawing::Size(59, 59);
 			this->buttonR->TabIndex = 23;
@@ -172,7 +192,7 @@ namespace Project {
 			// 
 			// textBoxB
 			// 
-			this->textBoxB->Location = System::Drawing::Point(239, 293);
+			this->textBoxB->Location = System::Drawing::Point(52, 293);
 			this->textBoxB->Name = L"textBoxB";
 			this->textBoxB->Size = System::Drawing::Size(100, 22);
 			this->textBoxB->TabIndex = 22;
@@ -180,7 +200,7 @@ namespace Project {
 			// 
 			// textBoxA
 			// 
-			this->textBoxA->Location = System::Drawing::Point(239, 262);
+			this->textBoxA->Location = System::Drawing::Point(52, 262);
 			this->textBoxA->Name = L"textBoxA";
 			this->textBoxA->Size = System::Drawing::Size(100, 22);
 			this->textBoxA->TabIndex = 21;
@@ -188,34 +208,36 @@ namespace Project {
 			// 
 			// textBoxC
 			// 
-			this->textBoxC->Location = System::Drawing::Point(239, 325);
+			this->textBoxC->Location = System::Drawing::Point(52, 324);
 			this->textBoxC->Name = L"textBoxC";
 			this->textBoxC->Size = System::Drawing::Size(100, 22);
 			this->textBoxC->TabIndex = 20;
 			this->textBoxC->Text = L"0";
 			// 
-			// button5
+			// buttonLEFT
 			// 
-			this->button5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button5.Image")));
-			this->button5->Location = System::Drawing::Point(88, 566);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(59, 59);
-			this->button5->TabIndex = 19;
-			this->button5->UseVisualStyleBackColor = true;
+			this->buttonLEFT->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonLEFT.Image")));
+			this->buttonLEFT->Location = System::Drawing::Point(88, 458);
+			this->buttonLEFT->Name = L"buttonLEFT";
+			this->buttonLEFT->Size = System::Drawing::Size(59, 59);
+			this->buttonLEFT->TabIndex = 19;
+			this->buttonLEFT->UseVisualStyleBackColor = true;
+			this->buttonLEFT->Click += gcnew System::EventHandler(this, &MyForm::buttonLEFT_Click);
 			// 
-			// button4
+			// buttonRIGHT
 			// 
-			this->button4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button4.Image")));
-			this->button4->Location = System::Drawing::Point(217, 566);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(59, 59);
-			this->button4->TabIndex = 18;
-			this->button4->UseVisualStyleBackColor = true;
+			this->buttonRIGHT->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonRIGHT.Image")));
+			this->buttonRIGHT->Location = System::Drawing::Point(217, 458);
+			this->buttonRIGHT->Name = L"buttonRIGHT";
+			this->buttonRIGHT->Size = System::Drawing::Size(59, 59);
+			this->buttonRIGHT->TabIndex = 18;
+			this->buttonRIGHT->UseVisualStyleBackColor = true;
+			this->buttonRIGHT->Click += gcnew System::EventHandler(this, &MyForm::buttonRIGHT_Click);
 			// 
 			// buttonD
 			// 
 			this->buttonD->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonD.Image")));
-			this->buttonD->Location = System::Drawing::Point(152, 566);
+			this->buttonD->Location = System::Drawing::Point(152, 458);
 			this->buttonD->Name = L"buttonD";
 			this->buttonD->Size = System::Drawing::Size(59, 59);
 			this->buttonD->TabIndex = 17;
@@ -225,39 +247,12 @@ namespace Project {
 			// buttonUP
 			// 
 			this->buttonUP->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonUP.Image")));
-			this->buttonUP->Location = System::Drawing::Point(152, 501);
+			this->buttonUP->Location = System::Drawing::Point(152, 393);
 			this->buttonUP->Name = L"buttonUP";
 			this->buttonUP->Size = System::Drawing::Size(59, 59);
 			this->buttonUP->TabIndex = 16;
 			this->buttonUP->UseVisualStyleBackColor = true;
 			this->buttonUP->Click += gcnew System::EventHandler(this, &MyForm::buttonUP_Click);
-			// 
-			// numericUpDownC
-			// 
-			this->numericUpDownC->Location = System::Drawing::Point(91, 325);
-			this->numericUpDownC->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
-			this->numericUpDownC->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, System::Int32::MinValue });
-			this->numericUpDownC->Name = L"numericUpDownC";
-			this->numericUpDownC->Size = System::Drawing::Size(120, 22);
-			this->numericUpDownC->TabIndex = 15;
-			// 
-			// numericUpDownB
-			// 
-			this->numericUpDownB->Location = System::Drawing::Point(91, 294);
-			this->numericUpDownB->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
-			this->numericUpDownB->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, System::Int32::MinValue });
-			this->numericUpDownB->Name = L"numericUpDownB";
-			this->numericUpDownB->Size = System::Drawing::Size(120, 22);
-			this->numericUpDownB->TabIndex = 14;
-			// 
-			// numericUpDownA
-			// 
-			this->numericUpDownA->Location = System::Drawing::Point(91, 263);
-			this->numericUpDownA->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, 0 });
-			this->numericUpDownA->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 50, 0, 0, System::Int32::MinValue });
-			this->numericUpDownA->Name = L"numericUpDownA";
-			this->numericUpDownA->Size = System::Drawing::Size(120, 22);
-			this->numericUpDownA->TabIndex = 13;
 			// 
 			// textBox2
 			// 
@@ -349,18 +344,18 @@ namespace Project {
 			this->chart1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			chartArea1->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea1);
-			legend1->Name = L"Legend1";
-			this->chart1->Legends->Add(legend1);
+			chartArea2->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea2);
+			legend2->Name = L"Legend1";
+			this->chart1->Legends->Add(legend2);
 			this->chart1->Location = System::Drawing::Point(12, 12);
 			this->chart1->Name = L"chart1";
 			this->chart1->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
-			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series1->Legend = L"Legend1";
-			series1->Name = L"Series1";
-			this->chart1->Series->Add(series1);
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series2->Legend = L"Legend1";
+			series2->Name = L"Series1";
+			this->chart1->Series->Add(series2);
 			this->chart1->Size = System::Drawing::Size(650, 648);
 			this->chart1->TabIndex = 2;
 			this->chart1->Text = L"chart1";
@@ -376,9 +371,6 @@ namespace Project {
 			this->Text = L"MyForm";
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownC))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownB))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownA))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
 			this->ResumeLayout(false);
 
@@ -505,7 +497,6 @@ private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e
 			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 		break;
 	case 1:
-		c--;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 		break;
@@ -536,7 +527,6 @@ private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e
 			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 		break;
 	case 1:
-		c--;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 		break;
@@ -556,6 +546,134 @@ private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e
 }
 // turn right
 ////
-//
+// push right
+private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArgs^ e) {
+	chart1->Series["Series1"]->Points->Clear();
+
+	switch (comboBox1->SelectedIndex) {
+	case 0:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
+		break;
+	case 1:
+		if (a > 0)
+			b--;
+		else
+			b++;
+		
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
+		break;
+	case 2:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+		break;
+	case 3:
+		b--;
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b));
+		break;
+	case 4:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, i);
+		break;
+	}
+}
+//push right
+////
+// push left
+private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs^ e) {
+	chart1->Series["Series1"]->Points->Clear();
+
+	switch (comboBox1->SelectedIndex) {
+	case 0:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
+		break;
+	case 1:
+		if (a > 0)
+			b++;
+		else
+			b--;
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
+		break;
+	case 2:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+		break;
+	case 3:
+		b++;
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b));
+		break;
+	case 4:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, i);
+		break;
+	}
+}
+//push left
+////
+// сужение
+private: System::Void buttonConstriction_Click(System::Object^ sender, System::EventArgs^ e) {
+	chart1->Series["Series1"]->Points->Clear();
+
+	switch (comboBox1->SelectedIndex) {
+	case 0:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
+		break;
+	case 1:
+		a++;
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
+		break;
+	case 2:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+		break;
+	case 3:
+		a--;
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b));
+		break;
+	case 4:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, i);
+		break;
+	}
+}
+// сужение
+////
+// расширение
+private: System::Void buttonExpansion_Click(System::Object^ sender, System::EventArgs^ e) {
+	chart1->Series["Series1"]->Points->Clear();
+
+	switch (comboBox1->SelectedIndex) {
+	case 0:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
+		break;
+	case 1:
+		a--;
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
+		break;
+	case 2:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+		break;
+	case 3:
+		a++;
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b));
+		break;
+	case 4:
+		for (float i = from; i < to; i += 0.1)
+			chart1->Series["Series1"]->Points->AddXY(i, i);
+		break;
+	}
+}
 };
 }
