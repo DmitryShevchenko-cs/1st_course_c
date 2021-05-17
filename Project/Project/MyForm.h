@@ -70,6 +70,8 @@ namespace Project {
 	private: System::Windows::Forms::Button^ buttonConstriction;
 
 	private: System::Windows::Forms::Button^ buttonExpansion;
+	private: System::Windows::Forms::TextBox^ textBoxD;
+	private: System::Windows::Forms::Label^ label6;
 
 
 
@@ -89,9 +91,9 @@ namespace Project {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->buttonConstriction = (gcnew System::Windows::Forms::Button());
 			this->buttonExpansion = (gcnew System::Windows::Forms::Button());
@@ -115,6 +117,8 @@ namespace Project {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->textBoxD = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
@@ -123,6 +127,8 @@ namespace Project {
 			// 
 			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox1->Controls->Add(this->textBoxD);
+			this->groupBox1->Controls->Add(this->label6);
 			this->groupBox1->Controls->Add(this->buttonConstriction);
 			this->groupBox1->Controls->Add(this->buttonExpansion);
 			this->groupBox1->Controls->Add(this->buttonL);
@@ -192,25 +198,25 @@ namespace Project {
 			// 
 			// textBoxB
 			// 
-			this->textBoxB->Location = System::Drawing::Point(52, 293);
+			this->textBoxB->Location = System::Drawing::Point(230, 155);
 			this->textBoxB->Name = L"textBoxB";
-			this->textBoxB->Size = System::Drawing::Size(100, 22);
+			this->textBoxB->Size = System::Drawing::Size(42, 22);
 			this->textBoxB->TabIndex = 22;
 			this->textBoxB->Text = L"0";
 			// 
 			// textBoxA
 			// 
-			this->textBoxA->Location = System::Drawing::Point(52, 262);
+			this->textBoxA->Location = System::Drawing::Point(230, 124);
 			this->textBoxA->Name = L"textBoxA";
-			this->textBoxA->Size = System::Drawing::Size(100, 22);
+			this->textBoxA->Size = System::Drawing::Size(42, 22);
 			this->textBoxA->TabIndex = 21;
 			this->textBoxA->Text = L"0";
 			// 
 			// textBoxC
 			// 
-			this->textBoxC->Location = System::Drawing::Point(52, 324);
+			this->textBoxC->Location = System::Drawing::Point(302, 124);
 			this->textBoxC->Name = L"textBoxC";
-			this->textBoxC->Size = System::Drawing::Size(100, 22);
+			this->textBoxC->Size = System::Drawing::Size(42, 22);
 			this->textBoxC->TabIndex = 20;
 			this->textBoxC->Text = L"0";
 			// 
@@ -256,17 +262,17 @@ namespace Project {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(111, 166);
+			this->textBox2->Location = System::Drawing::Point(64, 152);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 22);
+			this->textBox2->Size = System::Drawing::Size(42, 22);
 			this->textBox2->TabIndex = 9;
 			this->textBox2->Text = L"10";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(111, 139);
+			this->textBox1->Location = System::Drawing::Point(64, 124);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 22);
+			this->textBox1->Size = System::Drawing::Size(42, 22);
 			this->textBox1->TabIndex = 8;
 			this->textBox1->Text = L"-10";
 			// 
@@ -284,7 +290,7 @@ namespace Project {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(28, 327);
+			this->label5->Location = System::Drawing::Point(278, 127);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(15, 17);
 			this->label5->TabIndex = 5;
@@ -293,7 +299,7 @@ namespace Project {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(28, 296);
+			this->label4->Location = System::Drawing::Point(206, 158);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(16, 17);
 			this->label4->TabIndex = 4;
@@ -302,7 +308,7 @@ namespace Project {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(28, 265);
+			this->label3->Location = System::Drawing::Point(206, 127);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(16, 17);
 			this->label3->TabIndex = 3;
@@ -311,7 +317,7 @@ namespace Project {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(28, 169);
+			this->label2->Location = System::Drawing::Point(28, 154);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(31, 17);
 			this->label2->TabIndex = 2;
@@ -320,7 +326,7 @@ namespace Project {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(28, 142);
+			this->label1->Location = System::Drawing::Point(28, 127);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(30, 17);
 			this->label1->TabIndex = 1;
@@ -344,21 +350,37 @@ namespace Project {
 			this->chart1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			chartArea2->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea2);
-			legend2->Name = L"Legend1";
-			this->chart1->Legends->Add(legend2);
+			chartArea1->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chart1->Legends->Add(legend1);
 			this->chart1->Location = System::Drawing::Point(12, 12);
 			this->chart1->Name = L"chart1";
 			this->chart1->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
-			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series2->Legend = L"Legend1";
-			series2->Name = L"Series1";
-			this->chart1->Series->Add(series2);
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series1->Legend = L"Legend1";
+			series1->Name = L"Series1";
+			this->chart1->Series->Add(series1);
 			this->chart1->Size = System::Drawing::Size(650, 648);
 			this->chart1->TabIndex = 2;
 			this->chart1->Text = L"chart1";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(278, 159);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(16, 17);
+			this->label6->TabIndex = 27;
+			this->label6->Text = L"d";
+			// 
+			// textBoxD
+			// 
+			this->textBoxD->Location = System::Drawing::Point(302, 156);
+			this->textBoxD->Name = L"textBoxD";
+			this->textBoxD->Size = System::Drawing::Size(42, 22);
+			this->textBoxD->TabIndex = 28;
 			// 
 			// MyForm
 			// 
@@ -377,7 +399,10 @@ namespace Project {
 		}
 #pragma endregion
 		float from, to;
-		float a, b, c;
+		float a, b, c, d;
+			//
+			////mainbuton
+			//
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		if(comboBox1->SelectedIndex != -1 && textBox1->Text != "" && textBox2->Text != "") {
 			chart1->Series["Series1"]->Points->Clear();
@@ -388,6 +413,7 @@ namespace Project {
 			a = Convert::ToDouble(textBoxA->Text);
 			b = Convert::ToDouble(textBoxB->Text);
 			c = Convert::ToDouble(textBoxC->Text);
+			d = Convert::ToDouble(textBoxC->Text);
 
 			switch (comboBox1->SelectedIndex) {
 			case 0:
@@ -415,7 +441,9 @@ namespace Project {
 		else 
 			MessageBox::Show("Возможно не все поля заполнены.\nПроверте данные и повторите попытку.");
 	}
-//кнопка вверх
+			//
+			//upbutton
+			//
 private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (comboBox1->SelectedIndex != -1 && textBox1->Text != "" && textBox2->Text != "") {
 		chart1->Series["Series1"]->Points->Clear();
@@ -449,9 +477,9 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 		MessageBox::Show("Возможно не все поля заполнены.\nПроверте данные и повторите попытку.");
 
 }
-//кнопка вверх
-////	   
-// кнопка вниз
+			//
+			// downbotton
+			// 
 private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (comboBox1->SelectedIndex != -1 && textBox1->Text != "" && textBox2->Text != "") {
 		chart1->Series["Series1"]->Points->Clear();
@@ -484,9 +512,9 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 	else
 		MessageBox::Show("Возможно не все поля заполнены.\nПроверте данные и повторите попытку.");
 }
-// кнопка вниз
-////
-// turn left
+			//
+			//leftbutton (turn)
+			//
 private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e) {
 	chart1->Series["Series1"]->Points->Clear();
 
@@ -514,9 +542,9 @@ private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	}
 }
-// turn left
-//////
-// turn right
+			//
+			//rightbutton (turn)
+			//
 private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e) {
 	chart1->Series["Series1"]->Points->Clear();
 
@@ -544,9 +572,9 @@ private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	}
 }
-// turn right
-////
-// push right
+			//
+			//rightbutton
+			//
 private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArgs^ e) {
 	chart1->Series["Series1"]->Points->Clear();
 
@@ -580,9 +608,9 @@ private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArg
 		break;
 	}
 }
-//push right
-////
-// push left
+			//
+			//leftbutton
+			//
 private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs^ e) {
 	chart1->Series["Series1"]->Points->Clear();
 
@@ -615,9 +643,9 @@ private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs
 		break;
 	}
 }
-//push left
-////
-// сужение
+			//
+			//Constriction_button
+			//
 private: System::Void buttonConstriction_Click(System::Object^ sender, System::EventArgs^ e) {
 	chart1->Series["Series1"]->Points->Clear();
 
@@ -647,9 +675,9 @@ private: System::Void buttonConstriction_Click(System::Object^ sender, System::E
 		break;
 	}
 }
-// сужение
-////
-// расширение
+			//
+			//Expansion_button
+			//
 private: System::Void buttonExpansion_Click(System::Object^ sender, System::EventArgs^ e) {
 	chart1->Series["Series1"]->Points->Clear();
 
