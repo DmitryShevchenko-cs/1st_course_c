@@ -86,6 +86,8 @@ namespace Project {
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBoxB = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxA = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxC = (gcnew System::Windows::Forms::TextBox());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
@@ -105,8 +107,6 @@ namespace Project {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
-			this->textBoxA = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxB = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownC))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownB))->BeginInit();
@@ -144,12 +144,29 @@ namespace Project {
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"groupBox1";
 			// 
+			// textBoxB
+			// 
+			this->textBoxB->Location = System::Drawing::Point(239, 293);
+			this->textBoxB->Name = L"textBoxB";
+			this->textBoxB->Size = System::Drawing::Size(100, 22);
+			this->textBoxB->TabIndex = 22;
+			this->textBoxB->Text = L"0";
+			// 
+			// textBoxA
+			// 
+			this->textBoxA->Location = System::Drawing::Point(239, 262);
+			this->textBoxA->Name = L"textBoxA";
+			this->textBoxA->Size = System::Drawing::Size(100, 22);
+			this->textBoxA->TabIndex = 21;
+			this->textBoxA->Text = L"0";
+			// 
 			// textBoxC
 			// 
 			this->textBoxC->Location = System::Drawing::Point(239, 325);
 			this->textBoxC->Name = L"textBoxC";
 			this->textBoxC->Size = System::Drawing::Size(100, 22);
 			this->textBoxC->TabIndex = 20;
+			this->textBoxC->Text = L"0";
 			// 
 			// button5
 			// 
@@ -320,20 +337,6 @@ namespace Project {
 			this->chart1->TabIndex = 2;
 			this->chart1->Text = L"chart1";
 			// 
-			// textBoxA
-			// 
-			this->textBoxA->Location = System::Drawing::Point(239, 262);
-			this->textBoxA->Name = L"textBoxA";
-			this->textBoxA->Size = System::Drawing::Size(100, 22);
-			this->textBoxA->TabIndex = 21;
-			// 
-			// textBoxB
-			// 
-			this->textBoxB->Location = System::Drawing::Point(239, 293);
-			this->textBoxB->Name = L"textBoxB";
-			this->textBoxB->Size = System::Drawing::Size(100, 22);
-			this->textBoxB->TabIndex = 22;
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -399,6 +402,7 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 
 		switch (comboBox1->SelectedIndex) {
 		case 0:
+			b++;
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 			break;
@@ -434,6 +438,7 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 
 		switch (comboBox1->SelectedIndex) {
 		case 0:
+			b--;
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 			break;
