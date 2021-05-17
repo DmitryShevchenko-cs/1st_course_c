@@ -95,6 +95,8 @@ namespace Project {
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBoxD = (gcnew System::Windows::Forms::TextBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->buttonConstriction = (gcnew System::Windows::Forms::Button());
 			this->buttonExpansion = (gcnew System::Windows::Forms::Button());
 			this->buttonL = (gcnew System::Windows::Forms::Button());
@@ -117,8 +119,6 @@ namespace Project {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->textBoxD = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
@@ -155,6 +155,22 @@ namespace Project {
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"groupBox1";
+			// 
+			// textBoxD
+			// 
+			this->textBoxD->Location = System::Drawing::Point(302, 156);
+			this->textBoxD->Name = L"textBoxD";
+			this->textBoxD->Size = System::Drawing::Size(42, 22);
+			this->textBoxD->TabIndex = 28;
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(278, 159);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(16, 17);
+			this->label6->TabIndex = 27;
+			this->label6->Text = L"d";
 			// 
 			// buttonConstriction
 			// 
@@ -336,8 +352,8 @@ namespace Project {
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-				L"y=ax+b", L"y=a(x^2)+bx+c", L"y=asin(bx)+c", L"y=(√ax + b)",
-					L"y=(a/x)+b"
+				L"y=ax+b", L"y=a(x^2)+bx+c", L"y=asin(bx+c)+d",
+					L"y=(√ax + b)+c", L"y=bebra"
 			});
 			this->comboBox1->Location = System::Drawing::Point(31, 54);
 			this->comboBox1->Name = L"comboBox1";
@@ -365,22 +381,6 @@ namespace Project {
 			this->chart1->Size = System::Drawing::Size(650, 648);
 			this->chart1->TabIndex = 2;
 			this->chart1->Text = L"chart1";
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(278, 159);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(16, 17);
-			this->label6->TabIndex = 27;
-			this->label6->Text = L"d";
-			// 
-			// textBoxD
-			// 
-			this->textBoxD->Location = System::Drawing::Point(302, 156);
-			this->textBoxD->Name = L"textBoxD";
-			this->textBoxD->Size = System::Drawing::Size(42, 22);
-			this->textBoxD->TabIndex = 28;
 			// 
 			// MyForm
 			// 
@@ -426,7 +426,7 @@ namespace Project {
 				break;
 			case 2:
 				for (float i = from; i < to; i += 0.1)
-					chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+					chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 				break;
 			case 3:
 				for (float i = from; i < to; i += 0.1)
@@ -460,8 +460,9 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 				chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 			break;
 		case 2:
+			d++;
 			for (float i = from; i < to; i += 0.1)
-				chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+				chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 			break;
 		case 3:
 			for (float i = from; i < to; i += 0.1)
@@ -496,8 +497,9 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 				chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 			break;
 		case 2:
+			d--;
 			for (float i = from; i < to; i += 0.1)
-				chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+				chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 			break;
 		case 3:
 			for (float i = from; i < to; i += 0.1)
@@ -530,7 +532,7 @@ private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 2:
 		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
 	case 3:
 		for (float i = from; i < to; i += 0.1)
@@ -560,7 +562,7 @@ private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 2:
 		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
 	case 3:
 		for (float i = from; i < to; i += 0.1)
@@ -593,9 +595,9 @@ private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArg
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 		break;
 	case 2:
-		c++;
+		c--;
 		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
 	case 3:
 		b--;
@@ -628,9 +630,9 @@ private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 		break;
 	case 2:
-		c--;
+		c++;
 		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
 	case 3:
 		b++;
@@ -667,7 +669,7 @@ private: System::Void buttonConstriction_Click(System::Object^ sender, System::E
 	case 3:
 		a--;
 		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b));
+			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
 	case 4:
 		for (float i = from; i < to; i += 0.1)
@@ -694,7 +696,7 @@ private: System::Void buttonExpansion_Click(System::Object^ sender, System::Even
 	case 2:
 		a++;
 		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * sin(b * i) + c));
+			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
 	case 3:
 		a++;
