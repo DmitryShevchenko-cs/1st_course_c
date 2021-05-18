@@ -8,6 +8,7 @@ namespace Project {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::IO; //для работы с файлами
 
 	/// <summary>
 	/// Сводка для MyForm
@@ -53,7 +54,7 @@ namespace Project {
 
 
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
-	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
+
 	private: System::Windows::Forms::Button^ buttonLEFT;
 
 	private: System::Windows::Forms::Button^ buttonRIGHT;
@@ -77,6 +78,7 @@ namespace Project {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 
 
 
@@ -127,7 +129,7 @@ namespace Project {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
@@ -427,6 +429,10 @@ namespace Project {
 			this->chart1->TabIndex = 2;
 			this->chart1->Text = L"chart1";
 			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"openFileDialog1";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -445,11 +451,14 @@ namespace Project {
 #pragma endregion
 		float from, to;
 		float a, b, c, d;
+		//String^ FileName = "";
+
 		//
 		//mainbuton
 		//
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		if(comboBox1->SelectedIndex != -1 && textBox1->Text != "" && textBox2->Text != "") {
+		if(comboBox1->SelectedIndex != -1 && textBox1->Text != "" && textBox2->Text != ""
+			&& textBoxA->Text != "" && textBoxB->Text != "" && textBoxC->Text != "" && textBoxD->Text != "") {
 			chart1->Series["Series1"]->Points->Clear();
 
 			from = Convert::ToDouble(textBox1->Text);
@@ -515,6 +524,11 @@ namespace Project {
 					chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 				break;
 			}
+			StreamWriter^ f = gcnew StreamWriter("Result.txt", true);
+			f->Write(textBox3->Text);
+			f->Close();
+
+
 		}
 		else 
 			MessageBox::Show("Возможно не все поля заполнены.\nПроверте данные и повторите попытку.");
@@ -1130,5 +1144,6 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	}
 }
+
 };
 }
