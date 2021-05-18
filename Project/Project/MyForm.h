@@ -76,6 +76,7 @@ namespace Project {
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::TextBox^ textBox3;
 
 
 
@@ -126,6 +127,7 @@ namespace Project {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
@@ -134,6 +136,7 @@ namespace Project {
 			// 
 			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox1->Controls->Add(this->textBox3);
 			this->groupBox1->Controls->Add(this->button3);
 			this->groupBox1->Controls->Add(this->button2);
 			this->groupBox1->Controls->Add(this->textBoxD);
@@ -167,21 +170,21 @@ namespace Project {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(281, 424);
+			this->button3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.Image")));
+			this->button3->Location = System::Drawing::Point(176, 508);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(75, 23);
+			this->button3->Size = System::Drawing::Size(59, 59);
 			this->button3->TabIndex = 30;
-			this->button3->Text = L"button3";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(282, 395);
+			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
+			this->button2->Location = System::Drawing::Point(177, 443);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(59, 59);
 			this->button2->TabIndex = 29;
-			this->button2->Text = L"button2";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
@@ -191,6 +194,7 @@ namespace Project {
 			this->textBoxD->Name = L"textBoxD";
 			this->textBoxD->Size = System::Drawing::Size(42, 22);
 			this->textBoxD->TabIndex = 28;
+			this->textBoxD->Text = L"0";
 			// 
 			// label6
 			// 
@@ -203,29 +207,29 @@ namespace Project {
 			// 
 			// buttonShort
 			// 
-			this->buttonShort->AutoSize = true;
-			this->buttonShort->Location = System::Drawing::Point(31, 422);
+			this->buttonShort->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonShort.Image")));
+			this->buttonShort->Location = System::Drawing::Point(47, 508);
 			this->buttonShort->Name = L"buttonShort";
-			this->buttonShort->Size = System::Drawing::Size(39, 27);
+			this->buttonShort->Size = System::Drawing::Size(59, 59);
 			this->buttonShort->TabIndex = 26;
-			this->buttonShort->Text = L")(";
 			this->buttonShort->UseVisualStyleBackColor = true;
 			this->buttonShort->Click += gcnew System::EventHandler(this, &MyForm::buttonShort_Click);
 			// 
 			// buttonTall
 			// 
-			this->buttonTall->AutoSize = true;
-			this->buttonTall->Location = System::Drawing::Point(31, 393);
+			this->buttonTall->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonTall.Image")));
+			this->buttonTall->Location = System::Drawing::Point(47, 443);
 			this->buttonTall->Name = L"buttonTall";
-			this->buttonTall->Size = System::Drawing::Size(39, 27);
+			this->buttonTall->Size = System::Drawing::Size(59, 59);
 			this->buttonTall->TabIndex = 25;
-			this->buttonTall->Text = L"()";
 			this->buttonTall->UseVisualStyleBackColor = true;
 			this->buttonTall->Click += gcnew System::EventHandler(this, &MyForm::buttonTall_Click);
 			// 
 			// buttonL
 			// 
-			this->buttonL->Location = System::Drawing::Point(88, 393);
+			this->buttonL->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonL.Image")));
+			this->buttonL->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->buttonL->Location = System::Drawing::Point(47, 313);
 			this->buttonL->Name = L"buttonL";
 			this->buttonL->Size = System::Drawing::Size(59, 59);
 			this->buttonL->TabIndex = 24;
@@ -235,7 +239,9 @@ namespace Project {
 			// 
 			// buttonR
 			// 
-			this->buttonR->Location = System::Drawing::Point(217, 393);
+			this->buttonR->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonR.Image")));
+			this->buttonR->ImageAlign = System::Drawing::ContentAlignment::TopRight;
+			this->buttonR->Location = System::Drawing::Point(176, 313);
 			this->buttonR->Name = L"buttonR";
 			this->buttonR->Size = System::Drawing::Size(59, 59);
 			this->buttonR->TabIndex = 23;
@@ -257,7 +263,7 @@ namespace Project {
 			this->textBoxA->Name = L"textBoxA";
 			this->textBoxA->Size = System::Drawing::Size(42, 22);
 			this->textBoxA->TabIndex = 21;
-			this->textBoxA->Text = L"0";
+			this->textBoxA->Text = L"1";
 			// 
 			// textBoxC
 			// 
@@ -270,7 +276,8 @@ namespace Project {
 			// buttonLEFT
 			// 
 			this->buttonLEFT->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonLEFT.Image")));
-			this->buttonLEFT->Location = System::Drawing::Point(88, 458);
+			this->buttonLEFT->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->buttonLEFT->Location = System::Drawing::Point(47, 378);
 			this->buttonLEFT->Name = L"buttonLEFT";
 			this->buttonLEFT->Size = System::Drawing::Size(59, 59);
 			this->buttonLEFT->TabIndex = 19;
@@ -280,7 +287,8 @@ namespace Project {
 			// buttonRIGHT
 			// 
 			this->buttonRIGHT->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonRIGHT.Image")));
-			this->buttonRIGHT->Location = System::Drawing::Point(217, 458);
+			this->buttonRIGHT->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->buttonRIGHT->Location = System::Drawing::Point(176, 378);
 			this->buttonRIGHT->Name = L"buttonRIGHT";
 			this->buttonRIGHT->Size = System::Drawing::Size(59, 59);
 			this->buttonRIGHT->TabIndex = 18;
@@ -290,7 +298,8 @@ namespace Project {
 			// buttonD
 			// 
 			this->buttonD->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonD.Image")));
-			this->buttonD->Location = System::Drawing::Point(152, 458);
+			this->buttonD->ImageAlign = System::Drawing::ContentAlignment::BottomCenter;
+			this->buttonD->Location = System::Drawing::Point(112, 443);
 			this->buttonD->Name = L"buttonD";
 			this->buttonD->Size = System::Drawing::Size(59, 59);
 			this->buttonD->TabIndex = 17;
@@ -300,7 +309,8 @@ namespace Project {
 			// buttonUP
 			// 
 			this->buttonUP->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonUP.Image")));
-			this->buttonUP->Location = System::Drawing::Point(152, 393);
+			this->buttonUP->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->buttonUP->Location = System::Drawing::Point(111, 313);
 			this->buttonUP->Name = L"buttonUP";
 			this->buttonUP->Size = System::Drawing::Size(59, 59);
 			this->buttonUP->TabIndex = 16;
@@ -325,13 +335,13 @@ namespace Project {
 			// 
 			// button1
 			// 
-			this->button1->AutoSize = true;
-			this->button1->Location = System::Drawing::Point(215, 54);
+			this->button1->BackColor = System::Drawing::Color::White;
+			this->button1->Location = System::Drawing::Point(111, 378);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(96, 27);
+			this->button1->Size = System::Drawing::Size(59, 59);
 			this->button1->TabIndex = 7;
-			this->button1->Text = L"Нарисовать";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Text = L"Рисо-вать";
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// label5
@@ -382,9 +392,9 @@ namespace Project {
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
 				L"y=ax+b", L"y=a(x^2)+bx+c", L"y=asin(bx+c)+d",
-					L"y=(√ax + b)+c", L"y=bebra"
+					L"y=(√ax + b)+c"
 			});
 			this->comboBox1->Location = System::Drawing::Point(31, 54);
 			this->comboBox1->Name = L"comboBox1";
@@ -412,6 +422,13 @@ namespace Project {
 			this->chart1->Size = System::Drawing::Size(650, 648);
 			this->chart1->TabIndex = 2;
 			this->chart1->Text = L"chart1";
+			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(31, 223);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(171, 22);
+			this->textBox3->TabIndex = 31;
 			// 
 			// MyForm
 			// 
@@ -448,6 +465,10 @@ namespace Project {
 
 			switch (comboBox1->SelectedIndex) {
 			case 0:
+				if (b != 0)
+					textBox3->Text = Convert::ToString(a) + "x + " + Convert::ToString(b);
+				else
+					textBox3->Text = Convert::ToString(a) + "x";
 				for (float i = from; i < to; i += 0.1)
 					chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 				break;
@@ -482,6 +503,10 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 		switch (comboBox1->SelectedIndex) {
 		case 0:
 			b++;
+			if (b != 0)
+				textBox3->Text = Convert::ToString(a) + "x + " + Convert::ToString(b);
+			else
+				textBox3->Text = Convert::ToString(a) + "x";
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 			break;
@@ -520,6 +545,10 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 		switch (comboBox1->SelectedIndex) {
 		case 0:
 			b--;
+			if (b != 0)
+				textBox3->Text = Convert::ToString(a) + "x + " + Convert::ToString(b);
+			else
+				textBox3->Text = Convert::ToString(a) + "x";
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 			break;
@@ -538,10 +567,6 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 			break;
-		case 4:
-			for (float i = from; i < to; i += 0.1)
-				chart1->Series["Series1"]->Points->AddXY(i, i);
-			break;
 		}
 	}
 	else
@@ -556,6 +581,10 @@ private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e
 	switch (comboBox1->SelectedIndex) {
 	case 0:
 		a++;
+		if (b != 0)
+			textBox3->Text = Convert::ToString(a) + "x + " + Convert::ToString(b);
+		else
+			textBox3->Text = Convert::ToString(a) + "x";
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 		break;
@@ -570,10 +599,6 @@ private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e
 	case 3:
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
-		break;
-	case 4:
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, i);
 		break;
 	}
 }
@@ -586,6 +611,10 @@ private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e
 	switch (comboBox1->SelectedIndex) {
 	case 0:
 		a--;
+		if (b != 0)
+			textBox3->Text = Convert::ToString(a) + "x + " + Convert::ToString(b);
+		else
+			textBox3->Text = Convert::ToString(a) + "x";
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 		break;
@@ -600,10 +629,6 @@ private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e
 	case 3:
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
-		break;
-	case 4:
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, i);
 		break;
 	}
 }
@@ -637,10 +662,6 @@ private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArg
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 		break;
-	case 4:
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, i);
-		break;
 	}
 }
 		//
@@ -672,10 +693,6 @@ private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 		break;
-	case 4:
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, i);
-		break;
 	}
 }
 		//
@@ -702,10 +719,6 @@ private: System::Void buttonShort_Click(System::Object^ sender, System::EventArg
 	case 3:
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
-		break;
-	case 4:
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, i);
 		break;
 	}
 }
@@ -734,10 +747,6 @@ private: System::Void buttonTall_Click(System::Object^ sender, System::EventArgs
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 		break;
-	case 4:
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, i);
-		break;
 	}
 }
 	   //
@@ -765,10 +774,6 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 		break;
-	case 4:
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, i);
-		break;
 	}
 }
 	   //
@@ -795,10 +800,6 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		a--;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
-		break;
-	case 4:
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, i);
 		break;
 	}
 }
