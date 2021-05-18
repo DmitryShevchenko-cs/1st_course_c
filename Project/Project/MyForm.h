@@ -484,6 +484,19 @@ namespace Project {
 					chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 				break;
 			case 2:
+				if (c >= 0 && d >= 0)
+					textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
+
+				if(c < 0 && d >= 0 )
+					textBox3->Text = a + "sin(" + b + "x" + c + ")+" + d;
+
+				if(c >= 0 && d < 0)
+					textBox3->Text = a + "sin(" + b + "x+" + c + ")" + d;
+					
+				if (c < 0 && d < 0)
+					textBox3->Text = a + "sin(" + b + "x" + c + ")" + d;
+
+
 				for (float i = from; i < to; i += 0.1)
 					chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 				break;
@@ -539,6 +552,17 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 			break;
 		case 2:
 			d++;
+			if (c >= 0 && d >= 0)
+				textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
+
+			if (c < 0 && d >= 0)
+				textBox3->Text = a + "sin(" + b + "x" + c + ")+" + d;
+
+			if (c >= 0 && d < 0)
+				textBox3->Text = a + "sin(" + b + "x+" + c + ")" + d;
+
+			if (c < 0 && d < 0)
+				textBox3->Text = a + "sin(" + b + "x" + c + ")" + d;
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 			break;
@@ -595,6 +619,17 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 			break;
 		case 2:
 			d--;
+			if (c >= 0 && d >= 0)
+				textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
+
+			if (c < 0 && d >= 0)
+				textBox3->Text = a + "sin(" + b + "x" + c + ")+" + d;
+
+			if (c >= 0 && d < 0)
+				textBox3->Text = a + "sin(" + b + "x+" + c + ")" + d;
+
+			if (c < 0 && d < 0)
+				textBox3->Text = a + "sin(" + b + "x" + c + ")" + d;
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 			break;
@@ -646,6 +681,17 @@ private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 		break;
 	case 2:
+		if (c >= 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
+
+		if (c < 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")+" + d;
+
+		if (c >= 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")" + d;
+
+		if (c < 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")" + d;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
@@ -693,6 +739,17 @@ private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 		break;
 	case 2:
+		if (c >= 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
+
+		if (c < 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")+" + d;
+
+		if (c >= 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")" + d;
+
+		if (c < 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")" + d;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
@@ -745,6 +802,17 @@ private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArg
 		break;
 	case 2:
 		c--;
+		if (c >= 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
+
+		if (c < 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")+" + d;
+
+		if (c >= 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")" + d;
+
+		if (c < 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")" + d;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
@@ -797,6 +865,17 @@ private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs
 		break;
 	case 2:
 		c++;
+		if (c >= 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
+
+		if (c < 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")+" + d;
+
+		if (c >= 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")" + d;
+
+		if (c < 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")" + d;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
@@ -846,6 +925,17 @@ private: System::Void buttonShort_Click(System::Object^ sender, System::EventArg
 		break;
 	case 2:
 		b++;
+		if (c >= 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
+
+		if (c < 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")+" + d;
+
+		if (c >= 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")" + d;
+
+		if (c < 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")" + d;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
@@ -894,6 +984,17 @@ private: System::Void buttonTall_Click(System::Object^ sender, System::EventArgs
 		break;
 	case 2:
 		b--;
+		if (c >= 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
+
+		if (c < 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")+" + d;
+
+		if (c >= 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")" + d;
+
+		if (c < 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")" + d;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
@@ -941,6 +1042,17 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 2:
 		a++;
+		if (c >= 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
+
+		if (c < 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")+" + d;
+
+		if (c >= 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")" + d;
+
+		if (c < 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")" + d;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
@@ -989,6 +1101,17 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 2:
 		a--;
+		if (c >= 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
+
+		if (c < 0 && d >= 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")+" + d;
+
+		if (c >= 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x+" + c + ")" + d;
+
+		if (c < 0 && d < 0)
+			textBox3->Text = a + "sin(" + b + "x" + c + ")" + d;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
