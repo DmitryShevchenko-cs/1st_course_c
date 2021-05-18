@@ -463,22 +463,22 @@ namespace Project {
 			switch (comboBox1->SelectedIndex) {
 			case 0:
 				if (b >= 0)
-					textBox3->Text = Convert::ToString(a) + "x+" + Convert::ToString(b);
+					textBox3->Text = a + "x+" + b;
 				else
-					textBox3->Text = Convert::ToString(a) + "x+" + Convert::ToString(b);
+					textBox3->Text = a + "x+" + b;
 
 				for (float i = from; i < to; i += 0.1)
 					chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 				break;
 			case 1:
 				if (b >= 0 && c >= 0)
-					textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x+" + c;
+					textBox3->Text = a + "x^2 +" + b + "x+" + c;
 				if (b < 0 && c >= 0)
-					textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x+" + c;
+					textBox3->Text = a + "x^2 " + b + "x+" + c;
 				if (b < 0 && c < 0)
-					textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x" + c;
+					textBox3->Text = a + "x^2 " + b + "x" + c;
 				if (b >= 0 && c < 0)
-					textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x" + c;
+					textBox3->Text = a + "x^2 +" + b + "x" + c;
 
 				for (float i = from; i < to; i += 0.1)
 					chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -488,12 +488,18 @@ namespace Project {
 					chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 				break;
 			case 3:
+				if (b >= 0 && c >= 0)
+					textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
+				if (b < 0 && c >= 0)
+					textBox3->Text = "sqrt(" + a + "x" + b + ")+" + c;
+				if (b < 0 && c < 0)
+					textBox3->Text = "sqrt(" + a + "x" + b + ")" + c;
+				if (b >= 0 && c < 0)
+					textBox3->Text = "sqrt(" + a + "x+" + b + ")" + c;
+				
+
 				for (float i = from; i < to; i += 0.1)
-					chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b));
-				break;
-			case 4:
-				for (float i = from; i < to; i += 0.1)
-					chart1->Series["Series1"]->Points->AddXY(i, i);
+					chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 				break;
 			}
 		}
@@ -510,23 +516,23 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 		switch (comboBox1->SelectedIndex) {
 		case 0:
 			b++;
-			if (b != 0)
-				textBox3->Text = Convert::ToString(a) + "x + " + Convert::ToString(b);
+			if (b >= 0)
+				textBox3->Text = a + "x+" + b;
 			else
-				textBox3->Text = Convert::ToString(a) + "x";
+				textBox3->Text = a + "x+" + b;
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 			break;
 		case 1:
 			c++;
 			if (b >= 0 && c >= 0)
-				textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x+" + c;
+				textBox3->Text = a + "x^2 +" + b + "x+" + c;
 			if (b < 0 && c >= 0)
-				textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x+" + c;
+				textBox3->Text = a + "x^2 " + b + "x+" + c;
 			if (b < 0 && c < 0)
-				textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x" + c;
+				textBox3->Text = a + "x^2 " + b + "x" + c;
 			if (b >= 0 && c < 0)
-				textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x" + c;
+				textBox3->Text = a + "x^2 +" + b + "x" + c;
 
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -538,13 +544,18 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 			break;
 		case 3:
 			c++;
+			if (b >= 0 && c >= 0)
+				textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
+			if (b < 0 && c >= 0)
+				textBox3->Text = "sqrt(" + a + "x" + b + ")+" + c;
+			if (b < 0 && c < 0)
+				textBox3->Text = "sqrt(" + a + "x" + b + ")" + c;
+			if (b >= 0 && c < 0)
+				textBox3->Text = "sqrt(" + a + "x+" + b + ")" + c;
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 			break;
-		case 4:
-			for (float i = from; i < to; i += 0.1)
-				chart1->Series["Series1"]->Points->AddXY(i, i);
-			break;
+
 		}
 	}
 	else
@@ -561,23 +572,23 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 		switch (comboBox1->SelectedIndex) {
 		case 0:
 			b--;
-			if (b != 0)
-				textBox3->Text = Convert::ToString(a) + "x + " + Convert::ToString(b);
+			if (b >= 0)
+				textBox3->Text = a + "x+" + b;
 			else
-				textBox3->Text = Convert::ToString(a) + "x";
+				textBox3->Text = a + "x+" + b;
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 			break;
 		case 1:
 			c--;
 			if (b >= 0 && c >= 0)
-				textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x+" + c;
+				textBox3->Text = a + "x^2 +" + b + "x+" + c;
 			if (b < 0 && c >= 0)
-				textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x+" + c;
+				textBox3->Text = a + "x^2 " + b + "x+" + c;
 			if (b < 0 && c < 0)
-				textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x" + c;
+				textBox3->Text = a + "x^2 " + b + "x" + c;
 			if (b >= 0 && c < 0)
-				textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x" + c;
+				textBox3->Text = a + "x^2 +" + b + "x" + c;
 
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -589,6 +600,14 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 			break;
 		case 3:
 			c--;
+			if (b >= 0 && c >= 0)
+				textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
+			if (b < 0 && c >= 0)
+				textBox3->Text = "sqrt(" + a + "x" + b + ")+" + c;
+			if (b < 0 && c < 0)
+				textBox3->Text = "sqrt(" + a + "x" + b + ")" + c;
+			if (b >= 0 && c < 0)
+				textBox3->Text = "sqrt(" + a + "x+" + b + ")" + c;
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 			break;
@@ -606,22 +625,22 @@ private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e
 	switch (comboBox1->SelectedIndex) {
 	case 0:
 		a++;
-		if (b != 0)
-			textBox3->Text = Convert::ToString(a) + "x + " + Convert::ToString(b);
+		if (b >= 0)
+			textBox3->Text = a + "x+" + b;
 		else
-			textBox3->Text = Convert::ToString(a) + "x";
+			textBox3->Text = a + "x+" + b;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 		break;
 	case 1:
 		if (b >= 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 +" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 " + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 " + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 +" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -631,6 +650,14 @@ private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
 	case 3:
+		if (b >= 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
+		if (b < 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")+" + c;
+		if (b < 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")" + c;
+		if (b >= 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")" + c;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 		break;
@@ -645,22 +672,22 @@ private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e
 	switch (comboBox1->SelectedIndex) {
 	case 0:
 		a--;
-		if (b != 0)
-			textBox3->Text = Convert::ToString(a) + "x + " + Convert::ToString(b);
+		if (b >= 0)
+			textBox3->Text = a + "x+" + b;
 		else
-			textBox3->Text = Convert::ToString(a) + "x";
+			textBox3->Text = a + "x+" + b;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 		break;
 	case 1:
 		if (b >= 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 +" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 " + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 " + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 +" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -670,6 +697,14 @@ private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
 	case 3:
+		if (b >= 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
+		if (b < 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")+" + c;
+		if (b < 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")" + c;
+		if (b >= 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")" + c;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 		break;
@@ -683,6 +718,10 @@ private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArg
 
 	switch (comboBox1->SelectedIndex) {
 	case 0:
+		if (b >= 0)
+			textBox3->Text = a + "x+" + b;
+		else
+			textBox3->Text = a + "x+" + b;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 		break;
@@ -693,13 +732,13 @@ private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArg
 			b++;
 
 		if (b >= 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 +" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 " + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 " + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 +" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -711,6 +750,14 @@ private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArg
 		break;
 	case 3:
 		b--;
+		if (b >= 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
+		if (b < 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")+" + c;
+		if (b < 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")" + c;
+		if (b >= 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")" + c;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 		break;
@@ -724,6 +771,10 @@ private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs
 
 	switch (comboBox1->SelectedIndex) {
 	case 0:
+		if (b >= 0)
+			textBox3->Text = a + "x+" + b;
+		else
+			textBox3->Text = a + "x+" + b;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 		break;
@@ -733,13 +784,13 @@ private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs
 		else
 			b--;
 		if (b >= 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 +" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 " + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 " + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 +" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -751,6 +802,14 @@ private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs
 		break;
 	case 3:
 		b++;
+		if (b >= 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
+		if (b < 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")+" + c;
+		if (b < 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")" + c;
+		if (b >= 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")" + c;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 		break;
@@ -764,19 +823,23 @@ private: System::Void buttonShort_Click(System::Object^ sender, System::EventArg
 
 	switch (comboBox1->SelectedIndex) {
 	case 0:
+		if (b >= 0)
+			textBox3->Text = a + "x+" + b;
+		else
+			textBox3->Text = a + "x+" + b;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 		break;
 	case 1:
 		a++;
 		if (b >= 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 +" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 " + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 " + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 +" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -787,6 +850,14 @@ private: System::Void buttonShort_Click(System::Object^ sender, System::EventArg
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
 	case 3:
+		if (b >= 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
+		if (b < 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")+" + c;
+		if (b < 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")" + c;
+		if (b >= 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")" + c;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 		break;
@@ -800,19 +871,23 @@ private: System::Void buttonTall_Click(System::Object^ sender, System::EventArgs
 
 	switch (comboBox1->SelectedIndex) {
 	case 0:
+		if (b >= 0)
+			textBox3->Text = a + "x+" + b;
+		else
+			textBox3->Text = a + "x+" + b;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 		break;
 	case 1:
 		a--;
 		if (b >= 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 +" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 " + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 " + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 +" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -823,6 +898,14 @@ private: System::Void buttonTall_Click(System::Object^ sender, System::EventArgs
 			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		break;
 	case 3:
+		if (b >= 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
+		if (b < 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")+" + c;
+		if (b < 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")" + c;
+		if (b >= 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")" + c;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 		break;
@@ -836,18 +919,22 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 
 	switch (comboBox1->SelectedIndex) {
 	case 0:
+		if (b >= 0)
+			textBox3->Text = a + "x+" + b;
+		else
+			textBox3->Text = a + "x+" + b;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 		break;
 	case 1:
 		if (b >= 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 +" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 " + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 " + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 +" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -859,6 +946,14 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 3:
 		a++;
+		if (b >= 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
+		if (b < 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")+" + c;
+		if (b < 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")" + c;
+		if (b >= 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")" + c;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 		break;
@@ -872,18 +967,22 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 	switch (comboBox1->SelectedIndex) {
 	case 0:
+		if (b >= 0)
+			textBox3->Text = a + "x+" + b;
+		else
+			textBox3->Text = a + "x+" + b;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 		break;
 	case 1:
 		if (b >= 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 +" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x+" + c;
+			textBox3->Text = a + "x^2 " + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 " + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 " + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = Convert::ToString(a) + "x^2 +" + Convert::ToString(b) + "x" + c;
+			textBox3->Text = a + "x^2 +" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -895,6 +994,14 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 3:
 		a--;
+		if (b >= 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
+		if (b < 0 && c >= 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")+" + c;
+		if (b < 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x" + b + ")" + c;
+		if (b >= 0 && c < 0)
+			textBox3->Text = "sqrt(" + a + "x+" + b + ")" + c;
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 		break;
