@@ -81,6 +81,7 @@ namespace Project {
 	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ buttonOpen;
+	private: System::Windows::Forms::Button^ buttonRead;
 
 
 
@@ -101,10 +102,11 @@ namespace Project {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->buttonOpen = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -133,7 +135,7 @@ namespace Project {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
-			this->buttonOpen = (gcnew System::Windows::Forms::Button());
+			this->buttonRead = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
@@ -142,6 +144,7 @@ namespace Project {
 			// 
 			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox1->Controls->Add(this->buttonRead);
 			this->groupBox1->Controls->Add(this->buttonOpen);
 			this->groupBox1->Controls->Add(this->button4);
 			this->groupBox1->Controls->Add(this->textBox3);
@@ -175,6 +178,17 @@ namespace Project {
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Данные";
+			// 
+			// buttonOpen
+			// 
+			this->buttonOpen->AutoSize = true;
+			this->buttonOpen->Location = System::Drawing::Point(264, 313);
+			this->buttonOpen->Name = L"buttonOpen";
+			this->buttonOpen->Size = System::Drawing::Size(75, 27);
+			this->buttonOpen->TabIndex = 33;
+			this->buttonOpen->Text = L"Открыть";
+			this->buttonOpen->UseVisualStyleBackColor = true;
+			this->buttonOpen->Click += gcnew System::EventHandler(this, &MyForm::buttonOpen_Click);
 			// 
 			// button4
 			// 
@@ -458,18 +472,18 @@ namespace Project {
 			this->chart1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			chartArea2->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea2);
-			legend2->Name = L"Legend1";
-			this->chart1->Legends->Add(legend2);
+			chartArea1->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chart1->Legends->Add(legend1);
 			this->chart1->Location = System::Drawing::Point(12, 12);
 			this->chart1->Name = L"chart1";
 			this->chart1->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Bright;
-			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series2->Legend = L"Legend1";
-			series2->Name = L"Series1";
-			this->chart1->Series->Add(series2);
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series1->Legend = L"Legend1";
+			series1->Name = L"Series1";
+			this->chart1->Series->Add(series1);
 			this->chart1->Size = System::Drawing::Size(650, 648);
 			this->chart1->TabIndex = 2;
 			this->chart1->Text = L"chart1";
@@ -478,15 +492,16 @@ namespace Project {
 			// 
 			this->openFileDialog1->FileName = L"openFileDialog1";
 			// 
-			// buttonOpen
+			// buttonRead
 			// 
-			this->buttonOpen->Location = System::Drawing::Point(297, 333);
-			this->buttonOpen->Name = L"buttonOpen";
-			this->buttonOpen->Size = System::Drawing::Size(75, 23);
-			this->buttonOpen->TabIndex = 33;
-			this->buttonOpen->Text = L"открыть";
-			this->buttonOpen->UseVisualStyleBackColor = true;
-			this->buttonOpen->Click += gcnew System::EventHandler(this, &MyForm::buttonOpen_Click);
+			this->buttonRead->AutoSize = true;
+			this->buttonRead->Location = System::Drawing::Point(264, 270);
+			this->buttonRead->Name = L"buttonRead";
+			this->buttonRead->Size = System::Drawing::Size(75, 27);
+			this->buttonRead->TabIndex = 34;
+			this->buttonRead->Text = L"Чтение ";
+			this->buttonRead->UseVisualStyleBackColor = true;
+			this->buttonRead->Click += gcnew System::EventHandler(this, &MyForm::buttonRead_Click);
 			// 
 			// MyForm
 			// 
@@ -1191,7 +1206,13 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	StreamWriter^ f = gcnew StreamWriter("Result.txt", false);
-	f->Write(textBox3->Text);
+	f->Write(textBoxA->Text);
+	f->Write("\n");
+	f->Write(textBoxB->Text);
+	f->Write("\n");
+	f->Write(textBoxC->Text);
+	f->Write("\n");
+	f->Write(textBoxC->Text);
 	f->Write("\n");
 	f->Close();
 	MessageBox::Show(this, "Запись в файл выполнена", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
@@ -1200,6 +1221,17 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 
 private: System::Void buttonOpen_Click(System::Object^ sender, System::EventArgs^ e) {
 	System::Diagnostics::Process::Start("Result.txt");
+}
+
+private: System::Void buttonRead_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ FileName = "";
+
+	if (openFileDialog1->ShowDialog() == Windows::Forms::DialogResult::OK)
+		FileName = openFileDialog1->FileName;
+	StreamReader^ file = File::OpenText(FileName);
+	textBoxA->Text = file->ReadLine();
+	textBoxB->Text = file->ReadLine();
+	textBoxC->Text = file->ReadLine();
 }
 };
 }

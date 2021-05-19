@@ -2,6 +2,8 @@
 #include <Windows.h>
 using namespace Project;
 
+[STAThread]
+
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
 	Application::EnableVisualStyles();
