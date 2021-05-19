@@ -523,13 +523,13 @@ namespace Project {
 				break;
 			case 1:
 				if (b >= 0 && c >= 0)
-					textBox3->Text = a + "x^2 +" + b + "x+" + c;
+					textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 				if (b < 0 && c >= 0)
-					textBox3->Text = a + "x^2 " + b + "x+" + c;
+					textBox3->Text = a + "(x^2)" + b + "x+" + c;
 				if (b < 0 && c < 0)
-					textBox3->Text = a + "x^2 " + b + "x" + c;
+					textBox3->Text = a + "(x^2)" + b + "x" + c;
 				if (b >= 0 && c < 0)
-					textBox3->Text = a + "x^2 +" + b + "x" + c;
+					textBox3->Text = a + "(x^2)+" + b + "x" + c;
 
 				for (float i = from; i < to; i += 0.1)
 					chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -589,13 +589,13 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 		case 1:
 			c++;
 			if (b >= 0 && c >= 0)
-				textBox3->Text = a + "x^2 +" + b + "x+" + c;
+				textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 			if (b < 0 && c >= 0)
-				textBox3->Text = a + "x^2 " + b + "x+" + c;
+				textBox3->Text = a + "(x^2)" + b + "x+" + c;
 			if (b < 0 && c < 0)
-				textBox3->Text = a + "x^2 " + b + "x" + c;
+				textBox3->Text = a + "(x^2)" + b + "x" + c;
 			if (b >= 0 && c < 0)
-				textBox3->Text = a + "x^2 +" + b + "x" + c;
+				textBox3->Text = a + "(x^2)+" + b + "x" + c;
 
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -652,13 +652,13 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 		case 1:
 			c--;
 			if (b >= 0 && c >= 0)
-				textBox3->Text = a + "x^2 +" + b + "x+" + c;
+				textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 			if (b < 0 && c >= 0)
-				textBox3->Text = a + "x^2 " + b + "x+" + c;
+				textBox3->Text = a + "(x^2)" + b + "x+" + c;
 			if (b < 0 && c < 0)
-				textBox3->Text = a + "x^2 " + b + "x" + c;
+				textBox3->Text = a + "(x^2)" + b + "x" + c;
 			if (b >= 0 && c < 0)
-				textBox3->Text = a + "x^2 +" + b + "x" + c;
+				textBox3->Text = a + "(x^2)+" + b + "x" + c;
 
 			for (float i = from; i < to; i += 0.1)
 				chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -712,13 +712,13 @@ private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 1:
 		if (b >= 0 && c >= 0)
-			textBox3->Text = a + "x^2 +" + b + "x+" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = a + "x^2 " + b + "x+" + c;
+			textBox3->Text = a + "(x^2)" + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = a + "x^2 " + b + "x" + c;
+			textBox3->Text = a + "(x^2)" + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = a + "x^2 +" + b + "x" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -770,13 +770,13 @@ private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 1:
 		if (b >= 0 && c >= 0)
-			textBox3->Text = a + "x^2 +" + b + "x+" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = a + "x^2 " + b + "x+" + c;
+			textBox3->Text = a + "(x^2)" + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = a + "x^2 " + b + "x" + c;
+			textBox3->Text = a + "(x^2)" + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = a + "x^2 +" + b + "x" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -832,13 +832,13 @@ private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArg
 			b++;
 
 		if (b >= 0 && c >= 0)
-			textBox3->Text = a + "x^2 +" + b + "x+" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = a + "x^2 " + b + "x+" + c;
+			textBox3->Text = a + "(x^2)" + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = a + "x^2 " + b + "x" + c;
+			textBox3->Text = a + "(x^2)" + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = a + "x^2 +" + b + "x" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -895,13 +895,13 @@ private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs
 		else
 			b--;
 		if (b >= 0 && c >= 0)
-			textBox3->Text = a + "x^2 +" + b + "x+" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = a + "x^2 " + b + "x+" + c;
+			textBox3->Text = a + "(x^2)" + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = a + "x^2 " + b + "x" + c;
+			textBox3->Text = a + "(x^2)" + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = a + "x^2 +" + b + "x" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -955,13 +955,13 @@ private: System::Void buttonShort_Click(System::Object^ sender, System::EventArg
 	case 1:
 		a++;
 		if (b >= 0 && c >= 0)
-			textBox3->Text = a + "x^2 +" + b + "x+" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = a + "x^2 " + b + "x+" + c;
+			textBox3->Text = a + "(x^2)" + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = a + "x^2 " + b + "x" + c;
+			textBox3->Text = a + "(x^2)" + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = a + "x^2 +" + b + "x" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -1014,13 +1014,13 @@ private: System::Void buttonTall_Click(System::Object^ sender, System::EventArgs
 	case 1:
 		a--;
 		if (b >= 0 && c >= 0)
-			textBox3->Text = a + "x^2 +" + b + "x+" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = a + "x^2 " + b + "x+" + c;
+			textBox3->Text = a + "(x^2)" + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = a + "x^2 " + b + "x" + c;
+			textBox3->Text = a + "(x^2)" + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = a + "x^2 +" + b + "x" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -1072,13 +1072,13 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 1:
 		if (b >= 0 && c >= 0)
-			textBox3->Text = a + "x^2 +" + b + "x+" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = a + "x^2 " + b + "x+" + c;
+			textBox3->Text = a + "(x^2)" + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = a + "x^2 " + b + "x" + c;
+			textBox3->Text = a + "(x^2)" + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = a + "x^2 +" + b + "x" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -1131,13 +1131,13 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 1:
 		if (b >= 0 && c >= 0)
-			textBox3->Text = a + "x^2 +" + b + "x+" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 		if (b < 0 && c >= 0)
-			textBox3->Text = a + "x^2 " + b + "x+" + c;
+			textBox3->Text = a + "(x^2)" + b + "x+" + c;
 		if (b < 0 && c < 0)
-			textBox3->Text = a + "x^2 " + b + "x" + c;
+			textBox3->Text = a + "(x^2)" + b + "x" + c;
 		if (b >= 0 && c < 0)
-			textBox3->Text = a + "x^2 +" + b + "x" + c;
+			textBox3->Text = a + "(x^2)+" + b + "x" + c;
 
 		for (float i = from; i < to; i += 0.1)
 			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
@@ -1182,6 +1182,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	f->Write("\n");
 	f->Close();
 	MessageBox::Show(this, "Запись в файл выполнена", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	System::Diagnostics::Process::Start("Result.txt");
 }
 };
 }
