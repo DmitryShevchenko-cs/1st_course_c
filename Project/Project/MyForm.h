@@ -1206,13 +1206,15 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	StreamWriter^ f = gcnew StreamWriter("Result.txt", false);
-	f->Write(textBoxA->Text);
+	f->Write(Convert::ToString(comboBox1->SelectedIndex));
 	f->Write("\n");
-	f->Write(textBoxB->Text);
+	f->Write(Convert::ToString(a));
 	f->Write("\n");
-	f->Write(textBoxC->Text);
+	f->Write(Convert::ToString(b));
 	f->Write("\n");
-	f->Write(textBoxC->Text);
+	f->Write(Convert::ToString(c));
+	f->Write("\n");
+	f->Write(Convert::ToString(d));
 	f->Write("\n");
 	f->Close();
 	MessageBox::Show(this, "Запись в файл выполнена", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
@@ -1229,6 +1231,7 @@ private: System::Void buttonRead_Click(System::Object^ sender, System::EventArgs
 	if (openFileDialog1->ShowDialog() == Windows::Forms::DialogResult::OK)
 		FileName = openFileDialog1->FileName;
 	StreamReader^ file = File::OpenText(FileName);
+	comboBox1->SelectedIndex = Convert::ToDouble(file->ReadLine());
 	textBoxA->Text = file->ReadLine();
 	textBoxB->Text = file->ReadLine();
 	textBoxC->Text = file->ReadLine();
