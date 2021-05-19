@@ -1177,7 +1177,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	StreamWriter^ f = gcnew StreamWriter("Result.txt", true);
+	StreamWriter^ f = gcnew StreamWriter("Result.txt", false);
 	f->Write(textBox3->Text);
 	f->Write("\n");
 	f->Close();
