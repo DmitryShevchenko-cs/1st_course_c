@@ -440,8 +440,10 @@ void addfile(List* head, List* tail) {
 
 }
 
-struct List* CreateFromFile(List* head, List* tail) {
-	struct List* temp = head;
+struct List* CreateFromFile() {
+	struct List* head = (struct List*)malloc(sizeof(struct List));
+	struct List* tail = head, * temp = head;
+	
 	int size = 0, i = 0;
 
 
@@ -462,13 +464,9 @@ struct List* CreateFromFile(List* head, List* tail) {
 	fseek(file, 0, SEEK_SET);
 	while (i != size) {
 		fscanf_s(file, "%s", temp->name, 10);
-		setbuf(stdin, NULL);
 		fscanf_s(file, "%s", temp->type, 7);
-		setbuf(stdin, NULL); 
 		fscanf_s(file, "%fl", &temp->tem);
-		setbuf(stdin, NULL);
 		fscanf_s(file, "%d", &temp->sp);
-		setbuf(stdin, NULL);
 
 		i++;
 		tail->next = temp;

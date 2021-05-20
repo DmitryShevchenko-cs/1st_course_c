@@ -116,7 +116,8 @@ int main(void) {
 			break;
 
 		case(10): 
-			head = CreateFromFile(head, tail);
+			
+			head = CreateFromFile();
 			break;
 
 		case(11):
