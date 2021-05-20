@@ -5,30 +5,31 @@ int main(void) {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	int choice, el;
-	struct List* head = NULL, * tail = NULL;
 	List tt;
 	bool what = false;
+	struct List* head = NULL, * tail = NULL;
+
 	while (true)
 	{
 
-		printf("\n  1 - Создание списка\n");
-		printf("\n  2 - Печать с начала\n");
-		printf("\n  3 - Печать с конца\n");
-		printf("\n  4 - Поиск по критерию с начала\n");
+		printf("\n  1 - Создание списка\n");//++++++++
+		printf("\n  2 - Печать с начала\n");//++++++++=
+		printf("\n  3 - Печать с конца\n");//+++++++++
+		printf("\n  4 - Поиск по критерию с начала\n");//++++
 		printf("\n  5 - Поиск по критерию с конца\n");
-		printf("\n  6 - Добавление элемента (в любое заданное место)\n");
-		printf("\n  7 - Удаление любого элемента\n");
-		printf("\n  8 - Сортировка\n");
-		printf("\n  9 - Запись списка в файл \n");
-		printf("\n  10 - Создание нового списка из файла \n");
-		printf("\n  11 - Выход из программы\n");
+		printf("\n  6 - Добавление элемента (в любое заданное место)\n");//++++++++++
+		printf("\n  7 - Удаление любого элемента\n");//++++++++++
+		printf("\n  8 - Сортировка\n");//++++++++
+		printf("\n  9 - Запись списка в файл \n");//+++++++++++++
+		printf("\n  10 - Создание нового списка из файла \n");//++++++++++
+		printf("\n  11 - Выход из программы\n");//+++++++
 		printf("\n  >> ");
 
 
 		scanf_s("%d", &choice);
 		if (choice == 1 || choice == 8) what = true;
 		switch (choice) {
-		case(1): head = create();
+		case(1): create(head, tail);
 			break;
 
 		case(2):
@@ -36,20 +37,36 @@ int main(void) {
 				printf("Структуры не существует!!!\n\n");
 				break;
 			}
-			print(head);
+			list(head, head, tail); 
 			break;
 
 		case(3):
+			if(tail == NULL) {
+				printf("Структуры не существует!!!\n\n");
+				break;
+			}
+			list(tail, head, tail);
+			break;
+
+		case(4):
 			if (head == NULL) {
 				printf("Структуры не существует!!!\n\n");
 				break;
 			}
 			else
-				search(head);
-
+				search(head, tail);
 			break;
 
-		case(4):
+		case(5):
+			if (head == NULL) {
+				printf("Структуры не существует!!!\n\n");
+				break;
+			}
+			else
+				searchB(head, tail);
+			break;
+
+		case(6):
 			cout << "ВВедите номер вставляемого элемента -> ";
 			scanf_s("%d", &el);
 			cout << "ВВедите значения вставляемого элемента -> ";
@@ -64,30 +81,7 @@ int main(void) {
 			printf("\n  speed: ");
 			scanf_s("%d", &tt.sp);
 
-			head = ADD(el, tt, head);
-			break;
-
-		case(5):
-			if (head == NULL) {
-				printf("Структуры не существует!!!\n\n");
-				break;
-			}
-			else {
-				cout << "Введите номер удаляемого элемента -> ";
-				scanf_s("%d", &el);
-				head = del(el, head);
-
-			}
-
-			break;
-
-		case(6):
-			if (head == NULL) {
-				printf("Структуры не существует!!!\n\n");
-				break;
-			}
-			else
-				head = sort(head);
+			ADD(el, tt, head, tail);
 			break;
 
 		case(7):
@@ -95,14 +89,36 @@ int main(void) {
 				printf("Структуры не существует!!!\n\n");
 				break;
 			}
-			else
-				addfile(head);
+			else {
+				cout << "Введите номер удаляемого элемента -> ";
+				scanf_s("%d", &el);
+				del(el, head, tail);
+
+			}
 			break;
 
-		case(8): head = CreateFromFile();
+		case(8):
+			if (head == NULL) {
+				printf("Структуры не существует!!!\n\n");
+				break;
+			}
+			else
+				sort(head, tail);
 			break;
 
 		case(9):
+			if (head == NULL) {
+				printf("Структуры не существует!!!\n\n");
+				break;
+			}
+			else
+				addfile(head, tail);
+			break;
+
+		case(10): head = CreateFromFile(head, tail);
+			break;
+
+		case(11):
 			printf("Выход\n");
 			return 0;
 

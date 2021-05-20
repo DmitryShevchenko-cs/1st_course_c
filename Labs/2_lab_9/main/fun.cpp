@@ -1,72 +1,68 @@
 #include "fun.h"
 
-struct List* create(void)
-{
-	system("cls");
-	List* temp, * tail; char c;
-	struct List* head = tail = temp = (List*)malloc(sizeof(List));
 
-	printf("\n  name: ");
-	scanf_s("%s", temp->name, 10);
-	setbuf(stdin, NULL);
-	printf("\n  type: ");
-	scanf_s("%s", temp->type, 10);
-	setbuf(stdin, NULL);
-	printf("\n  temperature: ");
-	scanf_s("%fl", &temp->tem);
-	printf("\n  speed: ");
-	scanf_s("%d", &temp->sp);
+void create(struct List*& head, struct List *&tail)
+{
+	List* p, * pred;
+	pred = NULL;
 	do {
-		temp = (List*)malloc(sizeof(List));
+		p = (List*)malloc(sizeof(List));
 
 		printf("\n  name: ");
-		scanf_s("%s", temp->name, 10);
+		scanf_s("%s", p->name, 10);
 		setbuf(stdin, NULL);
 		printf("\n  type: ");
-		scanf_s("%s", temp->type, 10);
+		scanf_s("%s", p->type, 10);
 		setbuf(stdin, NULL);
 		printf("\n  temperature: ");
-		scanf_s("%fl", &temp->tem);
-		printf("\n  sp: ");
-		scanf_s("%d", &temp->sp);
+		scanf_s("%fl", &p->tem);
+		printf("\n  speed: ");
+		scanf_s("%d", &p->sp);
 
-
-		tail->next = temp;
-
-		tail = temp;
-		printf(" Закінчити? y/n  ");
-		c = _getch();
-
-	} while (c != 'y');
-	temp->next = NULL;
-	system("cls");
-	return head;
+		p->v1 = pred;
+		if (pred != NULL)
+			pred->next = p;
+		else
+			head = p;
+		pred = p;
+		puts(" Закінчити - <esc>");
+	} while (_getch() != 27);
+	tail = p;
+	tail->next = NULL;
 }
 
-void print(List* head)
-{
-	system("cls");
-	List* temp;
-	temp = head;
+
+void list(List* p, List* head, List* tail)
+{	
 	int i = 1;
-	while (temp != NULL)
-	{
-		printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n", i, temp->name, temp->type, temp->tem, temp->sp);
-		temp = temp->next;
-		i++;
-	}
-	printf("\n\n");
-	//_getch();
+	if (p == head)
+		while (p != NULL)
+		{
+			printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n", i, p->name, p->type, p->tem, p->sp);
+			i++;
+			p = p->next;
+		}
+	else if (p == tail)
+		while (p != NULL)
+		{
+			printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n", i, p->name, p->type, p->tem, p->sp);
+			i++;
+			p = p->v1;
+		}
+	else
+		printf("Неправильна адреса");
+	_getch();
 }
 
-int search(List* head) {
+
+
+int search(List* head, List* tail) {
 	system("cls");
 	int choice;
 	List* temp = head;
-	char type1[10];
-	int tem1, sp1;
 	int i = 1;
 	bool q = true;
+
 	while (true)
 	{
 
@@ -201,7 +197,148 @@ int search(List* head) {
 	}
 }
 
-struct List* ADD(int el, List tt, List* head) {
+int searchB(List* head, List* tail) {
+	system("cls");
+	int choice;
+	List* temp = tail;
+	int i = 1;
+	bool q = true;
+
+	while (true)
+	{
+
+		printf("\n  1 - Поиск по имени\n");
+		printf("\n  2 - Поиск по типу\n");
+		printf("\n  3 - Поиск по температуре \n");
+		printf("\n  4 - Поиск по скорости\n");
+		printf("\n  5 - Выход\n");
+		printf("\n  >> ");
+
+		scanf_s("%d", &choice);
+
+		switch (choice) {
+
+		case 1:
+			char name1[10];
+			temp = tail;
+
+			printf("\n  name>");
+			scanf("%s", name1, 10);
+			setbuf(stdin, NULL);
+
+			while (temp != NULL) {
+				if (strcmp(temp->name, name1) == 0) {
+					q = false;
+					printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
+						i, temp->name, temp->type, temp->tem, temp->sp);
+
+				}
+				i++;
+				temp = temp->v1;
+			}
+			if (q) printf("\n  Нечего не найдено!!!\n\n");
+
+			q = true;
+			temp = NULL;
+			i = 1;
+			free(temp);
+			break;
+
+		case 2:
+
+			char type1[10];
+			temp = tail;
+
+			printf("\n  type>");
+			scanf("%s", type1, 10);
+			setbuf(stdin, NULL);
+
+			while (temp != NULL) {
+				if (strcmp(temp->type, type1) == 0) {
+					q = false;
+					printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
+						i, temp->name, temp->type, temp->tem, temp->sp);
+
+				}
+				i++;
+				temp = temp->v1;
+			}
+			if (q) printf("\n  Нечего не найдено!!!\n\n");
+
+			q = true;
+			temp = NULL;
+			i = 1;
+			free(temp);
+			break;
+
+		case 3:
+
+			float tem1;
+			temp = tail;
+
+			printf("\n  temperature>");
+			scanf("%fl", &tem1);
+			setbuf(stdin, NULL);
+
+
+			while (temp != NULL) {
+				if (temp->tem == tem1) {
+					q = false;
+					printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
+						i, temp->name, temp->type, temp->tem, temp->sp);
+
+				}
+				i++;
+				temp = temp->v1;
+			}
+			if (q) printf("\n  Нечего не найдено!!!\n\n");
+
+			q = true;
+			temp = NULL;
+			i = 1;
+			free(temp);
+			break;
+
+		case 4:
+
+			int sp1;
+			temp = tail;
+
+			printf("\n  temperature>");
+			scanf("%d", &sp1);
+			setbuf(stdin, NULL);
+
+			while (temp != NULL) {
+				if (temp->sp == sp1) {
+					q = false;
+					printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n",
+						i, temp->name, temp->type, temp->tem, temp->sp);
+				}
+				i++;
+				temp = temp->v1;
+			}
+			if (q) printf("\n  Нечего не найдено!!!\n\n");
+
+			q = true;
+			temp = NULL;
+			i = 1;
+			free(temp);
+			break;
+
+		case 5:
+			printf("\n  Выход\n\n");
+			return 0;
+			break;
+
+
+		default:
+			printf("\n  Вы ввели не то число!!!\n\n");
+			break;
+		}
+	}
+}
+
+void ADD(int el, List tt, List* head, List* tail) {
 	List* temp = (List*)malloc(sizeof(List));
 
 	if (el == 1) {
@@ -223,10 +360,9 @@ struct List* ADD(int el, List tt, List* head) {
 	strcpy(temp->type, tt.type);
 	temp->tem = tt.tem;
 	temp->sp = tt.sp;
-	return head;
 }
 
-struct List* del(int el, List* head) {
+void del(int el, List* head, List * tail) {
 	List* temp_pos = head;
 
 	if (el == 1) {
@@ -244,10 +380,9 @@ struct List* del(int el, List* head) {
 
 		free(temp);
 	}
-	return head;
 }
-
-struct List* sort(List* head) {
+	
+void sort(List* head, List* tail) {
 	struct List* temp = head;
 
 	int lines = 0;
@@ -281,10 +416,9 @@ struct List* sort(List* head) {
 	}
 
 	free(tmp);
-	return(head);
 }
 
-void addfile(List* head) {
+void addfile(List* head, List* tail) {
 
 	system("cls");
 	List* temp;
@@ -306,11 +440,9 @@ void addfile(List* head) {
 
 }
 
-struct List* CreateFromFile() {
+struct List* CreateFromFile(List* head, List* tail) {
 
-
-	struct List* head = (struct List*)malloc(sizeof(struct List));
-	struct List* tail = head, * temp = head;
+	struct List* temp = head;
 	int size = 0, i = 0;
 
 
@@ -331,9 +463,13 @@ struct List* CreateFromFile() {
 	fseek(file, 0, SEEK_SET);
 	while (i != size) {
 		fscanf_s(file, "%s", temp->name, 10);
+		setbuf(stdin, NULL);
 		fscanf_s(file, "%s", temp->type, 7);
+		setbuf(stdin, NULL); 
 		fscanf_s(file, "%fl", &temp->tem);
+		setbuf(stdin, NULL);
 		fscanf_s(file, "%d", &temp->sp);
+		setbuf(stdin, NULL);
 
 		i++;
 		tail->next = temp;

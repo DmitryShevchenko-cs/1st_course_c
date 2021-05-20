@@ -8,6 +8,7 @@
 #include <time.h>
 #include <conio.h>
 #include <malloc.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -16,16 +17,20 @@ struct List {
 	char type[7];
 	float tem;
 	int sp;
-	List* next = NULL;
+	List* v1;
+	List* next;
 };
 
-struct List* create(void);
-void print(List* head);
-int search(List* head);
-struct List* ADD(int el, List tt, List* head);
-struct List* del(int el, List* head);
-struct List* sort(List* head);
-void addfile(List* head);
-struct List* CreateFromFile();
+
+void create(List*& head, List*& tail);
+void list(List* p, List* head, List* tail);
+void del(int el, List* head, List* tail);
+int search(List* head, List* tail);
+int searchB(List* head, List* tail);
+void ADD(int el, List tt, List* head, List* tail);
+void del(int el, List* head, List *tail);
+void sort(List* head, List* tail);
+void addfile(List* head, List* tail);
+struct List* CreateFromFile(List* head, List* tail);
 
 #endif
