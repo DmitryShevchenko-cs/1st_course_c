@@ -1,31 +1,9 @@
 #include "fun.h"
 
-struct List* init()  //create
-{
-	struct List* lst;
-	// выделение пам€ти под корень списка
-	lst = (struct List*)malloc(sizeof(struct List));
-
-	printf("\n  name: ");
-	scanf_s("%s", lst->name, 10);
-	setbuf(stdin, NULL);
-	printf("\n  type: ");
-	scanf_s("%s", lst->type, 10);
-	setbuf(stdin, NULL);
-	printf("\n  temperature: ");
-	scanf_s("%fl", &lst->tem);
-	printf("\n  speed: ");
-	scanf_s("%d", &lst->sp);
-
-	lst->next = NULL; // указатель на следующий узел
-	lst->prev = NULL; // указатель на предыдущий узел
-	return(lst);
-}
-struct List* create()
+struct List* create(void)
 {
 	system("cls");
-	char c;
-	List* temp, * tail;
+	List* temp, * tail; char c;
 	struct List* head = tail = temp = (List*)malloc(sizeof(List));
 
 	printf("\n  name: ");
@@ -62,10 +40,10 @@ struct List* create()
 	} while (c != 'y');
 	temp->next = NULL;
 	system("cls");
-	return head, tail;
+	return head;
 }
 
-void print(List* head, List* tail)
+void print(List* head)
 {
 	system("cls");
 	List* temp;
@@ -80,35 +58,8 @@ void print(List* head, List* tail)
 	printf("\n\n");
 	//_getch();
 }
-void listprint(List * lst)///next
-{
-	struct List* p;
-	p = lst;
-	int i = 1;
-	do {
-		printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n", i, p->name, p->type, p->tem, p->sp); // вывод значени€ элемента p
-		p = p->next; 
-		i++;
 
-	} while (p != NULL); 
-	printf("\n\n");
-}
-void listprintr(List* lst) ////prev
-{
-	struct List* p;
-	p = lst;
-	int i = 1;
-	while (p->next != NULL)
-		p = p->next;  
-	do {
-		printf("\n  %d- %-10s %-8s  %-4.2f  %4d\n", i, p->name, p->type, p->tem, p->sp); // вывод значени€ элемента p
-		p = p->prev; 
-		i++;
-	} while (p != NULL); 
-	printf("\n\n");
-}
-
-int search(List* head, List* tail) {
+int search(List* head) {
 	system("cls");
 	int choice;
 	List* temp = head;
@@ -250,10 +201,10 @@ int search(List* head, List* tail) {
 	}
 }
 
-void ADD(int el, List tt, List* head, List* tail) {
+struct List* ADD(int el, List tt, List* head) {
 	List* temp = (List*)malloc(sizeof(List));
 
-	if (el == 0) {
+	if (el == 1) {
 		temp->next = head;
 		head = temp;
 
@@ -272,30 +223,13 @@ void ADD(int el, List tt, List* head, List* tail) {
 	strcpy(temp->type, tt.type);
 	temp->tem = tt.tem;
 	temp->sp = tt.sp;
-}
-struct List* addelem(List * lst, List tt)
-{
-	struct List* temp, * p;
-	temp = (struct List*)malloc(sizeof(List));
-	p = lst->next;
-	lst->next = temp; 
-	strcpy(temp->name, tt.name);
-	strcpy(temp->type, tt.type);
-	temp->tem = tt.tem;
-	temp->sp = tt.sp;
-
-	temp->next = p; 
-	temp->prev = lst; 
-	if (p != NULL)
-		p->prev = temp;
-	return(temp);
+	return head;
 }
 
-
-void del(int el, List* head, List* tail) {
+struct List* del(int el, List* head) {
 	List* temp_pos = head;
 
-	if (el == 0) {
+	if (el == 1) {
 		head = head->next;
 		free(temp_pos);
 	}
@@ -309,21 +243,11 @@ void del(int el, List* head, List* tail) {
 		else temp_pos->next = temp->next;
 
 		free(temp);
-	}//else
+	}
+	return head;
 }
-struct List* deletelem(List* lst)
-{
-	struct List* prev, * next;
-	prev = lst->prev; // узел, предшествующий lst
-	next = lst->next; // узел, следующий за lst
-	if (prev != NULL)
-		prev->next = lst->next; // переставл€ем указатель
-	if (next != NULL)
-		next->prev = lst->prev; // переставл€ем указатель
-	free(lst); // освобождаем пам€ть удал€емого элемента
-	return(prev);
-}
-struct List* sort(List* head, List* tail) {
+
+struct List* sort(List* head) {
 	struct List* temp = head;
 
 	int lines = 0;
@@ -360,7 +284,7 @@ struct List* sort(List* head, List* tail) {
 	return(head);
 }
 
-void addfile(List* head, List* tail) {
+void addfile(List* head) {
 
 	system("cls");
 	List* temp;
@@ -397,15 +321,14 @@ struct List* CreateFromFile() {
 		exit(0);
 	}
 
-	char xxx;
+	char text;
 	while (true) {
-		xxx = fgetc(file);
-		if (xxx == '\n')size++;
-		else if (xxx == EOF) break;
+		text = fgetc(file);
+		if (text == '\n')size++;
+		else if (text == EOF) break;
 	}
-	cout << size << endl;
+
 	fseek(file, 0, SEEK_SET);
-	//	fseek(file, 1, SEEK_CUR);
 	while (i != size) {
 		fscanf_s(file, "%s", temp->name, 10);
 		fscanf_s(file, "%s", temp->type, 7);
