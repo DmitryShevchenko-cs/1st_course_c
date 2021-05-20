@@ -607,6 +607,7 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 		switch (comboBox1->SelectedIndex) {
 		case 0:
 			b++;
+			textBoxB->Text = Convert::ToString(b);
 			if (b >= 0)
 				textBox3->Text = a + "x+" + b;
 			else
@@ -616,6 +617,7 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 			break;
 		case 1:
 			c++;
+			textBoxC->Text = Convert::ToString(c);
 			if (b >= 0 && c >= 0)
 				textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 			if (b < 0 && c >= 0)
@@ -630,6 +632,7 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 			break;
 		case 2:
 			d++;
+			textBoxD->Text = Convert::ToString(d);
 			if (c >= 0 && d >= 0)
 				textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
 
@@ -646,6 +649,7 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 			break;
 		case 3:
 			c++;
+			textBoxC->Text = Convert::ToString(c);
 			if (b >= 0 && c >= 0)
 				textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
 			if (b < 0 && c >= 0)
@@ -670,6 +674,7 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 		switch (comboBox1->SelectedIndex) {
 		case 0:
 			b--;
+			textBoxB->Text = Convert::ToString(b);
 			if (b >= 0)
 				textBox3->Text = a + "x+" + b;
 			else
@@ -679,6 +684,7 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 			break;
 		case 1:
 			c--;
+			textBoxC->Text = Convert::ToString(c);
 			if (b >= 0 && c >= 0)
 				textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 			if (b < 0 && c >= 0)
@@ -693,6 +699,7 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 			break;
 		case 2:
 			d--;
+			textBoxD->Text = Convert::ToString(d);
 			if (c >= 0 && d >= 0)
 				textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
 
@@ -709,6 +716,7 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 			break;
 		case 3:
 			c--;
+			textBoxC->Text = Convert::ToString(c);
 			if (b >= 0 && c >= 0)
 				textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
 			if (b < 0 && c >= 0)
@@ -731,6 +739,7 @@ private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e
 	switch (comboBox1->SelectedIndex) {
 	case 0:
 		a++;
+		textBoxA->Text = Convert::ToString(a);
 		if (b >= 0)
 			textBox3->Text = a + "x+" + b;
 		else
@@ -789,6 +798,7 @@ private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e
 	switch (comboBox1->SelectedIndex) {
 	case 0:
 		a--;
+		textBoxA->Text = Convert::ToString(a);
 		if (b >= 0)
 			textBox3->Text = a + "x+" + b;
 		else
@@ -858,7 +868,7 @@ private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArg
 			b--;
 		else
 			b++;
-
+		textBoxB->Text = Convert::ToString(b);
 		if (b >= 0 && c >= 0)
 			textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 		if (b < 0 && c >= 0)
@@ -873,6 +883,7 @@ private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArg
 		break;
 	case 2:
 		c--;
+		textBoxC->Text = Convert::ToString(c);
 		if (c >= 0 && d >= 0)
 			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
 
@@ -889,6 +900,7 @@ private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArg
 		break;
 	case 3:
 		b--;
+		textBoxB->Text = Convert::ToString(b);
 		if (b >= 0 && c >= 0)
 			textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
 		if (b < 0 && c >= 0)
@@ -922,6 +934,7 @@ private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs
 			b++;
 		else
 			b--;
+		textBoxB->Text = Convert::ToString(b);
 		if (b >= 0 && c >= 0)
 			textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 		if (b < 0 && c >= 0)
@@ -936,6 +949,7 @@ private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs
 		break;
 	case 2:
 		c++;
+		textBoxC->Text = Convert::ToString(c);
 		if (c >= 0 && d >= 0)
 			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
 
@@ -952,6 +966,7 @@ private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs
 		break;
 	case 3:
 		b++;
+		textBoxB->Text = Convert::ToString(b);
 		if (b >= 0 && c >= 0)
 			textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
 		if (b < 0 && c >= 0)
@@ -982,6 +997,7 @@ private: System::Void buttonShort_Click(System::Object^ sender, System::EventArg
 		break;
 	case 1:
 		a++;
+		textBoxA->Text = Convert::ToString(a);
 		if (b >= 0 && c >= 0)
 			textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 		if (b < 0 && c >= 0)
@@ -996,6 +1012,7 @@ private: System::Void buttonShort_Click(System::Object^ sender, System::EventArg
 		break;
 	case 2:
 		b++;
+		textBoxB->Text = Convert::ToString(b);
 		if (c >= 0 && d >= 0)
 			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
 
@@ -1041,6 +1058,7 @@ private: System::Void buttonTall_Click(System::Object^ sender, System::EventArgs
 		break;
 	case 1:
 		a--;
+		textBoxA->Text = Convert::ToString(a);
 		if (b >= 0 && c >= 0)
 			textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 		if (b < 0 && c >= 0)
@@ -1055,6 +1073,7 @@ private: System::Void buttonTall_Click(System::Object^ sender, System::EventArgs
 		break;
 	case 2:
 		b--;
+		textBoxB->Text = Convert::ToString(b);
 		if (c >= 0 && d >= 0)
 			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
 
@@ -1113,6 +1132,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 2:
 		a++;
+		textBoxA->Text = Convert::ToString(a);
 		if (c >= 0 && d >= 0)
 			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
 
@@ -1129,6 +1149,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 3:
 		a++;
+		textBoxA->Text = Convert::ToString(a);
 		if (b >= 0 && c >= 0)
 			textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
 		if (b < 0 && c >= 0)
@@ -1172,6 +1193,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 2:
 		a--;
+		textBoxA->Text = Convert::ToString(a);
 		if (c >= 0 && d >= 0)
 			textBox3->Text = a + "sin(" + b + "x+" + c + ")+" + d;
 
@@ -1188,6 +1210,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		break;
 	case 3:
 		a--;
+		textBoxA->Text = Convert::ToString(a);
 		if (b >= 0 && c >= 0)
 			textBox3->Text = "sqrt(" + a + "x+" + b + ")+" + c;
 		if (b < 0 && c >= 0)
