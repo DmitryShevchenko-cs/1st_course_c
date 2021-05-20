@@ -426,7 +426,7 @@ void addfile(List* head, List* tail) {
 	int i = 1;
 
 	FILE* f;
-	fopen_s(&f, "Spis.txt", "w");
+	fopen_s(&f, "Spis1.txt", "w");
 	if (!f) {
 		puts("error opening");
 		exit(0);
@@ -441,13 +441,12 @@ void addfile(List* head, List* tail) {
 }
 
 struct List* CreateFromFile(List* head, List* tail) {
-
 	struct List* temp = head;
 	int size = 0, i = 0;
 
 
 	FILE* file = NULL;
-	fopen_s(&file, "Spis.txt", "r");
+	fopen_s(&file, "Spis1.txt", "r");
 	if (file == NULL) {
 
 		exit(0);
