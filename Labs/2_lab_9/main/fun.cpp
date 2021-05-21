@@ -440,9 +440,10 @@ void addfile(List* head, List* tail) {
 
 }
 
-struct List* CreateFromFile() {
-	struct List* head = (struct List*)malloc(sizeof(struct List));
-	struct List* tail = head, * temp = head;
+struct List* CreateFromFile(List*& head, List*& tail) {
+	head = (struct List*)malloc(sizeof(struct List));
+	tail = head;
+	struct List* temp = head;
 	
 	int size = 0, i = 0;
 

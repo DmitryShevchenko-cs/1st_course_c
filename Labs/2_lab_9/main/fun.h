@@ -31,6 +31,6 @@ void ADD(int el, List tt, List* head, List* tail);
 void del(int el, List* head, List *tail);
 void sort(List* head, List* tail);
 void addfile(List* head, List* tail);
-struct List* CreateFromFile();
+struct List* CreateFromFile(List*& head,List*& tail);
 
 #endif
