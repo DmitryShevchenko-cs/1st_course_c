@@ -25,8 +25,8 @@ void create(struct List*& head, struct List *&tail)
 		else
 			head = p;
 		pred = p;
-		puts(" Закінчити - <esc>");
-	} while (_getch() != 27);
+		puts(" Закінчити -'y'");
+	} while (_getch() != 'y');
 	tail = p;
 	tail->next = NULL;
 }
@@ -51,7 +51,7 @@ void list(List* p, List* head, List* tail)
 		}
 	else
 		printf("Неправильна адреса");
-	_getch();
+	
 }
 
 
@@ -441,12 +441,10 @@ void addfile(List* head, List* tail) {
 }
 
 struct List* CreateFromFile(List*& head, List*& tail) {
-	head = (struct List*)malloc(sizeof(struct List));
-	tail = head;
-	struct List* temp = head;
-	
+	List* p, * pred;
+	pred = NULL;
 	int size = 0, i = 0;
-
+	
 
 	FILE* file = NULL;
 	fopen_s(&file, "Spis1.txt", "r");
@@ -464,16 +462,22 @@ struct List* CreateFromFile(List*& head, List*& tail) {
 
 	fseek(file, 0, SEEK_SET);
 	while (i != size) {
-		fscanf_s(file, "%s", temp->name, 10);
-		fscanf_s(file, "%s", temp->type, 7);
-		fscanf_s(file, "%fl", &temp->tem);
-		fscanf_s(file, "%d", &temp->sp);
+		p = (List*)malloc(sizeof(List));
+		fscanf_s(file, "%s", p->name, 10);
+		fscanf_s(file, "%s", p->type, 7);
+		fscanf_s(file, "%fl", &p->tem);
+		fscanf_s(file, "%d", &p->sp);
 
 		i++;
-		tail->next = temp;
-		tail = temp;
-		temp = (List*)malloc(sizeof(List));
+		p->v1 = pred;
+		if (pred != NULL)
+			pred->next = p;
+		else
+			head = p;
+		pred = p;
+		tail = p;
 	}
+	
 	tail->next = NULL;
 
 	fclose(file);
