@@ -29,7 +29,7 @@ int search(List* head, List* tail);
 int searchB(List* head, List* tail);
 void ADD(int el, List tt, List* head, List* tail);
 void del(int el, List* head, List *tail);
-void sort(List* head, List* tail);
+void sort(List* head, List*& tail);
 void addfile(List* head, List* tail);
 void CreateFromFile(List*& head,List*& tail);
 

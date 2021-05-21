@@ -25,7 +25,7 @@ void create(struct List*& head, struct List *&tail)
 		else
 			head = p;
 		pred = p;
-		puts(" Закінчити -'y'");
+		puts(" Закінчити -'уy'");
 	} while (_getch() != 'y');
 	tail = p;
 	tail->next = NULL;
@@ -34,6 +34,7 @@ void create(struct List*& head, struct List *&tail)
 
 void list(List* p, List* head, List* tail)
 {	
+	system("cls");
 	int i = 1;
 	if (p == head)
 		while (p != NULL)
@@ -338,7 +339,8 @@ int searchB(List* head, List* tail) {
 	}
 }
 
- void ADD(int el, List tt, List* head, List* tail) {
+
+void ADD(int el, List tt, List* head, List* tail) {
 	List* temp = (List*)malloc(sizeof(List));
 
 	if (el == 1) {
@@ -361,6 +363,7 @@ int searchB(List* head, List* tail) {
 	strcpy(temp->type, tt.type);
 	temp->tem = tt.tem;
 	temp->sp = tt.sp;
+	
 }
 
 void del(int el, List* head, List * tail) {
@@ -378,12 +381,12 @@ void del(int el, List* head, List * tail) {
 
 		if (temp->next == NULL) temp_pos->next = NULL;
 		else temp_pos->next = temp->next;
-
+		tail = temp;
 		free(temp);
 	}
 }
 	
-void sort(List* head, List* tail) {
+void sort(List* head, List*& tail) {
 	struct List* temp = head;
 
 	int lines = 0;
@@ -391,7 +394,9 @@ void sort(List* head, List* tail) {
 	{
 		temp = temp->next;
 		lines++;
+
 	}
+
 	List* ptr, * trash, * tmp;
 	tmp = (struct List*)malloc(sizeof(struct List));
 
@@ -413,11 +418,14 @@ void sort(List* head, List* tail) {
 			}
 
 			ptr = ptr->next;
+			
 		}
+		tail = ptr;
 	}
 
 	free(tmp);
 }
+
 
 void addfile(List* head, List* tail) {
 
