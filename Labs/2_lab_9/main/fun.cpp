@@ -338,7 +338,7 @@ int searchB(List* head, List* tail) {
 	}
 }
 
- ADD(int el, List tt, List* head, List* tail) {
+ void ADD(int el, List tt, List* head, List* tail) {
 	List* temp = (List*)malloc(sizeof(List));
 
 	if (el == 1) {
