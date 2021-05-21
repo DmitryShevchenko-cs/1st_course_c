@@ -338,7 +338,7 @@ int searchB(List* head, List* tail) {
 	}
 }
 
-void ADD(int el, List tt, List* head, List* tail) {
+ ADD(int el, List tt, List* head, List* tail) {
 	List* temp = (List*)malloc(sizeof(List));
 
 	if (el == 1) {
@@ -354,6 +354,7 @@ void ADD(int el, List tt, List* head, List* tail) {
 
 		temp->next = temp_pos->next;
 		temp_pos->next = temp;
+	
 
 	}
 	strcpy(temp->name, tt.name);
@@ -440,7 +441,7 @@ void addfile(List* head, List* tail) {
 
 }
 
-struct List* CreateFromFile(List*& head, List*& tail) {
+void CreateFromFile(List*& head, List*& tail) {
 	List* p, * pred;
 	pred = NULL;
 	int size = 0, i = 0;
@@ -481,5 +482,5 @@ struct List* CreateFromFile(List*& head, List*& tail) {
 	tail->next = NULL;
 
 	fclose(file);
-	return head;
+
 }
