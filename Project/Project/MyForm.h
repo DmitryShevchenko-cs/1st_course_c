@@ -1260,7 +1260,6 @@ private: System::Void buttonRead_Click(System::Object^ sender, System::EventArgs
 	textBoxB->Text = file->ReadLine();
 	textBoxC->Text = file->ReadLine();
 }
-private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-}
+
 };
 }
