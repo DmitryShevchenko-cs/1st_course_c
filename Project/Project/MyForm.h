@@ -512,7 +512,6 @@ namespace Project {
 			this->Controls->Add(this->groupBox1);
 			this->Name = L"MyForm";
 			this->Text = L"Graph";
-			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
