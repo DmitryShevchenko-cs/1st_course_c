@@ -95,7 +95,7 @@ namespace Project {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -524,13 +524,16 @@ namespace Project {
 #pragma endregion
 
 		void x() {
-			if (b >= 0)
+			b>=0 ? textBox3->Text = a + "x+" + b : textBox3->Text = a + "x" + b;
+		/*	if (b >= 0)
 				textBox3->Text = a + "x+" + b;
 			else
-				textBox3->Text = a + "x+" + b;
+				textBox3->Text = a + "x+" + b;*/
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 		}
 
-		void xx(){
+		void xx() {
 			if (b >= 0 && c >= 0)
 				textBox3->Text = a + "(x^2)+" + b + "x+" + c;
 			if (b < 0 && c >= 0)
@@ -539,6 +542,9 @@ namespace Project {
 				textBox3->Text = a + "(x^2)" + b + "x" + c;
 			if (b >= 0 && c < 0)
 				textBox3->Text = a + "(x^2)+" + b + "x" + c;
+
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 		}
 
 		void Sin() {
@@ -550,6 +556,8 @@ namespace Project {
 				textBox3->Text = a + "sin(" + b + "x+" + c + ")" + d;
 			if (c < 0 && d < 0)
 				textBox3->Text = a + "sin(" + b + "x" + c + ")" + d;
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 		}
 		void Sqrt() {
 			if (b >= 0 && c >= 0)
@@ -560,6 +568,9 @@ namespace Project {
 				textBox3->Text = "sqrt(" + a + "x" + b + ")" + c;
 			if (b >= 0 && c < 0)
 				textBox3->Text = "sqrt(" + a + "x+" + b + ")" + c;
+			for (float i = from; i < to; i += 0.1)
+				chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
+
 		}
 
 		float from, to;
@@ -570,7 +581,7 @@ namespace Project {
 		//mainbuton
 		//
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		if(comboBox1->SelectedIndex != -1 && textBox1->Text != "" && textBox2->Text != ""
+		if (comboBox1->SelectedIndex != -1 && textBox1->Text != "" && textBox2->Text != ""
 			&& textBoxA->Text != "" && textBoxB->Text != "" && textBoxC->Text != "" && textBoxD->Text != "") {
 			chart1->Series["Series1"]->Points->Clear();
 
@@ -585,34 +596,27 @@ namespace Project {
 			switch (comboBox1->SelectedIndex) {
 			case 0:
 				x();
-				for (float i = from; i < to; i += 0.1)
-					chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 				break;
 			case 1:
 				xx();
 
-				for (float i = from; i < to; i += 0.1)
-					chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 				break;
 			case 2:
 				Sin();
-				for (float i = from; i < to; i += 0.1)
-					chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
+
 				break;
 			case 3:
 				Sqrt();
-				for (float i = from; i < to; i += 0.1)
-					chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 				break;
 			}
 		}
 		else
 			MessageBox::Show(this, "Возможно не все поля заполнены.\nПроверте данные и повторите попытку.", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
-		//
-		//upbutton
-		//
-private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ e) {
+		   //
+		   //upbutton
+		   //
+	private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ e) {
 		chart1->Series["Series1"]->Points->Clear();
 
 		switch (comboBox1->SelectedIndex) {
@@ -620,38 +624,30 @@ private: System::Void buttonUP_Click(System::Object^ sender, System::EventArgs^ 
 			b++;
 			textBoxB->Text = Convert::ToString(b);
 			x();
-			for (float i = from; i < to; i += 0.1)
-				chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
+
 			break;
 		case 1:
 			c++;
 			textBoxC->Text = Convert::ToString(c);
 			xx();
-
-			for (float i = from; i < to; i += 0.1)
-				chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 			break;
 		case 2:
 			d++;
 			textBoxD->Text = Convert::ToString(d);
 			Sin();
-			for (float i = from; i < to; i += 0.1)
-				chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 			break;
 		case 3:
 			c++;
 			Sqrt();
-			for (float i = from; i < to; i += 0.1)
-				chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 			break;
 
 		}
 
-}
-		//
-		// downbotton
-		// 
-private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+		   //
+		   // downbotton
+		   // 
+	private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e) {
 		chart1->Series["Series1"]->Points->Clear();
 
 		switch (comboBox1->SelectedIndex) {
@@ -659,343 +655,264 @@ private: System::Void buttonD_Click(System::Object^ sender, System::EventArgs^ e
 			b--;
 			textBoxB->Text = Convert::ToString(b);
 			x();
-			for (float i = from; i < to; i += 0.1)
-				chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
 			break;
 		case 1:
 			c--;
 			textBoxC->Text = Convert::ToString(c);
 			xx();
-
-			for (float i = from; i < to; i += 0.1)
-				chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
 			break;
 		case 2:
 			d--;
 			textBoxD->Text = Convert::ToString(d);
 			Sin();
-			for (float i = from; i < to; i += 0.1)
-				chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
 			break;
 		case 3:
 			c--;
 			textBoxC->Text = Convert::ToString(c);
 			Sqrt();
-			for (float i = from; i < to; i += 0.1)
-				chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
 			break;
 		}
-}
-		//
-		//leftbutton (turn)
-		//
-private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e) {
-	chart1->Series["Series1"]->Points->Clear();
-
-	switch (comboBox1->SelectedIndex) {
-	case 0:
-		a++;
-		textBoxA->Text = Convert::ToString(a);
-		x();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
-		break;
-	case 1:
-		xx();
-
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
-		break;
-	case 2:
-		Sin();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
-		break;
-	case 3:
-		Sqrt();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
-		break;
 	}
-}
-		//
-		//rightbutton (turn)
-		//
-private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e) {
-	chart1->Series["Series1"]->Points->Clear();
+		   //
+		   //leftbutton (turn)
+		   //
+	private: System::Void buttonL_Click(System::Object^ sender, System::EventArgs^ e) {
+		chart1->Series["Series1"]->Points->Clear();
 
-	switch (comboBox1->SelectedIndex) {
-	case 0:
-		a--;
-		textBoxA->Text = Convert::ToString(a);
-		x();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
-		break;
-	case 1:
-		xx();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
-		break;
-	case 2:
-		Sin();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
-		break;
-	case 3:
-		Sqrt();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
-		break;
+		switch (comboBox1->SelectedIndex) {
+		case 0:
+			a++;
+			textBoxA->Text = Convert::ToString(a);
+			x();
+			break;
+		case 1:
+			xx();
+			break;
+		case 2:
+			Sin();
+			break;
+		case 3:
+			Sqrt();
+			break;
+		}
 	}
-}
-		//
-		//rightbutton
-		//
-private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArgs^ e) {
-	chart1->Series["Series1"]->Points->Clear();
+		   //
+		   //rightbutton (turn)
+		   //
+	private: System::Void buttonR_Click(System::Object^ sender, System::EventArgs^ e) {
+		chart1->Series["Series1"]->Points->Clear();
 
-	switch (comboBox1->SelectedIndex) {
-	case 0:
-		x();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
-		break;
-	case 1:
-		if (a > 0)
+		switch (comboBox1->SelectedIndex) {
+		case 0:
+			a--;
+			textBoxA->Text = Convert::ToString(a);
+			x();
+			break;
+		case 1:
+			xx();
+			break;
+		case 2:
+			Sin();
+			break;
+		case 3:
+			Sqrt();
+			break;
+		}
+	}
+		   //
+		   //rightbutton
+		   //
+	private: System::Void buttonRIGHT_Click(System::Object^ sender, System::EventArgs^ e) {
+		chart1->Series["Series1"]->Points->Clear();
+
+		switch (comboBox1->SelectedIndex) {
+		case 0:
+			x();
+			break;
+		case 1:
+			if (a > 0)
+				b--;
+			else
+				b++;
+			textBoxB->Text = Convert::ToString(b);
+			xx();
+			break;
+		case 2:
+			c--;
+			textBoxC->Text = Convert::ToString(c);
+			Sin();
+			break;
+		case 3:
 			b--;
-		else
-			b++;
-		textBoxB->Text = Convert::ToString(b);
-		xx();
-
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
-		break;
-	case 2:
-		c--;
-		textBoxC->Text = Convert::ToString(c);
-		Sin();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
-		break;
-	case 3:
-		b--;
-		textBoxB->Text = Convert::ToString(b);
-		Sqrt();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
-		break;
+			textBoxB->Text = Convert::ToString(b);
+			Sqrt();
+			break;
+		}
 	}
-}
-		//
-		//leftbutton
-		//
-private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs^ e) {
-	chart1->Series["Series1"]->Points->Clear();
+		   //
+		   //leftbutton
+		   //
+	private: System::Void buttonLEFT_Click(System::Object^ sender, System::EventArgs^ e) {
+		chart1->Series["Series1"]->Points->Clear();
 
-	switch (comboBox1->SelectedIndex) {
-	case 0:
-		x();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
-		break;
-	case 1:
-		if (a > 0)
+		switch (comboBox1->SelectedIndex) {
+		case 0:
+			x();
+			break;
+		case 1:
+			if (a > 0)
+				b++;
+			else
+				b--;
+			textBoxB->Text = Convert::ToString(b);
+			xx();
+			break;
+		case 2:
+			c++;
+			textBoxC->Text = Convert::ToString(c);
+			Sin();
+			break;
+		case 3:
 			b++;
-		else
+			textBoxB->Text = Convert::ToString(b);
+			Sqrt();
+			break;
+		}
+	}
+		   //
+		   //buttonSlim
+		   //
+	private: System::Void buttonShort_Click(System::Object^ sender, System::EventArgs^ e) {
+		chart1->Series["Series1"]->Points->Clear();
+
+		switch (comboBox1->SelectedIndex) {
+		case 0:
+			x();
+			break;
+		case 1:
+			a++;
+			textBoxA->Text = Convert::ToString(a);
+			xx();
+			break;
+		case 2:
+			b++;
+			textBoxB->Text = Convert::ToString(b);
+			Sin();
+			break;
+		case 3:
+			Sqrt();
+			break;
+		}
+	}
+		   //
+		   //buttonFat
+		   //
+	private: System::Void buttonTall_Click(System::Object^ sender, System::EventArgs^ e) {
+		chart1->Series["Series1"]->Points->Clear();
+
+		switch (comboBox1->SelectedIndex) {
+		case 0:
+			x();
+			break;
+		case 1:
+			a--;
+			textBoxA->Text = Convert::ToString(a);
+			xx();
+			break;
+		case 2:
 			b--;
-		textBoxB->Text = Convert::ToString(b);
-		xx();
-
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
-		break;
-	case 2:
-		c++;
-		textBoxC->Text = Convert::ToString(c);
-		Sin();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
-		break;
-	case 3:
-		b++;
-		textBoxB->Text = Convert::ToString(b);
-		Sqrt();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
-		break;
+			textBoxB->Text = Convert::ToString(b);
+			Sin();
+			break;
+		case 3:
+			Sqrt();
+			break;
+		}
 	}
-}
-		//
-		//buttonSlim
-		//
-private: System::Void buttonShort_Click(System::Object^ sender, System::EventArgs^ e) {
-	chart1->Series["Series1"]->Points->Clear();
+		   //
+		   //buttonTall
+		   //
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		chart1->Series["Series1"]->Points->Clear();
 
-	switch (comboBox1->SelectedIndex) {
-	case 0:
-		x();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
-		break;
-	case 1:
-		a++;
-		textBoxA->Text = Convert::ToString(a);
-		xx();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
-		break;
-	case 2:
-		b++;
-		textBoxB->Text = Convert::ToString(b);
-		Sin();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
-		break;
-	case 3:
-		Sqrt();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
-		break;
+		switch (comboBox1->SelectedIndex) {
+		case 0:
+			x();
+			break;
+		case 1:
+			xx();
+			break;
+		case 2:
+			a++;
+			textBoxA->Text = Convert::ToString(a);
+			Sin();
+			break;
+		case 3:
+			a++;
+			textBoxA->Text = Convert::ToString(a);
+			Sqrt();
+			break;
+		}
 	}
-}
-		//
-		//buttonFat
-		//
-private: System::Void buttonTall_Click(System::Object^ sender, System::EventArgs^ e) {
-	chart1->Series["Series1"]->Points->Clear();
+		   //
+		   //buttonShort
+		   //
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		chart1->Series["Series1"]->Points->Clear();
 
-	switch (comboBox1->SelectedIndex) {
-	case 0:
-		x();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
-		break;
-	case 1:
-		a--;
-		textBoxA->Text = Convert::ToString(a);
-		xx();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
-		break;
-	case 2:
-		b--;
-		textBoxB->Text = Convert::ToString(b);
-		Sin();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
-		break;
-	case 3:
-		Sqrt();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
-		break;
+		switch (comboBox1->SelectedIndex) {
+		case 0:
+			x();
+			break;
+		case 1:
+			xx();
+			break;
+		case 2:
+			a--;
+			textBoxA->Text = Convert::ToString(a);
+			Sin();
+			break;
+		case 3:
+			a--;
+			textBoxA->Text = Convert::ToString(a);
+			Sqrt();
+			break;
+		}
 	}
-}
-	   //
-	   //buttonTall
-	   //
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	chart1->Series["Series1"]->Points->Clear();
 
-	switch (comboBox1->SelectedIndex) {
-	case 0:
-		x();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
-		break;
-	case 1:
-		xx();
 
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
-		break;
-	case 2:
-		a++;
-		textBoxA->Text = Convert::ToString(a);
-		Sin();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
-		break;
-	case 3:
-		a++;
-		textBoxA->Text = Convert::ToString(a);
-		Sqrt();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
-		break;
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		StreamWriter^ f = gcnew StreamWriter("Result.txt", false);
+		f->Write(Convert::ToString(comboBox1->SelectedIndex));
+		f->Write("\n");
+		f->Write(Convert::ToString(a));
+		f->Write("\n");
+		f->Write(Convert::ToString(b));
+		f->Write("\n");
+		f->Write(Convert::ToString(c));
+		f->Write("\n");
+		f->Write(Convert::ToString(d));
+		f->Write("\n");
+		f->Close();
+		MessageBox::Show(this, "Запись в файл выполнена", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
 	}
-}
-	   //
-	   //buttonShort
-	   //
-private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	chart1->Series["Series1"]->Points->Clear();
 
-	switch (comboBox1->SelectedIndex) {
-	case 0:
-		x();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, ((a * i) + b));
-		break;
-	case 1:
-		xx();
-
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * i * i) + (b * i) + c);
-		break;
-	case 2:
-		a--;
-		textBoxA->Text = Convert::ToString(a);
-		Sin();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, (a * sin((b * i) + c) + d));
-		break;
-	case 3:
-		a--;
-		textBoxA->Text = Convert::ToString(a);
-		Sqrt();
-		for (float i = from; i < to; i += 0.1)
-			chart1->Series["Series1"]->Points->AddXY(i, sqrt(a * i + b) + c);
-		break;
+	private: System::Void buttonOpen_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::Diagnostics::Process::Start("Result.txt");
 	}
-}
 
+	private: System::Void buttonRead_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ FileName = "";
 
-private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	StreamWriter^ f = gcnew StreamWriter("Result.txt", false);
-	f->Write(Convert::ToString(comboBox1->SelectedIndex));
-	f->Write("\n");
-	f->Write(Convert::ToString(a));
-	f->Write("\n");
-	f->Write(Convert::ToString(b));
-	f->Write("\n");
-	f->Write(Convert::ToString(c));
-	f->Write("\n");
-	f->Write(Convert::ToString(d));
-	f->Write("\n");
-	f->Close();
-	MessageBox::Show(this, "Запись в файл выполнена", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
-	
-}
-
-private: System::Void buttonOpen_Click(System::Object^ sender, System::EventArgs^ e) {
-	System::Diagnostics::Process::Start("Result.txt");
-}
-
-private: System::Void buttonRead_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ FileName = "";
-
-	if (openFileDialog1->ShowDialog() == Windows::Forms::DialogResult::OK)
-		FileName = openFileDialog1->FileName;
-	StreamReader^ file = File::OpenText(FileName);
-	comboBox1->SelectedIndex = Convert::ToDouble(file->ReadLine());
-	textBoxA->Text = file->ReadLine();
-	textBoxB->Text = file->ReadLine();
-	textBoxC->Text = file->ReadLine();
-}
-
-};
+		if (openFileDialog1->ShowDialog() == Windows::Forms::DialogResult::OK)
+			FileName = openFileDialog1->FileName;
+		StreamReader^ file = File::OpenText(FileName);
+		comboBox1->SelectedIndex = Convert::ToDouble(file->ReadLine());
+		textBoxA->Text = file->ReadLine();
+		textBoxB->Text = file->ReadLine();
+		textBoxC->Text = file->ReadLine();
+	}
+	};
 }
